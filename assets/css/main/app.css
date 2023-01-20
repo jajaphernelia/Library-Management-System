@@ -18198,12 +18198,12 @@ body .bi:before {
 .stats-icon {
   align-items: center;
   background-color: #000;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   display: flex;
   float: right;
-  height: 5rem;
+  height: 3rem;
   justify-content: center;
-  width: 5rem;
+  width: 3rem;
 }
 .stats-icon i {
   color: #fff;
