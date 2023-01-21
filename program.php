@@ -299,64 +299,14 @@ include 'db_delete.php';
                   <div class="row">
                     <div class="col-md-6 col-12">
                       <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
-                          name="fname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
-                          name="lname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
-                        </div>
+                        <label for="program-name-column">Program</label>
+                        <input type="text" id="program-name-column" class="form-control" placeholder="Program Name"
+                          name="pname-column" />
                       </div>
                     </div>
                     <div class="form-group">
-                      <select class="choices form-select">
-                        <option value="square">Square</option>
-                        <option value="rectangle">Rectangle</option>
-                        <option value="rombo">Rombo</option>
-                        <option value="romboid">Romboid</option>
-                        <option value="trapeze">Trapeze</option>
-                        <option value="traible">Triangle</option>
-                        <option value="polygon">Polygon</option>
-                      </select>
+                      <label for="exampleFormControlTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="author_description"  placeholder="Description of author"></textarea>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">

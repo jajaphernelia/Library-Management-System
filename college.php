@@ -298,7 +298,7 @@ include 'db_delete.php';
                   <div class="row">
                     <div class="col-md-6 col-12">
                       <div class="form-group">
-                        <label for="first-name-column">College Name</label>
+                        <label for="college-name-column">College Name</label>
                         <div class="form-group">
                           <select class="choices form-select">
                             <option value="cn_cet">CET</option>
