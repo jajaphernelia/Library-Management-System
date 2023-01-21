@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.4.27-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win64
--- HeidiSQL Version:             12.3.0.6589
+-- HeidiSQL Version:             12.1.0.6537
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS `authors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.authors: ~0 rows (approximately)
-DELETE FROM `authors`;
 
 -- Dumping structure for table adblab_libmgmtsystem.catalog
 DROP TABLE IF EXISTS `catalog`;
@@ -57,7 +56,6 @@ CREATE TABLE IF NOT EXISTS `catalog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.catalog: ~0 rows (approximately)
-DELETE FROM `catalog`;
 
 -- Dumping structure for table adblab_libmgmtsystem.catalog_authors
 DROP TABLE IF EXISTS `catalog_authors`;
@@ -71,7 +69,6 @@ CREATE TABLE IF NOT EXISTS `catalog_authors` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.catalog_authors: ~0 rows (approximately)
-DELETE FROM `catalog_authors`;
 
 -- Dumping structure for table adblab_libmgmtsystem.catalog_types
 DROP TABLE IF EXISTS `catalog_types`;
@@ -83,7 +80,6 @@ CREATE TABLE IF NOT EXISTS `catalog_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.catalog_types: ~6 rows (approximately)
-DELETE FROM `catalog_types`;
 INSERT INTO `catalog_types` (`catalog_type_id`, `catalog_type`, `catalog_type_description`) VALUES
 	(1, 'Book', NULL),
 	(2, 'Magazines', NULL),
@@ -102,7 +98,6 @@ CREATE TABLE IF NOT EXISTS `colleges` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.colleges: ~8 rows (approximately)
-DELETE FROM `colleges`;
 INSERT INTO `colleges` (`college_id`, `college_name`, `college_description`) VALUES
 	(1, 'COE', 'College of Engineering'),
 	(2, 'CHASS', 'College of Humanities and Social Sciences'),
@@ -123,7 +118,6 @@ CREATE TABLE IF NOT EXISTS `departments` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8004 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.departments: ~6 rows (approximately)
-DELETE FROM `departments`;
 INSERT INTO `departments` (`department_id`, `department_name`, `department_description`) VALUES
 	(1, 'Arch Dept', 'Architecture Department'),
 	(2, 'IT Dept', 'Information Technology Department'),
@@ -139,10 +133,9 @@ CREATE TABLE IF NOT EXISTS `dewey_classes` (
   `dewey_class_category` varchar(64) NOT NULL,
   `dewey_class_description` varchar(512) DEFAULT NULL,
   PRIMARY KEY (`dewey_class_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.dewey_classes: ~10 rows (approximately)
-DELETE FROM `dewey_classes`;
 INSERT INTO `dewey_classes` (`dewey_class_id`, `dewey_class_category`, `dewey_class_description`) VALUES
 	(1, 'Generalities', NULL),
 	(2, 'Philosophy & Psychology', NULL),
@@ -168,7 +161,6 @@ CREATE TABLE IF NOT EXISTS `dewey_indices` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.dewey_indices: ~0 rows (approximately)
-DELETE FROM `dewey_indices`;
 
 -- Dumping structure for table adblab_libmgmtsystem.faculty
 DROP TABLE IF EXISTS `faculty`;
@@ -186,7 +178,6 @@ CREATE TABLE IF NOT EXISTS `faculty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.faculty: ~0 rows (approximately)
-DELETE FROM `faculty`;
 
 -- Dumping structure for table adblab_libmgmtsystem.grace_periods
 DROP TABLE IF EXISTS `grace_periods`;
@@ -200,7 +191,6 @@ CREATE TABLE IF NOT EXISTS `grace_periods` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.grace_periods: ~2 rows (approximately)
-DELETE FROM `grace_periods`;
 INSERT INTO `grace_periods` (`grace_period_id`, `user_type_id`, `grace_length`) VALUES
 	(1, 1, 7),
 	(2, 2, 30);
@@ -221,7 +211,6 @@ CREATE TABLE IF NOT EXISTS `inventory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.inventory: ~0 rows (approximately)
-DELETE FROM `inventory`;
 
 -- Dumping structure for table adblab_libmgmtsystem.inventory_conditions
 DROP TABLE IF EXISTS `inventory_conditions`;
@@ -234,7 +223,6 @@ CREATE TABLE IF NOT EXISTS `inventory_conditions` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.inventory_conditions: ~8 rows (approximately)
-DELETE FROM `inventory_conditions`;
 INSERT INTO `inventory_conditions` (`condition_id`, `condition_criteria`, `condition_legend`, `condition_description`) VALUES
 	(1, 'new', 'N', 'The item is new'),
 	(2, 'as new', 'AN', 'The item is old but like new'),
@@ -257,7 +245,6 @@ CREATE TABLE IF NOT EXISTS `library_staffs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.library_staffs: ~0 rows (approximately)
-DELETE FROM `library_staffs`;
 
 -- Dumping structure for table adblab_libmgmtsystem.penalties
 DROP TABLE IF EXISTS `penalties`;
@@ -275,7 +262,6 @@ CREATE TABLE IF NOT EXISTS `penalties` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.penalties: ~0 rows (approximately)
-DELETE FROM `penalties`;
 
 -- Dumping structure for table adblab_libmgmtsystem.penalty_rates
 DROP TABLE IF EXISTS `penalty_rates`;
@@ -290,7 +276,6 @@ CREATE TABLE IF NOT EXISTS `penalty_rates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.penalty_rates: ~6 rows (approximately)
-DELETE FROM `penalty_rates`;
 INSERT INTO `penalty_rates` (`penalty_type_id`, `user_type_id`, `rate`) VALUES
 	(1, 1, 30.00),
 	(1, 2, 50.00),
@@ -309,7 +294,6 @@ CREATE TABLE IF NOT EXISTS `penalty_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.penalty_types: ~3 rows (approximately)
-DELETE FROM `penalty_types`;
 INSERT INTO `penalty_types` (`penalty_type_id`, `penalty_type`, `penalty_description`) VALUES
 	(1, 'overdue', 'When the user returned the item late'),
 	(2, 'damaged', 'When the user damaged an item'),
@@ -325,31 +309,30 @@ CREATE TABLE IF NOT EXISTS `programs` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.programs: ~23 rows (approximately)
-DELETE FROM `programs`;
 INSERT INTO `programs` (`program_id`, `program_name`, `program_description`) VALUES
-	(11, 'BSIT', 'Bachelor of Science in Information Technology'),
-	(12, 'BSCPE', 'Bachelor of Science in Computer Engineering'),
-	(13, 'BSCS', 'Bachelor of Science in Computer Science'),
-	(14, 'BSEE', 'Bachelor of Science in Electrical Engineering'),
-	(15, 'BSECE', 'Bachelor of Science in Electronics Engineering'),
-	(16, 'BSCE', 'Bachelor of Science in Civil Engineering'),
-	(21, 'BAC', 'Bachelor of Arts in Communication'),
-	(22, 'BAC-PR', 'Bachelor of Arts in Communication Major in Public Relations'),
-	(23, 'BA PR', 'Bachelor of Arts in Public Relations'),
-	(24, 'BSSW', 'Bachelor of Science in Social Work '),
-	(31, 'BSChem', 'Bachelor of Science in Chemistry'),
-	(32, 'BSPSY', 'Bachelor of Science in Psychology'),
-	(33, 'BSMath', 'Bachelor of Science in Mathematics'),
-	(34, 'BSBio', 'Bachelor of Science in Biology'),
-	(41, 'BSN', 'Bachelor of Science in Nursing'),
-	(51, 'BSPT', 'Bachelor of Science in Physical Therapy'),
-	(61, 'BS ACCTG', 'Bachelor of Science in Accountancy'),
-	(62, 'BSBA BE', 'Bachelor of Science in Business Administration Major in Business Economics'),
-	(63, 'BSBA FM', 'Bachelor of Science in Business Administration Major in Financial Management'),
-	(64, 'BSBA MM', 'Bachelor of Science in Business Administration Major in Marketing Management'),
-	(71, 'BSEEd', 'Bachelor of Elementary Education'),
-	(72, 'BSEd-Eng', 'Bachelor of Secondary Education major in English'),
-	(81, 'BS Arch', 'Bachelor of Science in Architecture');
+	(1, 'BSIT', 'Bachelor of Science in Information Technology'),
+	(2, 'BSCPE', 'Bachelor of Science in Computer Engineering'),
+	(3, 'BSCS', 'Bachelor of Science in Computer Science'),
+	(4, 'BSEE', 'Bachelor of Science in Electrical Engineering'),
+	(5, 'BSECE', 'Bachelor of Science in Electronics Engineering'),
+	(6, 'BSCE', 'Bachelor of Science in Civil Engineering'),
+	(7, 'BAC', 'Bachelor of Arts in Communication'),
+	(8, 'BAC-PR', 'Bachelor of Arts in Communication Major in Public Relations'),
+	(9, 'BA PR', 'Bachelor of Arts in Public Relations'),
+	(10, 'BSSW', 'Bachelor of Science in Social Work '),
+	(11, 'BSChem', 'Bachelor of Science in Chemistry'),
+	(12, 'BSPSY', 'Bachelor of Science in Psychology'),
+	(13, 'BSMath', 'Bachelor of Science in Mathematics'),
+	(14, 'BSBio', 'Bachelor of Science in Biology'),
+	(15, 'BSN', 'Bachelor of Science in Nursing'),
+	(16, 'BSPT', 'Bachelor of Science in Physical Therapy'),
+	(17, 'BS ACCTG', 'Bachelor of Science in Accountancy'),
+	(18, 'BSBA BE', 'Bachelor of Science in Business Administration Major in Business Economics'),
+	(19, 'BSBA FM', 'Bachelor of Science in Business Administration Major in Financial Management'),
+	(20, 'BSBA MM', 'Bachelor of Science in Business Administration Major in Marketing Management'),
+	(21, 'BSEEd', 'Bachelor of Elementary Education'),
+	(22, 'BSEd-Eng', 'Bachelor of Secondary Education major in English'),
+	(23, 'BS Arch', 'Bachelor of Science in Architecture');
 
 -- Dumping structure for table adblab_libmgmtsystem.publishers
 DROP TABLE IF EXISTS `publishers`;
@@ -363,7 +346,15 @@ CREATE TABLE IF NOT EXISTS `publishers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.publishers: ~0 rows (approximately)
-DELETE FROM `publishers`;
+
+-- Dumping structure for view adblab_libmgmtsystem.read_departments
+DROP VIEW IF EXISTS `read_departments`;
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `read_departments` (
+	`department_id` SMALLINT(6) NOT NULL,
+	`department_name` VARCHAR(128) NULL COLLATE 'utf8mb4_general_ci',
+	`department_description` VARCHAR(256) NULL COLLATE 'utf8mb4_general_ci'
+) ENGINE=MyISAM;
 
 -- Dumping structure for table adblab_libmgmtsystem.students
 DROP TABLE IF EXISTS `students`;
@@ -383,7 +374,6 @@ CREATE TABLE IF NOT EXISTS `students` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.students: ~0 rows (approximately)
-DELETE FROM `students`;
 
 -- Dumping structure for table adblab_libmgmtsystem.transactions
 DROP TABLE IF EXISTS `transactions`;
@@ -407,7 +397,6 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.transactions: ~0 rows (approximately)
-DELETE FROM `transactions`;
 
 -- Dumping structure for table adblab_libmgmtsystem.transactions_inventory
 DROP TABLE IF EXISTS `transactions_inventory`;
@@ -421,7 +410,6 @@ CREATE TABLE IF NOT EXISTS `transactions_inventory` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.transactions_inventory: ~0 rows (approximately)
-DELETE FROM `transactions_inventory`;
 
 -- Dumping structure for table adblab_libmgmtsystem.users
 DROP TABLE IF EXISTS `users`;
@@ -444,7 +432,6 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.users: ~0 rows (approximately)
-DELETE FROM `users`;
 
 -- Dumping structure for table adblab_libmgmtsystem.user_types
 DROP TABLE IF EXISTS `user_types`;
@@ -456,11 +443,16 @@ CREATE TABLE IF NOT EXISTS `user_types` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.user_types: ~3 rows (approximately)
-DELETE FROM `user_types`;
 INSERT INTO `user_types` (`user_type_id`, `user_type`, `user_type_description`) VALUES
 	(1, 'student', 'Users of library who are students'),
 	(2, 'faculty', 'Users of library who are faculty/teachers'),
 	(3, 'staff', 'Library staff who will manage the system');
+
+-- Dumping structure for view adblab_libmgmtsystem.read_departments
+DROP VIEW IF EXISTS `read_departments`;
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `read_departments`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `read_departments` AS SELECT * FROM departments ;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
