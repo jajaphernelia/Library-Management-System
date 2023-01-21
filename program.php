@@ -306,7 +306,7 @@ include 'db_delete.php';
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Description</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="author_description"  placeholder="Description of author"></textarea>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="prog_description"  placeholder="Description of program"></textarea>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">

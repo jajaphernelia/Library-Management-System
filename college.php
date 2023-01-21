@@ -298,19 +298,16 @@ include 'db_delete.php';
                   <div class="row">
                     <div class="col-md-6 col-12">
                       <div class="form-group">
-                        <label for="college-name-column">College Name</label>
-                        <div class="form-group">
-                          <select class="choices form-select">
-                            <option value="cn_cet">CET</option>
-                            <option value="cn_chass">CHASS</option>
-                            <option value="cn_cs">CS</option>
-                            <option value="cn_cpt">CPT</option>
-                            <option value="cn_ce">CE</option>
-                          </select>
+                      <label for="program-name-column">College</label>
+                        <input type="text" id="program-name-column" class="form-control" placeholder="College Name"
+                          name="cllgname-column" />
                         </div>
                       </div>
                     </div>
-                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="cllg_description"  placeholder="Description of college"></textarea>
+                      </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
