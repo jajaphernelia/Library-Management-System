@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `catalog` (
   `catalog_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `publisher_id` bigint(20) NOT NULL,
   `dewey_index_id` smallint(6) DEFAULT NULL,
-  `catalog_type_id` smallint(6) DEFAULT NULL,colleges
+  `catalog_type_id` smallint(6) DEFAULT NULL,
   `isbn` varchar(13) DEFAULT NULL,
   `title` varchar(265) NOT NULL,
   `item_description` varchar(512) DEFAULT NULL,
