@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | libPLM</title>
+  <title>Dewey Categories | libPLM</title>
 
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
@@ -62,7 +62,7 @@
         <div class="sidebar-menu">
           <ul class="menu">
 
-            <li class="sidebar-item active">
+            <li class="sidebar-item">
               <a href="index.php" class="sidebar-link">
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Dashboard</span>
@@ -99,7 +99,7 @@
               </a>
             </li>
 
-            <li class="sidebar-item">
+            <li class="sidebar-item ">
               <a href="catalog_type.php" class="sidebar-link">
                 <i class="bi bi-list-nested"></i>
                 <span>Catalog Types</span>
@@ -122,7 +122,7 @@
 
             <li class="sidebar-title">Dewey Decimal System</li>
 
-            <li class="sidebar-item">
+            <li class="sidebar-item active">
               <a href="dewey_category.php" class="sidebar-link">
                 <i class="bi bi-diagram-3-fill"></i>
                 <span>Dewey Categories</span>
@@ -221,7 +221,7 @@
           <div class="page-title">
             <div class="row">
               <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Dashboard</h3>
+                <h3>Dewey Categories</h3>
                 <p class="text-subtitle text-muted">
                   Welcome, user!
                 </p>
@@ -229,8 +229,11 @@
               <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                   <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="index.php">Dashboard</a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                      Dashboard
+                      Dewey Categories
                     </li>
                   </ol>
                 </nav>

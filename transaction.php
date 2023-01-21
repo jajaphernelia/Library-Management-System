@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | libPLM</title>
+  <title>Transactions | libPLM</title>
 
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
   <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
   <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
-  <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
 </head>
 
 <body>
@@ -62,14 +61,14 @@
         <div class="sidebar-menu">
           <ul class="menu">
 
-            <li class="sidebar-item active">
+            <li class="sidebar-item">
               <a href="index.php" class="sidebar-link">
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Dashboard</span>
               </a>
             </li>
 
-            <li class="sidebar-item">
+            <li class="sidebar-item active">
               <a href="transaction.php" class="sidebar-link">
                 <i class="bi bi-arrow-left-right"></i>
                 <span>Transactions</span>
@@ -221,7 +220,7 @@
           <div class="page-title">
             <div class="row">
               <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Dashboard</h3>
+                <h3>Transactions</h3>
                 <p class="text-subtitle text-muted">
                   Welcome, user!
                 </p>
@@ -229,8 +228,11 @@
               <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                   <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                      <a href="index.php">Dashboard</a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                      Dashboard
+                      Transactions
                     </li>
                   </ol>
                 </nav>
@@ -282,7 +284,7 @@
                     </div>
                   </div>
                 </div>
-
+                
                 <div class="col-6 col-lg-3 col-md-6">
                   <div class="card">
                     <div class="card-body px-4 py-4-5">
@@ -391,17 +393,6 @@
                           <label for="checkbox5">Remember Me</label>
                         </div>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <select class="choices form-select">
-                        <option value="square">Square</option>
-                        <option value="rectangle">Rectangle</option>
-                        <option value="rombo">Rombo</option>
-                        <option value="romboid">Romboid</option>
-                        <option value="trapeze">Trapeze</option>
-                        <option value="traible">Triangle</option>
-                        <option value="polygon">Polygon</option>
-                      </select>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
@@ -841,8 +832,6 @@
 
   <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
   <script src="assets/js/pages/simple-datatables.js"></script>
-  <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
-  <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>

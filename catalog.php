@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard | libPLM</title>
+  <title>Catalog | libPLM</title>
 
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
@@ -62,7 +62,7 @@
         <div class="sidebar-menu">
           <ul class="menu">
 
-            <li class="sidebar-item active">
+            <li class="sidebar-item">
               <a href="index.php" class="sidebar-link">
                 <i class="bi bi-grid-1x2-fill"></i>
                 <span>Dashboard</span>
@@ -92,7 +92,7 @@
 
             <li class="sidebar-title">Library Catalog</li>
 
-            <li class="sidebar-item">
+            <li class="sidebar-item active">
               <a href="catalog.php" class="sidebar-link">
                 <i class="bi bi-journal-bookmark-fill"></i>
                 <span>Catalog</span>
@@ -221,7 +221,7 @@
           <div class="page-title">
             <div class="row">
               <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Dashboard</h3>
+                <h3>Catalog</h3>
                 <p class="text-subtitle text-muted">
                   Welcome, user!
                 </p>
@@ -229,8 +229,11 @@
               <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                   <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                      <a href="index.php">Dashboard</a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">
-                      Dashboard
+                      Catalog
                     </li>
                   </ol>
                 </nav>
