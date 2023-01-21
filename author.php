@@ -1,3 +1,13 @@
+<?php
+
+include 'db_connect.php';
+include 'db_create.php';
+include 'db_read.php';
+include 'db_update.php';
+include 'db_delete.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
