@@ -135,7 +135,7 @@ INSERT INTO `departments` (`department_id`, `department_name`, `department_descr
 -- Dumping structure for table adblab_libmgmtsystem.dewey_classes
 DROP TABLE IF EXISTS `dewey_classes`;
 CREATE TABLE IF NOT EXISTS `dewey_classes` (
-  `dewey_class_id` smallint(6) NOT NULL,
+  `dewey_class_id` smallint(6) NOT NULL AUTO_INCREMENT,
   `dewey_class_category` varchar(64) NOT NULL,
   `dewey_class_description` varchar(512) DEFAULT NULL,
   PRIMARY KEY (`dewey_class_id`)
@@ -144,16 +144,16 @@ CREATE TABLE IF NOT EXISTS `dewey_classes` (
 -- Dumping data for table adblab_libmgmtsystem.dewey_classes: ~10 rows (approximately)
 DELETE FROM `dewey_classes`;
 INSERT INTO `dewey_classes` (`dewey_class_id`, `dewey_class_category`, `dewey_class_description`) VALUES
-	(0, 'Generalities', NULL),
-	(1, 'Philosophy & Psychology', NULL),
-	(2, 'Religion', NULL),
-	(3, 'Social Sciences', NULL),
-	(4, 'Language', NULL),
-	(5, 'Natural Sciences & Mathematics', NULL),
-	(6, 'Applied Sciences (Technology)', NULL),
-	(7, 'The Arts', NULL),
-	(8, 'Literature & Rhetoric', NULL),
-	(9, 'Geography & History', NULL);
+	(1, 'Generalities', NULL),
+	(2, 'Philosophy & Psychology', NULL),
+	(3, 'Religion', NULL),
+	(4, 'Social Sciences', NULL),
+	(5, 'Language', NULL),
+	(6, 'Natural Sciences & Mathematics', NULL),
+	(7, 'Applied Sciences (Technology)', NULL),
+	(8, 'The Arts', NULL),
+	(9, 'Literature & Rhetoric', NULL),
+	(10, 'Geography & History', NULL);
 
 -- Dumping structure for table adblab_libmgmtsystem.dewey_indices
 DROP TABLE IF EXISTS `dewey_indices`;

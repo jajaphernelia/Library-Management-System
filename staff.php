@@ -455,7 +455,7 @@ include 'db_delete.php';
                     echo '<td>
                             <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
                             <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                          </td>"';
+                          </td>';
                     echo '</tr>';
                   }
                   ?>
