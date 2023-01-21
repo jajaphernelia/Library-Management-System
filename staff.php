@@ -447,7 +447,7 @@ include 'db_delete.php';
                 </thead>
                 <tbody>
                   <?php
-                  foreach ($read_departments as $column) {
+                  foreach ($read_library_staffs as $column) {
                     echo '<tr>';
                     echo '<td>' . $column['staff_id'] . '</td>';
                     echo '<td>' . $column['user_id'] . '</td>';
