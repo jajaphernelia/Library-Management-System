@@ -331,9 +331,9 @@ include 'db_delete.php';
               <table class="table table-striped" id="table1">
                 <thead>
                   <tr>
-                    <th>College ID</th>
-                    <th>College Name</th>
-                    <th>College Description</th>
+                    <th>Program ID</th>
+                    <th>Program Name</th>
+                    <th>Program Description</th>
                     <th>Action</th>
                   </tr>
                 </thead>

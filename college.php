@@ -299,7 +299,7 @@ include 'db_delete.php';
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                       <label for="program-name-column">College</label>
-                        <input type="text" id="program-name-column" class="form-control" placeholder="College Name"
+                        <input type="text" id="college-name-column" class="form-control" placeholder="College Name"
                           name="cllgname-column" />
                         </div>
                       </div>
