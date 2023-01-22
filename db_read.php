@@ -7,10 +7,10 @@ $read_departments = mysqli_query($dbconn, "SELECT * FROM read_departments");
 $read_authors = mysqli_query($dbconn, "SELECT * FROM read_authors");
 
 // Read Colleges
-$read_colleges = mysqli_query($dbconn, "SELECT * FROM read_colleges");
+$read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
 
 // Read Programs
-$read_programs = mysqli_query($dbconn, "SELECT * FROM read_programs");
+$read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
 
 
 ?>

@@ -278,228 +278,229 @@ include 'db_delete.php';
                   </div>
                 </div>
 
-        <!-- Add entity Modal -->
+                <!-- Add entity Modal -->
 
-        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Programs
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- Forms -->
-                <form class="form">
-                  <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="program-name-column">Program</label>
-                        <input type="text" id="program-name-column" class="form-control" placeholder="Program Name"
-                          name="pname-column" />
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+                    role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Programs
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <i data-feather="x"></i>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Forms -->
+                        <form class="form" action="db_create.php" method="POST">
+                          <div class="row">
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="program-name-column">Program</label>
+                                <input type="text" id="program-name-column" class="form-control"
+                                  placeholder="Program Name" name="program_name" />
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleFormControlTextarea1">Description</label>
+                              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                name="program_description" placeholder="Description of program"></textarea>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                              <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
+                                Cancel
+                              </button>
+                              <button type="submit" name="add_program" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
+                                Add
+                              </button>
+                            </div>
+                          </div>
+                        </form>
                       </div>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Description</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="prog_description"  placeholder="Description of program"></textarea>
-                    </div>
-                    <div class="col-12 d-flex justify-content-end">
-                      <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
-                        Cancel
-                      </button>
-                      <button type="submit" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Add
-                      </button>
-                    </div>
                   </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+                </div>
 
-        <!-- Database Table -->
-        <section class="section">
-          <div class="card">
-            <div class="card-header">Programs</div>
-            <div class="card-body">
-              <table class="table table-striped" id="table1">
-                <thead>
-                  <tr>
-                    <th>Program ID</th>
-                    <th>Program Name</th>
-                    <th>Program Description</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  foreach ($read_programs as $column) {
-                    echo '<tr>';
-                    echo '<td>' . $column['program_id'] . '</td>';
-                    echo '<td>' . $column['program_name'] . '</td>';
-                    echo '<td>' . $column['program_description'] . '</td>';
-                    echo '<td>
+                <!-- Database Table -->
+                <section class="section">
+                  <div class="card">
+                    <div class="card-header">Programs</div>
+                    <div class="card-body">
+                      <table class="table table-striped" id="table1">
+                        <thead>
+                          <tr>
+                            <th>Program ID</th>
+                            <th>Program Name</th>
+                            <th>Program Description</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          foreach ($read_programs as $column) {
+                            echo '<tr>';
+                            echo '<td>' . $column['program_id'] . '</td>';
+                            echo '<td>' . $column['program_name'] . '</td>';
+                            echo '<td>' . $column['program_description'] . '</td>';
+                            echo '<td>
                             <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
                             <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
                           </td>';
-                    echo '</tr>';
-                  }
-                  ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-
-        <!-- Edit entity Modal -->
-        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Edit {Entity}
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- Forms -->
-                <form class="form">
-                  <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
-                          name="fname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
-                          name="lname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12 d-flex justify-content-end">
-                      <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
-                        Cancel
-                      </button>
-                      <button type="submit" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Update
-                      </button>
+                            echo '</tr>';
+                          }
+                          ?>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
-                </form>
+                </section>
+
+                <!-- Edit entity Modal -->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+                    role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Edit {Entity}
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <i data-feather="x"></i>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <!-- Forms -->
+                        <form class="form">
+                          <div class="row">
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="first-name-column">First Name</label>
+                                <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
+                                  name="fname-column" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="last-name-column">Last Name</label>
+                                <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
+                                  name="lname-column" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="city-column">City</label>
+                                <input type="text" id="city-column" class="form-control" placeholder="City"
+                                  name="city-column" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="country-floating">Country</label>
+                                <input type="text" id="country-floating" class="form-control" name="country-floating"
+                                  placeholder="Country" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="company-column">Company</label>
+                                <input type="text" id="company-column" class="form-control" name="company-column"
+                                  placeholder="Company" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="email-id-column">Email</label>
+                                <input type="email" id="email-id-column" class="form-control" name="email-id-column"
+                                  placeholder="Email" />
+                              </div>
+                            </div>
+                            <div class="form-group col-12">
+                              <div class="form-check">
+                                <div class="checkbox">
+                                  <input type="checkbox" id="checkbox5" class="form-check-input" checked />
+                                  <label for="checkbox5">Remember Me</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                              <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
+                                Cancel
+                              </button>
+                              <button type="submit" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal">
+                                Update
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Delete  entity Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-m"
+                    role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Delete {Entity}
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <i data-feather="x"></i>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <p>
+                          Do you want to delete this item?
+                        </p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                          <i class="bx bx-x d-block d-sm-none"></i>
+                          <span class="d-none d-sm-block">Cancel</span>
+                        </button>
+                        <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
+                          <i class="bx bx-check d-block d-sm-none"></i>
+                          <span class="d-none d-sm-block">Delete</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <footer class="mt-auto">
+                  <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                      <p>2023 &copy; libPLM</p>
+                    </div>
+                    <div class="float-end">
+                      <p>
+                        Crafted with
+                        <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i>
+                        </span>
+                        by <a href="https://ahmadsaugi.com">Saugi</a>
+                      </p>
+                    </div>
+                  </div>
+                </footer>
+
               </div>
             </div>
-          </div>
         </div>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/app.js"></script>
 
-        <!-- Delete  entity Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-m"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Delete {Entity}
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>
-                  Do you want to delete this item?
-                </p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                  <i class="bx bx-x d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Cancel</span>
-                </button>
-                <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
-                  <i class="bx bx-check d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Delete</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <footer class="mt-auto">
-          <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-              <p>2023 &copy; libPLM</p>
-            </div>
-            <div class="float-end">
-              <p>
-                Crafted with
-                <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i>
-                </span>
-                by <a href="https://ahmadsaugi.com">Saugi</a>
-              </p>
-            </div>
-          </div>
-        </footer>
-
-      </div>
-    </div>
-  </div>
-  <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/app.js"></script>
-
-  <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-  <script src="assets/js/pages/simple-datatables.js"></script>
-  <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
-  <script src="assets/js/pages/form-element-select.js"></script>
+        <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+        <script src="assets/js/pages/simple-datatables.js"></script>
+        <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+        <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>

@@ -18,7 +18,19 @@ if(isset($_POST['add-btn'])){
     }
 }
 
+//Create Programs
+if(isset($_POST['add_program'])){
+    $program_name = mysqli_real_escape_string($dbconn, $_POST['program_name']);
+    $program_description = mysqli_real_escape_string($dbconn, $_POST['program_description']);
 
+    $create_program = "INSERT INTO programs (program_name, program_description) VALUES ('$program_name', '$program_description')";
+
+    $program_created = mysqli_query($dbconn, $create_program);
+    if($program_created){
+        header("Location: program.php");
+    }
+
+}
 
 
 

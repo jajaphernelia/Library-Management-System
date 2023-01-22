@@ -271,7 +271,7 @@ include 'db_delete.php';
                           <a data-bs-toggle="modal" data-bs-target="#addModal"
                             class="btn icon icon-left btn-success mt-2 mb-2 w-75">
                             <i data-feather="plus-circle"></i> Add</a>
-                          <h6 class="text-muted font-semibold">Select College</h6>
+                          <h6 class="text-muted font-semibold">Add College</h6>
                         </div>
                       </div>
                     </div>
