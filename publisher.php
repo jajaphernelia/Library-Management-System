@@ -341,59 +341,41 @@ include 'db_delete.php';
 
         <!-- Database Table -->
         <section class="section">
-          <div class="card">
-            <div class="card-header">Simple Datatable</div>
-            <div class="card-body">
-              <table class="table table-striped" id="table1">
-                <thead>
-                  <tr>
-                    <th>Publisher ID</th>
-                    <th>Publisher Name</th>
-                    <th>Publisher Description</th>
-                    <th>Publisher Country</th>
-                    <th>Publisher City</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>001</td>
-                    <td>Prime Publishers</td>
-                    <td>PLM Publishing House</td>
-                    <td>Philippines</td>
-                    <td>Manila</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>002</td>
-                    <td>Good Publishers</td>
-                    <td>FEU Publishing House</td>
-                    <td>Philippines</td>
-                    <td>Manila</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>003</td>
-                    <td>Mercury Publishers</td>
-                    <td>Company of Good House</td>
-                    <td>United Kingdom</td>
-                    <td>Milton</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
+                  <div class="card">
+                    <div class="card-header">Publisher</div>
+                    <div class="card-body">
+                      <table class="table table-striped" id="table1">
+                        <thead>
+                          <tr>
+                            <th>Publisher ID</th>
+                            <th>Publisher Name</th>
+                            <th>Publisher Description</th>
+                            <th>Publisher Country</th>
+                            <th>Publisher City</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          foreach ($read_publishers as $column) {
+                            echo '<tr>';
+                            echo '<td>' . $column['publisher_id'] . '</td>';
+                            echo '<td>' . $column['publisher_name'] . '</td>';
+                            echo '<td>' . $column['publisher_description'] . '</td>';
+                            echo '<td>' . $column['publisher_country'] . '</td>';
+                            echo '<td>' . $column['publisher_city'] . '</td>';
+                            echo '<td>
+                            <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
+                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
+                          </td>';
+                            echo '</tr>';
+                          }
+                          ?>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </section>
 
         <!-- Edit entity Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -437,7 +419,7 @@ include 'db_delete.php';
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="city-column">Publisher City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="Publisher City"
+                        <input type="text" id="city-column" class="form-control" placeholder="Publisher C"
                           name="city-column" />
                       </div>
                     </div>

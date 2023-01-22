@@ -328,58 +328,41 @@ include 'db_delete.php';
 
         <!-- Database Table -->
         <section class="section">
-          <div class="card">
-            <div class="card-header">Simple Datatable</div>
-            <div class="card-body">
-              <table class="table table-striped" id="table1">
-                <thead>
-                  <tr>
-                    <th>Faculty ID</th>
-                    <th>User ID</th>
-                    <th>Department ID</th>
-                    <th>Position</th>
-                    <th>Employment Type</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>001</td>
-                    <td>101</td>
-                    <td>201</td>
-                    <td>Business</td>
-                    <td>Part Time</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>002</td>
-                    <td>102</td>
-                    <td>202</td>
-                    <td>Medicine</td>
-                    <td>Full Time</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  <tr>
-                    <td>003</td>
-                    <td>103</td>
-                    <td>203</td>
-                    <td>Health Sciences</td>
-                    <td>Part Time</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
+                  <div class="card">
+                    <div class="card-header">Faculty</div>
+                    <div class="card-body">
+                      <table class="table table-striped" id="table1">
+                        <thead>
+                          <tr>
+                            <th>Faculty ID</th>
+                            <th>User ID</th>
+                            <th>Department ID</th>
+                            <th>Position</th>
+                            <th>Employment Type</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          foreach ($read_faculty as $column) {
+                            echo '<tr>';
+                            echo '<td>' . $column['faculty_id'] . '</td>';
+                            echo '<td>' . $column['user_id'] . '</td>';
+                            echo '<td>' . $column['department_id'] . '</td>';
+                            echo '<td>' . $column['position'] . '</td>';
+                            echo '<td>' . $column['employement_type'] . '</td>';
+                            echo '<td>
+                            <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
+                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
+                          </td>';
+                            echo '</tr>';
+                          }
+                          ?>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </section>
 
         <!-- Edit entity Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"

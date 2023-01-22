@@ -12,3 +12,11 @@ AS SELECT * FROM programs;
 
 CREATE VIEW IF NOT EXISTS read_authors
 AS SELECT * FROM authors;
+
+-- Create view for Faculty Read function
+CREATE VIEW IF NOT EXISTS read_faculty
+AS SELECT * FROM faculty;
+
+-- Create view for Publishers Read function
+CREATE VIEW IF NOT EXSISTS read_publishers
+AS SELECT * FROM publishers;
