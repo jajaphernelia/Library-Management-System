@@ -592,7 +592,6 @@ include 'db_delete.php';
           });
 
           $(document).ready(function (){
-            
             $('.delete_btn').click(function (e) { 
               e.preventDefault();
               var author_id = $(this).closest('tr').find('.author_id').text();
@@ -600,6 +599,19 @@ include 'db_delete.php';
               $('#delete_author_id').val(author_id);
               $('#deleteModal').modal('show');
           });
+        });
+
+        $(document).on('click', '.table', function () {
+            $('.delete_btn').click(function (e) { 
+                e.preventDefault();
+                var author_id = $(this).closest('tr').find('.author_id').text();
+                console.log(author_id);
+                $('#delete_author_id').val(author_id);
+                $('#deleteModal').modal('show');
+            });
+          });
+
+
 
 
             //Edit Function
@@ -631,7 +643,7 @@ include 'db_delete.php';
                 }
               });
             });
-          });
+          
 
           //Edit Function in Other pages
           $(document).on('click', '.table', function () {
