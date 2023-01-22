@@ -71,6 +71,38 @@ if(isset($_POST['update_programbtn'])){
     }
 }
 
+//College Update
+if(isset($_POST['edit_college'])){
+    $cllg_id = $_POST['college_id'];
+    // echo $return = $auth_id;
+    $result_array = [];
+
+    $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges WHERE college_id='$cllg_id' ");
+    if(mysqli_num_rows($read_colleges) > 0 ){
+        foreach($read_colleges as $rows){
+            array_push($result_array, $rows);
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        }
+    }else{
+        alert("No Record");
+    }
+
+}
+
+if(isset($_POST['update_collegebtn'])){
+    $id = $_POST['update_college_id'];
+
+    $college_name = $_POST['college_name'];
+    $college_description = $_POST['college_description'];
+
+    $college_query = "UPDATE colleges SET college_name='$college_name', college_description='$college_description' WHERE college_id='$id'";
+    $college_updated = mysqli_query($dbconn, $college_query);
+
+    if($college_updated){
+        header("Location: college.php");
+    }
+}
 
 
 

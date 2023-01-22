@@ -28,6 +28,19 @@ if(isset($_POST['delete_program'])){
 }
 
 
+//Delete College
+if(isset($_POST['delete_college'])){
+    $id = $_POST['college_id'];
+
+    $delete_query = "DELETE FROM colleges WHERE college_id='$id' ";
+    $college_deleted = mysqli_query($dbconn, $delete_query);
+
+    if($college_deleted){
+        header("Location: college.php");
+    }
+}
+
+
 
 
 

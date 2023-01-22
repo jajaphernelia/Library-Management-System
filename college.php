@@ -25,6 +25,12 @@ include 'db_delete.php';
   <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
   <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
   <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -277,230 +283,360 @@ include 'db_delete.php';
                     </div>
                   </div>
                 </div>
-        <!-- Add entity Modal -->
+                <!-- Add entity Modal -->
 
-        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Colleges
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- Forms -->
-                <form class="form" action="db_create.php" method="POST">
-                  <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                      <label for="program-name-column">College</label>
-                        <input type="text" id="college-name-column" class="form-control" placeholder="College Name"
-                          name="college_name" />
-                        </div>
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+                    role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Colleges
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <i data-feather="x"></i>
+                        </button>
                       </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleFormControlTextarea1">Description</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="college_description"  placeholder="Description of college"></textarea>
+                      <div class="modal-body">
+                        <!-- Forms -->
+                        <form class="form" action="db_create.php" method="POST">
+                          <div class="row">
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="program-name-column">College</label>
+                                <input type="text" id="college-name-column" class="form-control"
+                                  placeholder="College Name" name="college_name" />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                              name="college_description" placeholder="Description of college"></textarea>
+                          </div>
+                          <div class="col-12 d-flex justify-content-end">
+                            <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
+                              Cancel
+                            </button>
+                            <button type="submit" name="add_college" class="btn btn-success me-1 mb-1 ml-2"
+                              data-bs-dismiss="modal">
+                              Add
+                            </button>
+                          </div>
                       </div>
-                    <div class="col-12 d-flex justify-content-end">
-                      <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
-                        Cancel
-                      </button>
-                      <button type="submit" name="add_college" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Add
-                      </button>
+                      </form>
                     </div>
                   </div>
-                </form>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- Database Table -->
-        <section class="section">
-          <div class="card">
-            <div class="card-header">Colleges</div>
-            <div class="card-body">
-              <table class="table table-striped" id="table1">
-                <thead>
-                  <tr>
-                    <th>College ID</th>
-                    <th>College Name</th>
-                    <th>College Description</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                  foreach ($read_colleges as $column) {
-                    echo '<tr>';
-                    echo '<td>' . $column['college_id'] . '</td>';
-                    echo '<td>' . $column['college_name'] . '</td>';
-                    echo '<td>' . $column['college_description'] . '</td>';
-                    echo '<td>
-                            <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                          </td>';
-                    echo '</tr>';
-                  }
-                  ?>
+              <!-- Database Table -->
+              <section class="section">
+                <div class="card">
+                  <div class="card-header">Colleges</div>
+                  <div class="card-body">
+                    <table class="table table-striped" id="table1">
+                      <thead>
+                        <tr>
+                          <th>College ID</th>
+                          <th>College Name</th>
+                          <th>College Description</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        if ($read_colleges) {
+                          foreach ($read_colleges as $row) {
+                            ?>
+                            <tr>
+                              <td class="college_id">
+                                <?php echo $row['college_id'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['college_name'] ?>
+                              </td>
+                              <td>
+                                <?php echo $row['college_description'] ?>
+                              </td>
+                              <td>
+                                <a data-bs-toggle="modal" data-bs-target="#editModal"
+                                  class="badge bg-primary edit_btn">Edit</a>
+                                <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
+                                <a data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                  class="badge bg-danger delete_btn">Delete</a>
+                              </td>
+                            </tr>
 
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
+                            <?php
+                          }
+                        }
+                        ?>
 
-        <!-- Edit entity Modal -->
-        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Edit {Entity}
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- Forms -->
-                <form class="form">
-                  <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
-                          name="fname-column" />
-                      </div>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Edit entity Modal -->
+              <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+                  role="document">
+                  <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">
+                        Edit {Entity}
+                      </h5>
+                      <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <i data-feather="x"></i>
+                      </button>
                     </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
-                          name="lname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
+                    <div class="modal-body">
+                      <!-- Forms -->
+                      <form class="form" action="db_update.php" method="POST">
+                        <div class="row">
+                          <input type="hidden" name="update_college_id" id="update_college_id">
+                          <div class="col-md-6 col-12">
+                            <div class="form-group">
+                              <label for="program-name-column">College</label>
+                              <input type="text" id="college_name" class="form-control" placeholder="College Name"
+                                name="college_name" />
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                        <div class="form-group">
+                          <label for="exampleFormControlTextarea1">Description</label>
+                          <textarea class="form-control" id="college_description" rows="3" name="college_description"
+                            placeholder="Description of college"></textarea>
+                        </div>
+                        <div class="col-12 d-flex justify-content-end">
+                          <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
+                            Cancel
+                          </button>
+                          <button type="submit" name="update_collegebtn" class="btn btn-primary me-1 mb-1 ml-2"
+                            data-bs-dismiss="modal">
+                            Update
+                          </button>
+                        </div>
                     </div>
-                    <div class="col-12 d-flex justify-content-end">
-                      <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
-                        Cancel
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Delete  entity Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-m"
+                role="document">
+                <div class="modal-content">
+                  <div class="modal-header bg-primary">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                      Delete {Entity}
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                      <i data-feather="x"></i>
+                    </button>
+                  </div>
+                  <form action="db_delete.php" method="POST">
+                    <div class="modal-body">
+                      <input type="hidden" name="college_id" id="delete_college_id">
+                      <p>
+                        Do you want to delete this item?
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Cancel</span>
                       </button>
-                      <button type="submit" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Update
+                      <button type="submit" class="btn btn-danger ml-1" data-bs-dismiss="modal" name="delete_college">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Delete</span>
                       </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Author View Modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="collegeViewModal" data-bs-backdrop="static" data-bs-keyboard="false"
+              tabindex="-1" aria-labelledby="collegeViewModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">View Program</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="college_viewing_data">
+
                     </div>
                   </div>
-                </form>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+
+            <script>
+              // View Function
+      $(document).ready(function (){
+        $('.view_btn').click(function (e) {
+          e.preventDefault();
+
+          var college_id = $(this).closest('tr').find('.college_id').text();
+
+          $.ajax({
+            type: "POST",
+            url: "db_read.php",
+            data: {
+              'view_college': true,
+              'college_id': college_id,
+            },
+            success: function (response) {
+              $('.college_viewing_data').html(response);
+              $('#collegeViewModal').modal('show')
+            }
+          });
+        });
+                });
+
+      // View Function in other pages
+      $(document).on('click', '.table', function () {
+        $('.view_btn').click(function (e) {
+          e.preventDefault();
+
+          var college_id = $(this).closest('tr').find('.college_id').text();
+
+          $.ajax({
+            type: "POST",
+            url: "db_read.php",
+            data: {
+              'view_college': true,
+              'college_id': college_id,
+            },
+            success: function (response) {
+              $('.college_viewing_data').html(response);
+              $('#collegeViewModal').modal('show')
+            }
+          });
+        });
+                      });
+
+      //Edit Function
+      $('.edit_btn').click(function (e) {
+        e.preventDefault();
+
+      var college_id = $(this).closest('tr').find('.college_id').text();
+      // console.log(author_id);
+
+      $.ajax({
+        type: "POST",
+      url: "db_update.php",
+      data: {
+        'edit_college':true,
+      'college_id':college_id,
+                          },
+      success: function (response) {
+        // console.log(response);
+        $.each(response, function (key, value) {
+          //  console.log(value['author_name']);
+          $('#update_college_id ').val(value['college_id']);
+          $('#college_name').val(value['college_name']);
+          $('#college_description').val(value['college_description']);
+        });
+      $('#editModal').modal('show');
+                          }
+                        });
+                      });
+
+
+      //Edit Function in Other pages
+      $(document).on('click', '.table', function () {
+        $('.edit_btn').click(function (e) {
+          e.preventDefault();
+
+          var college_id = $(this).closest('tr').find('.college_id').text();
+          // console.log(author_id);
+
+          $.ajax({
+            type: "POST",
+            url: "db_update.php",
+            data: {
+              'edit_college': true,
+              'college_id': college_id,
+            },
+            success: function (response) {
+              // console.log(response);
+              $.each(response, function (key, value) {
+                //  console.log(value['author_name']);
+                $('#update_college_id ').val(value['college_id']);
+                $('#college_name').val(value['college_name']);
+                $('#college_description').val(value['college_description']);
+              });
+              $('#editModal').modal('show');
+            }
+          });
+        });
+                    });
+
+      //Delete Program
+      $(document).ready(function (){
+        $('.delete_btn').click(function (e) {
+          e.preventDefault();
+          var college_id = $(this).closest('tr').find('.college_id').text();
+          // console.log(college_id);
+          $('#delete_college_id').val(college_id);
+          $('#deleteModal').modal('show');
+        });
+        });
+
+      $(document).on('click', '.table', function () {
+        $('.delete_btn').click(function (e) {
+          e.preventDefault();
+          var college_id = $(this).closest('tr').find('.college_id').text();
+          // console.log(program_id);
+          $('#delete_college_id').val(college_id);
+          $('#deleteModal').modal('show');
+        });
+          });
+
+            </script>
+
+            <footer class="mt-auto">
+              <div class="footer clearfix mb-0 text-muted">
+                <div class="float-start">
+                  <p>2023 &copy; libPLM</p>
+                </div>
+                <div class="float-end">
+                  <p>
+                    Crafted with
+                    <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i>
+                    </span>
+                    by <a href="https://ahmadsaugi.com">Saugi</a>
+                  </p>
+                </div>
+              </div>
+            </footer>
+
         </div>
-
-        <!-- Delete  entity Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-m"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Delete {Entity}
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>
-                  Do you want to delete this item?
-                </p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                  <i class="bx bx-x d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Cancel</span>
-                </button>
-                <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
-                  <i class="bx bx-check d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Delete</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <footer class="mt-auto">
-          <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-              <p>2023 &copy; libPLM</p>
-            </div>
-            <div class="float-end">
-              <p>
-                Crafted with
-                <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i>
-                </span>
-                by <a href="https://ahmadsaugi.com">Saugi</a>
-              </p>
-            </div>
-          </div>
-        </footer>
-
       </div>
     </div>
-  </div>
-  <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/app.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/app.js"></script>
 
-  <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-  <script src="assets/js/pages/simple-datatables.js"></script>
-  <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
-  <script src="assets/js/pages/form-element-select.js"></script>
+    <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
+    <script src="assets/js/pages/simple-datatables.js"></script>
+    <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+    <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>

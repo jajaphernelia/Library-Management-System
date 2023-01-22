@@ -30,6 +30,7 @@ if(isset($_POST['add_program'])){
 
 }
 
+//Create College
 if(isset($_POST['add_college'])){
     $college_name = mysqli_real_escape_string($dbconn, $_POST['college_name']);
     $college_description = mysqli_real_escape_string($dbconn, $_POST['college_description']);
@@ -43,6 +44,7 @@ if(isset($_POST['add_college'])){
 
 }
 
+//Create Publisher
 if(isset($_POST['add_publisher'])){
     $publisher_name = mysqli_real_escape_string($dbconn, $_POST['publisher_name']);
     $publisher_description = mysqli_real_escape_string($dbconn, $_POST['publisher_description']);

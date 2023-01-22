@@ -47,8 +47,26 @@ if(isset($_POST['view_program'])){
     }else{
         alert("No Record");
     }
-
 }
+
+if(isset($_POST['view_college'])){
+    $cllg_id = $_POST['college_id'];
+    // echo $return = $auth_id;
+
+    $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges WHERE college_id='$cllg_id' ");
+    if(mysqli_num_rows($read_colleges)>0){
+        foreach($read_colleges as $rows){
+            echo $return = '
+                <h5>College ID: '.$rows['college_id'].'</h5>
+                <h5>College Name: '.$rows['college_name'].'</h5>
+                <h5>College Description: '.$rows['college_description'].'</h5>
+            ';
+        }
+    }else{
+        alert("No Record");
+    }
+}
+
 
 
 ?>
