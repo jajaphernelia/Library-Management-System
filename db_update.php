@@ -15,8 +15,8 @@ if(isset($_POST['update_authorbtn'])){
     if($author_updated){
         header("Location: author.php");
     }
-
 }
+
 
 //Author Update 
 if(isset($_POST['checking_edit_btn'])){
@@ -36,6 +36,42 @@ if(isset($_POST['checking_edit_btn'])){
     }
 
 }
+
+
+//Program Update
+if(isset($_POST['edit_program'])){
+    $prog_id = $_POST['program_id'];
+    // echo $return = $auth_id;
+    $result_array = [];
+
+    $read_programs = mysqli_query($dbconn, "SELECT * FROM programs WHERE program_id='$prog_id' ");
+    if(mysqli_num_rows($read_programs) > 0 ){
+        foreach($read_programs as $rows){
+            array_push($result_array, $rows);
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        }
+    }else{
+        alert("No Record");
+    }
+
+}
+
+if(isset($_POST['update_programbtn'])){
+    $id = $_POST['update_program_id'];
+
+    $program_name = $_POST['program_name'];
+    $program_description = $_POST['program_description'];
+
+    $program_query = "UPDATE programs SET program_name='$program_name', program_description='$program_description' WHERE program_id='$id'";
+    $program_updated = mysqli_query($dbconn, $program_query);
+
+    if($program_updated){
+        header("Location: program.php");
+    }
+}
+
+
 
 
 

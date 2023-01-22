@@ -15,4 +15,20 @@ if(isset($_POST['delete_author'])){
 
 
 
+//Delete Program
+if(isset($_POST['delete_program'])){
+    $id = $_POST['program_id'];
+
+    $delete_query = "DELETE FROM programs WHERE program_id='$id' ";
+    $program_deleted = mysqli_query($dbconn, $delete_query);
+
+    if($program_deleted){
+        header("Location: program.php");
+    }
+}
+
+
+
+
+
 ?>
