@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `catalog` (
   `isbn` varchar(13) DEFAULT NULL,
   `title` varchar(265) NOT NULL,
   `item_description` varchar(512) DEFAULT NULL,
-  `publish_date` date DEFAULT NULL,
+  `publish_date` date DEFAULT NULL,departments
   `no_of_pages` smallint(6) DEFAULT NULL,
   `item_language` varchar(64) DEFAULT NULL,
   `price` decimal(7,2) DEFAULT NULL,
