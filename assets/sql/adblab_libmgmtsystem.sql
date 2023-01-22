@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `catalog` (
   `isbn` varchar(13) DEFAULT NULL,
   `title` varchar(265) NOT NULL,
   `item_description` varchar(512) DEFAULT NULL,
-  `publish_date` date DEFAULT NULL,departments
+  `publish_date` date DEFAULT NULL,
   `no_of_pages` smallint(6) DEFAULT NULL,
   `item_language` varchar(64) DEFAULT NULL,
   `price` decimal(7,2) DEFAULT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `catalog` (
   CONSTRAINT `catalog_ibfk_3` FOREIGN KEY (`catalog_type_id`) REFERENCES `catalog_types` (`catalog_type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table adblab_libmgmtsystem.catalog: ~3 rows (approximately)
+-- Dumping data for table adblab_libmgmtsystem.catalog: ~4 rows (approximately)
 INSERT INTO `catalog` (`catalog_id`, `publisher_id`, `dewey_index_id`, `catalog_type_id`, `isbn`, `title`, `item_description`, `publish_date`, `no_of_pages`, `item_language`, `price`) VALUES
 	(1, 1, 1, 1, NULL, 'The Computer and the Brain', 'A book about computers', '1958-01-01', 300, 'English', 300.00),
 	(2, 2, 6, 1, '978-041556483', 'Artificial Intelligence: The Basics 1st Edition', 'About Artificial Intelligence', '2011-08-18', 192, 'English', 350.00),
@@ -827,14 +827,6 @@ INSERT INTO `publishers` (`publisher_id`, `publisher_name`, `publisher_descripti
 	(1, 'The PLM House', 'PLM\'s own publishing house', 'Philippines', 'Manila'),
 	(2, 'Routledge', NULL, 'UK', 'Milton');
 
--- Dumping structure for view adblab_libmgmtsystem.read_departments
--- Creating temporary table to overcome VIEW dependency errors
-CREATE TABLE `read_departments` (
-	`department_id` SMALLINT(6) NOT NULL,
-	`department_name` VARCHAR(128) NULL COLLATE 'utf8mb4_general_ci',
-	`department_description` VARCHAR(256) NULL COLLATE 'utf8mb4_general_ci'
-) ENGINE=MyISAM;
-
 -- Dumping structure for table adblab_libmgmtsystem.students
 CREATE TABLE IF NOT EXISTS `students` (
   `student_id` bigint(20) NOT NULL,
@@ -965,11 +957,6 @@ INSERT INTO `user_types` (`user_type_id`, `user_type`, `user_type_description`) 
 	(1, 'student', 'Users of library who are students'),
 	(2, 'faculty', 'Users of library who are faculty/teachers'),
 	(3, 'staff', 'Library staff who will manage the system');
-
--- Dumping structure for view adblab_libmgmtsystem.read_departments
--- Removing temporary table and create final VIEW structure
-DROP TABLE IF EXISTS `read_departments`;
-CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `read_departments` AS SELECT * FROM departments ;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
