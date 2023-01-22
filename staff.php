@@ -1,6 +1,5 @@
 <?php
 
-include 'db_connect.php';
 include 'db_create.php';
 include 'db_read.php';
 include 'db_update.php';
