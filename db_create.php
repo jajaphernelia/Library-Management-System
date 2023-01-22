@@ -2,8 +2,6 @@
 
 require 'db_connect.php';
 
-
-
 //Create Author 
 if(isset($_POST['add-btn'])){
     $author_name = mysqli_real_escape_string($dbconn, $_POST['author_name']);
@@ -32,18 +30,5 @@ if(isset($_POST['add_program'])){
 
 }
 
-//Create Faculty
-if (isset($_POST['add_faculty'])) {
-    $position = mysqli_real_escape_string($dbconn, $_POST['position']);
-    $employement_type = mysqli_real_escape_string($dbconn, $_POST['employement_type']);
-
-    $create_faculty = "INSERT INTO faculty (position, employement_type) VALUES ('$position', '$employement_type')";
-
-    $porgram_created = mysqli_query($dbconn, $create_faculty);
-    if ($faculty_created) {
-        header("Location: faculty.php");
-    }
-
-
-}
 ?>
+
