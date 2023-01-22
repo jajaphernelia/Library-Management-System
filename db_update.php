@@ -2,24 +2,9 @@
 
 require 'db_connect.php';
 
-if(isset($_POST['update_authorbtn'])){
-    $id = $_POST['update_author_id'];
 
-    $author_name = $_POST['author_name'];
-    $author_description = $_POST['author_description'];
-    $author_country = $_POST['author_country'];
-
-    $author_query = "UPDATE authors SET author_name='$author_name', author_description='$author_description', author_country='$author_country' WHERE author_id='$id'";
-    $author_updated = mysqli_query($dbconn, $author_query);
-
-    if($author_updated){
-        header("Location: author.php");
-    }
-}
-
-
-//Author Update 
-if(isset($_POST['checking_edit_btn'])){
+// Retrieve existing author
+if(isset($_POST['retrieve_author_btn'])){
     $auth_id = $_POST['author_id'];
     // echo $return = $auth_id;
     $result_array = [];
@@ -37,8 +22,24 @@ if(isset($_POST['checking_edit_btn'])){
 
 }
 
+// Update existing author
+if(isset($_POST['update_author_btn'])){
+    $id = $_POST['update_author_id'];
 
-//Program Update
+    $author_name = $_POST['author_name'];
+    $author_description = $_POST['author_description'];
+    $author_country = $_POST['author_country'];
+
+    $author_query = "UPDATE authors SET author_name='$author_name', author_description='$author_description', author_country='$author_country' WHERE author_id='$id'";
+    $author_updated = mysqli_query($dbconn, $author_query);
+
+    if($author_updated){
+        header("Location: author.php");
+    }
+}
+
+
+// Retrieve existing program
 if(isset($_POST['edit_program'])){
     $prog_id = $_POST['program_id'];
     // echo $return = $auth_id;
@@ -57,6 +58,7 @@ if(isset($_POST['edit_program'])){
 
 }
 
+// Update existing program
 if(isset($_POST['update_programbtn'])){
     $id = $_POST['update_program_id'];
 
@@ -71,7 +73,8 @@ if(isset($_POST['update_programbtn'])){
     }
 }
 
-//College Update
+
+// Retrieve existing college
 if(isset($_POST['edit_college'])){
     $cllg_id = $_POST['college_id'];
     // echo $return = $auth_id;
@@ -90,6 +93,7 @@ if(isset($_POST['edit_college'])){
 
 }
 
+// Update existing college
 if(isset($_POST['update_collegebtn'])){
     $id = $_POST['update_college_id'];
 
@@ -105,6 +109,38 @@ if(isset($_POST['update_collegebtn'])){
 }
 
 
+// Retrieve existing department
+if(isset($_POST['retrieve_department_btn'])){
+    $id = $_POST['department_id'];
+    // echo $return = $auth_id;
+    $result_array = [];
 
+    $read_departments = mysqli_query($dbconn, "SELECT * FROM departments WHERE department_id='$id'");
+    if(mysqli_num_rows($read_departments) > 0 ){
+        foreach($read_departments as $rows){
+            array_push($result_array, $rows);
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        }
+    }else{
+        alert("No Record");
+    }
+
+}
+
+// Update existing department
+if(isset($_POST['update_department_btn'])){
+    $id = $_POST['update_department_id'];
+
+    $department_name = $_POST['department_name'];
+    $department_description = $_POST['department_description'];
+
+    $department_query = "UPDATE departments SET department_name='$department_name', department_description='$department_description' WHERE author_id='$id'";
+    $department_updated = mysqli_query($dbconn, $author_query);
+
+    if($department_updated){
+        header("Location: deparment.php");
+    }
+}
 
 ?>

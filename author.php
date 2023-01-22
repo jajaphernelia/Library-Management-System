@@ -32,6 +32,7 @@ include 'db_delete.php';
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -446,7 +447,7 @@ include 'db_delete.php';
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
-                      <button type="submit" name="update_authorbtn" class="btn btn-primary me-1 mb-1 ml-2"
+                      <button type="submit" name="update_author_btn" class="btn btn-primary me-1 mb-1 ml-2"
                         data-bs-dismiss="modal">
                         Update
                       </button>
@@ -518,7 +519,7 @@ include 'db_delete.php';
 
         <script>
 
-        // Read Author
+        // Read author
         $('.view_btn').click(function (e) {
           e.preventDefault();
 
@@ -538,7 +539,7 @@ include 'db_delete.php';
           });
         });
 
-        // Delete Author
+        // Delete author
         $('.delete_btn').click(function (e) {
           e.preventDefault();
 
@@ -549,7 +550,7 @@ include 'db_delete.php';
           $('#deleteModal').modal('show');
         });
 
-        //Update Author
+        // Retrieve author
         $('.edit_btn').click(function (e) {
           e.preventDefault();
 
@@ -560,7 +561,7 @@ include 'db_delete.php';
             type: "POST",
             url: "db_update.php",
             data: {
-              'checking_edit_btn':true,
+              'retrieve_author_btn':true,
               'author_id':author_id,
             },
             success: function (response) {
