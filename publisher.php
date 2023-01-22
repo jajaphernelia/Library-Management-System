@@ -403,7 +403,7 @@ include 'db_delete.php';
             <div class="modal-content">
               <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Edit {Entity}
+                  Edit
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
@@ -415,52 +415,30 @@ include 'db_delete.php';
                   <div class="row">
                     <div class="col-md-6 col-12">
                       <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
+                        <label for="first-name-column">Publisher Name</label>
+                        <input type="text" id="first-name-column" class="form-control" placeholder="Publisher Name"
                           name="fname-column" />
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
+                        <label for="last-name-column">Publisher Description</label>
+                        <input type="text" id="last-name-column" class="form-control" placeholder="Publisher Description"
                           name="lname-column" />
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
+                        <label for="city-column">Publisher Country</label>
+                        <input type="text" id="city-column" class="form-control" placeholder="Publisher Country"
                           name="city-column" />
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
-                        </div>
+                        <label for="city-column">Publisher City</label>
+                        <input type="text" id="city-column" class="form-control" placeholder="Publisher City"
+                          name="city-column" />
                       </div>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
