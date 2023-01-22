@@ -9,7 +9,7 @@ $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
 $read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
 $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
 
-// Read individual authors
+// Read individual author
 if(isset($_POST['view_author'])){
     $auth_id = $_POST['author_id'];
     // echo $return = $auth_id;
@@ -83,5 +83,37 @@ if(isset($_POST['view_college'])){
     }
 }
 
+// Read individual department
+if(isset($_POST['view_department'])){
+    $id = $_POST['department_id'];
+    // echo $return = $auth_id;
+
+    $read_departments = mysqli_query($dbconn, "SELECT * FROM departments WHERE department_id='$id' ");
+    if(mysqli_num_rows($read_departments)>0){
+        foreach($read_departments as $rows){
+            echo $return = '
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td style="width: 40%"><h6 class="text-muted">department ID:</h6></td>
+                            <td style="width: 60%"><h6>'.$rows['department_id'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">department Name:</h6></td>
+                            <td><h6>'.$rows['department_name'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">department Description:</h6></td>
+                            <td><h6>'.$rows['department_description'].'</h6></td>
+                        </tr>
+                    </tbody>
+                </table>
+            ';
+        }
+    } else{
+        alert("No Record");
+    }
+
+}
 
 ?>
