@@ -3,7 +3,7 @@
 require 'db_connect.php';
 
 //Create Author 
-if(isset($_POST['add-btn'])){
+if(isset($_POST['add_author'])){
     $author_name = mysqli_real_escape_string($dbconn, $_POST['author_name']);
     $author_description = mysqli_real_escape_string($dbconn, $_POST['author_description']);
     $author_country = mysqli_real_escape_string($dbconn, $_POST['author_country']);
