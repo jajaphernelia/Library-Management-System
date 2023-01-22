@@ -9,3 +9,6 @@ AS SELECT * FROM colleges;
 -- Create view for Programs Read function
 CREATE VIEW read_programs
 AS SELECT * FROM programs;
+
+CREATE VIEW read_authors
+AS SELECT * FROM authors;
