@@ -1,2 +1,9 @@
 .$libmgmtsystem-erd.drawio.bkp
 .$libmgmtsystem-erd.drawio_1.dtmp
+
+# Ignore node_modules
+/node_modules
+/.vscode
+
+package-lock.json
+package.json

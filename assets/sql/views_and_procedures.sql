@@ -1,14 +1,14 @@
 -- Create view for Departments Read function
-CREATE VIEW read_departments AS
+CREATE VIEW IF NOT EXISTS read_departments AS
 SELECT * FROM departments;
 
 -- Create view for Colleges Read function
-CREATE VIEW read_colleges
+CREATE VIEW IF NOT EXISTS read_colleges
 AS SELECT * FROM colleges;
 
 -- Create view for Programs Read function
-CREATE VIEW read_programs
+CREATE VIEW IF NOT EXISTS read_programs
 AS SELECT * FROM programs;
 
-CREATE VIEW read_authors
+CREATE VIEW IF NOT EXISTS read_authors
 AS SELECT * FROM authors;
