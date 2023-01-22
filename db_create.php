@@ -30,5 +30,24 @@ if(isset($_POST['add_program'])){
 
 }
 
+if(isset($_POST['add_publisher'])){
+    $publisher_name = mysqli_real_escape_string($dbconn, $_POST['publisher_name']);
+    $publisher_description = mysqli_real_escape_string($dbconn, $_POST['publisher_description']);
+    $publisher_country = mysqli_real_escape_string($dbconn, $_POST['publisher_country']);
+    $publisher_city = mysqli_real_escape_string($dbconn, $_POST['publisher_city']);
+
+    $create_publisher = "INSERT INTO publishers (publisher_name, publisher_description, publisher_country, publisher_city ) VALUES ('$publisher_name', '$publisher_description', '$publisher_country', '$publisher_city')";
+
+    $publisher_created = mysqli_query($dbconn, $create_publisher);
+    if($publisher_created){
+        header("Location: publisher.php");
+    }
+
+}
+
+
+
+
+
 ?>
 

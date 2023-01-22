@@ -6,6 +6,8 @@ $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
 $read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
 $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
 $read_authors = mysqli_query($dbconn, "SELECT * FROM authors");
+$read_publishers = mysqli_query($dbconn, "SELECT * FROM publishers");
+$read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
 
 
 if(isset($_POST['checking_viewbtn'])){

@@ -294,33 +294,33 @@ include 'db_delete.php';
               </div>
               <div class="modal-body">
                 <!-- Forms -->
-                <form class="form">
+                <form class="form" action="db_create.php" method="POST">
                   <div class="row">
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="first-name-column">Publisher Name</label>
                         <input type="text" id="first-name-column" class="form-control" placeholder="Publisher Name"
-                          name="fname-column" />
+                          name="publisher_name" />
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="last-name-column">Publisher Description</label>
                         <input type="text" id="last-name-column" class="form-control" placeholder="Publisher Description"
-                          name="lname-column" />
+                          name="publisher_description" />
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="city-column">Publisher Country</label>
                         <input type="text" id="city-column" class="form-control" placeholder="Publisher Country"
-                          name="city-column" />
+                          name="publisher_country" />
                       </div>
                     </div>
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="country-floating">Publisher City</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
+                        <input type="text" id="country-floating" class="form-control" name="publisher_city"
                           placeholder="Publisher City" />
                       </div>
                     </div>
@@ -328,7 +328,7 @@ include 'db_delete.php';
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
-                      <button type="submit" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
+                      <button type="submit" name="add_publisher" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
                         Add
                       </button>
                     </div>
