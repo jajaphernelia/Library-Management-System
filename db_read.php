@@ -1,16 +1,16 @@
 <?php
 
 require 'db_connect.php';
-// Read Departments
-$read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
-$read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
-$read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
+// Query
 $read_authors = mysqli_query($dbconn, "SELECT * FROM authors");
 $read_publishers = mysqli_query($dbconn, "SELECT * FROM publishers");
+$read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
+$read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
 $read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
+$read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
 
-
-if(isset($_POST['checking_viewbtn'])){
+// Read individual authors
+if(isset($_POST['view_author'])){
     $auth_id = $_POST['author_id'];
     // echo $return = $auth_id;
 
@@ -18,13 +18,29 @@ if(isset($_POST['checking_viewbtn'])){
     if(mysqli_num_rows($read_authors)>0){
         foreach($read_authors as $rows){
             echo $return = '
-                <h5>Author ID: '.$rows['author_id'].'</h5>
-                <h5>Author Name: '.$rows['author_name'].'</h5>
-                <h5>Author Description: '.$rows['author_description'].'</h5>
-                <h5>Author Country: '.$rows['author_country'].'</h5>
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td style="width: 40%"><h6 class="text-muted">Author ID:</h6></td>
+                            <td style="width: 60%"><h6>'.$rows['author_id'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Author Name:</h6></td>
+                            <td><h6>'.$rows['author_name'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Author Country:</h6></td>
+                            <td><h6>'.$rows['author_country'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Author Description:</h6></td>
+                            <td><h6>'.$rows['author_description'].'</h6></td>
+                        </tr>
+                    </tbody>
+                </table>
             ';
         }
-    }else{
+    } else{
         alert("No Record");
     }
 
@@ -44,7 +60,7 @@ if(isset($_POST['view_program'])){
                 <h5>Program Description: '.$rows['program_description'].'</h5>
             ';
         }
-    }else{
+    } else{
         alert("No Record");
     }
 }
@@ -62,11 +78,10 @@ if(isset($_POST['view_college'])){
                 <h5>College Description: '.$rows['college_description'].'</h5>
             ';
         }
-    }else{
+    } else{
         alert("No Record");
     }
 }
-
 
 
 ?>
