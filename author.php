@@ -573,7 +573,7 @@ include 'db_delete.php';
           $(document).on('click', '.table', function () {
             $('.view_btn').click(function (e) { 
               e.preventDefault();
-              
+               
               var author_id = $(this).closest('tr').find('.author_id').text();
 
               $.ajax({
