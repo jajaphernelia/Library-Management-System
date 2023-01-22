@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `catalog` (
   `isbn` varchar(13) DEFAULT NULL,
   `title` varchar(265) NOT NULL,
   `item_description` varchar(512) DEFAULT NULL,
-  `publish_date` date DEFAULT NULL,departments
+  `publish_date` date DEFAULT NULL,
   `no_of_pages` smallint(6) DEFAULT NULL,
   `item_language` varchar(64) DEFAULT NULL,
   `price` decimal(7,2) DEFAULT NULL,
@@ -784,7 +784,7 @@ CREATE TABLE IF NOT EXISTS `programs` (
   `program_name` varchar(128) DEFAULT NULL,
   `program_description` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`program_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.programs: ~23 rows (approximately)
 INSERT INTO `programs` (`program_id`, `program_name`, `program_description`) VALUES

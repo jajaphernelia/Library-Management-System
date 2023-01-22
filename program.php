@@ -295,24 +295,24 @@ include 'db_delete.php';
               </div>
               <div class="modal-body">
                 <!-- Forms -->
-                <form class="form">
+                <form class="form" action="db_create.php" method="POST">
                   <div class="row">
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="program-name-column">Program</label>
                         <input type="text" id="program-name-column" class="form-control" placeholder="Program Name"
-                          name="pname-column" />
+                          name="program_name" />
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Description</label>
-                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="prog_description"  placeholder="Description of program"></textarea>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="program_description"  placeholder="Description of program"></textarea>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
-                      <button type="submit" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
+                      <button type="submit" name="add_program" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
                         Add
                       </button>
                     </div>
