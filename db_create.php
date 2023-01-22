@@ -30,5 +30,18 @@ if(isset($_POST['add_program'])){
 
 }
 
+//Create College
+if(isset($_POST['add_college'])){
+    $college_name = mysqli_real_escape_string($dbconn, $_POST['college_name']);
+    $college_description = mysqli_real_escape_string($dbconn, $_POST['college_description']);
+
+    $create_college = "INSERT INTO colleges (college_name, college_description) VALUES ('$college_name', '$college_description')";
+
+    $college_created = mysqli_query($dbconn, $create_college);
+    if($college_created){
+        header("Location: college.php");
+    }
+
+}
 ?>
 
