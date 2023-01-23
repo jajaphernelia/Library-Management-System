@@ -75,14 +75,14 @@ if(isset($_POST['update_programbtn'])){
 
 
 // Retrieve existing college
-if(isset($_POST['edit_college'])){
+if(isset($_POST['retrieve_college_btn'])){
     $cllg_id = $_POST['college_id'];
-    // echo $return = $auth_id;
+    // echo $return = $cllg_id;
     $result_array = [];
 
-    $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges WHERE college_id='$cllg_id' ");
-    if(mysqli_num_rows($read_colleges) > 0 ){
-        foreach($read_colleges as $rows){
+    $read_college = mysqli_query($dbconn, "SELECT * FROM colleges WHERE college_id='$cllg_id' ");
+    if(mysqli_num_rows($read_college) > 0 ){
+        foreach($read_college as $rows){
             array_push($result_array, $rows);
             header('Content-type: application/json');
             echo json_encode($result_array);
@@ -92,6 +92,7 @@ if(isset($_POST['edit_college'])){
     }
 
 }
+
 
 // Update existing college
 if(isset($_POST['update_collegebtn'])){

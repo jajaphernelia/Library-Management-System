@@ -11,22 +11,20 @@ include 'db_delete.php';
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Colleges | libPLM</title>
-
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
+  <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
-  <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="assets/css/pages/datatables.css" />
   <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
 
+
   <script src="https://code.jquery.com/jquery-3.1.1.min.js">
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
@@ -335,7 +333,7 @@ include 'db_delete.php';
                 <div class="card">
                   <div class="card-header">Colleges</div>
                   <div class="card-body">
-                    <table class="table table-striped" id="table1">
+                    <table class="table table-hover" id="table1">
                       <thead>
                         <tr>
                           <th>College ID</th>
@@ -360,11 +358,9 @@ include 'db_delete.php';
                                 <?php echo $row['college_description'] ?>
                               </td>
                               <td>
-                                <a data-bs-toggle="modal" data-bs-target="#editModal"
-                                  class="badge bg-primary edit_btn">Edit</a>
-                                <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
-                                <a data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                  class="badge bg-danger delete_btn">Delete</a>
+                              <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
+                                  <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary edit_btn">Edit</a>
+                                  <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
                               </td>
                             </tr>
 
@@ -387,7 +383,7 @@ include 'db_delete.php';
                   <div class="modal-content">
                     <div class="modal-header bg-primary">
                       <h5 class="modal-title" id="exampleModalCenterTitle">
-                        Colleges
+                        Edit College
                       </h5>
                       <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <i data-feather="x"></i>
@@ -463,14 +459,14 @@ include 'db_delete.php';
               </div>
             </div>
 
-            <!-- Author View Modal -->
+            <!-- College View Modal -->
             <!-- Modal -->
             <div class="modal fade" id="collegeViewModal" data-bs-backdrop="static" data-bs-keyboard="false"
               tabindex="-1" aria-labelledby="collegeViewModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">View Program</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">View College</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -486,8 +482,7 @@ include 'db_delete.php';
             </div>
 
             <script>
-              // View Function
-      $(document).ready(function (){
+            // Read College
         $('.view_btn').click(function (e) {
           e.preventDefault();
 
@@ -506,77 +501,36 @@ include 'db_delete.php';
             }
           });
         });
-                });
 
-      // View Function in other pages
-      $(document).on('click', '.table', function () {
-        $('.view_btn').click(function (e) {
+        // Delete College
+        $('.delete_btn').click(function (e) {
           e.preventDefault();
 
           var college_id = $(this).closest('tr').find('.college_id').text();
 
-          $.ajax({
-            type: "POST",
-            url: "db_read.php",
-            data: {
-              'view_college': true,
-              'college_id': college_id,
-            },
-            success: function (response) {
-              $('.college_viewing_data').html(response);
-              $('#collegeViewModal').modal('show')
-            }
-          });
+          // console.log(college_id);
+          $('#delete_college_id').val(college_id);
+          $('#deleteModal').modal('show');
         });
-                      });
 
-      //Edit Function
-      $('.edit_btn').click(function (e) {
-        e.preventDefault();
-
-      var college_id = $(this).closest('tr').find('.college_id').text();
-      // console.log(author_id);
-
-      $.ajax({
-        type: "POST",
-      url: "db_update.php",
-      data: {
-        'edit_college':true,
-      'college_id':college_id,
-                          },
-      success: function (response) {
-        // console.log(response);
-        $.each(response, function (key, value) {
-          //  console.log(value['author_name']);
-          $('#update_college_id ').val(value['college_id']);
-          $('#college_name').val(value['college_name']);
-          $('#college_description').val(value['college_description']);
-        });
-      $('#editModal').modal('show');
-                          }
-                        });
-                      });
-
-
-      //Edit Function in Other pages
-      $(document).on('click', '.table', function () {
+        // Retrieve College
         $('.edit_btn').click(function (e) {
           e.preventDefault();
 
           var college_id = $(this).closest('tr').find('.college_id').text();
-          // console.log(author_id);
+          // console.log(college_id);
 
           $.ajax({
             type: "POST",
             url: "db_update.php",
             data: {
-              'edit_college': true,
-              'college_id': college_id,
+              'retrieve_college_btn':true,
+              'college_id':college_id,
             },
             success: function (response) {
               // console.log(response);
               $.each(response, function (key, value) {
-                //  console.log(value['author_name']);
+                //  console.log(value['college_name']);
                 $('#update_college_id ').val(value['college_id']);
                 $('#college_name').val(value['college_name']);
                 $('#college_description').val(value['college_description']);
@@ -584,30 +538,7 @@ include 'db_delete.php';
               $('#editModal').modal('show');
             }
           });
-        });
-                    });
-
-      //Delete Program
-      $(document).ready(function (){
-        $('.delete_btn').click(function (e) {
-          e.preventDefault();
-          var college_id = $(this).closest('tr').find('.college_id').text();
-          // console.log(college_id);
-          $('#delete_college_id').val(college_id);
-          $('#deleteModal').modal('show');
-        });
-        });
-
-      $(document).on('click', '.table', function () {
-        $('.delete_btn').click(function (e) {
-          e.preventDefault();
-          var college_id = $(this).closest('tr').find('.college_id').text();
-          // console.log(program_id);
-          $('#delete_college_id').val(college_id);
-          $('#deleteModal').modal('show');
-        });
-          });
-
+        });              
             </script>
 
             <footer class="mt-auto">
@@ -629,13 +560,18 @@ include 'db_delete.php';
         </div>
       </div>
     </div>
-    <script src="assets/js/bootstrap.js"></script>
-    <script src="assets/js/app.js"></script>
+      <script src="assets/js/bootstrap.js"></script>
+      <script src="assets/js/app.js"></script>
 
-    <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-    <script src="assets/js/pages/simple-datatables.js"></script>
-    <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
-    <script src="assets/js/pages/form-element-select.js"></script>
+      <script src="assets/extensions/jquery/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+      <script src="assets/js/pages/datatables.js"></script>
+
+      <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+      <script src="assets/js/pages/form-element-select.js"></script>
+
+      <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+      <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>
