@@ -1,6 +1,5 @@
 <?php
 
-include 'db_connect.php';
 include 'db_create.php';
 include 'db_read.php';
 include 'db_update.php';
@@ -21,15 +20,19 @@ include 'db_delete.php';
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
+  <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
-  <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="assets/css/pages/datatables.css" />
   <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
 
-  
+
   <script src="https://code.jquery.com/jquery-3.1.1.min.js">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -236,7 +239,7 @@ include 'db_delete.php';
           <div class="page-title">
             <div class="row">
               <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Author</h3>
+                <h3>Authors</h3>
                 <p class="text-subtitle text-muted">
                   Welcome, user!
                 </p>
@@ -269,14 +272,14 @@ include 'db_delete.php';
                       <div class="row">
                         <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
                           <div class="stats-icon green mt-3">
-                            <i class="iconly-boldShow"></i>
+                            <i class="iconly-boldAdd-User"></i>
                           </div>
                         </div>
                         <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
                           <a data-bs-toggle="modal" data-bs-target="#addModal"
                             class="btn icon icon-left btn-success mt-2 mb-2 w-75">
                             <i data-feather="plus-circle"></i> Add</a>
-                          <h6 class="text-muted font-semibold">new entity</h6>
+                          <h6 class="text-muted font-semibold">new author</h6>
                         </div>
                       </div>
                     </div>
@@ -289,53 +292,18 @@ include 'db_delete.php';
                       <div class="row">
                         <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
                           <div class="stats-icon blue mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
+                            <i class="iconly-boldArrow---Up-Circle"></i>
                           </div>
                         </div>
                         <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
+                          <h6 class="text-muted font-semibold mt-3">Some stats</h6>
+                          <h6 class="font-extrabold mb-0">100</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
-                          <div class="stats-icon purple mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
-                          <div class="stats-icon red mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">112</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
@@ -345,12 +313,12 @@ include 'db_delete.php';
 
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-lg"
             role="document">
             <div class="modal-content">
               <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Add New {Entity}
+                  Add New Author
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
@@ -376,13 +344,15 @@ include 'db_delete.php';
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Author Description</label>
-                      <textarea class="form-control" name="author_description" placeholder="Description of an Author" id="exampleFormControlTextarea1" rows="3"></textarea>
+                      <textarea class="form-control" name="author_description" placeholder="Description of an Author"
+                        id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
-                      <button type="submit" name="add_author" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
+                      <button type="submit" name="add_author" class="btn btn-success me-1 mb-1 ml-2"
+                        data-bs-dismiss="modal">
                         Add
                       </button>
                     </div>
@@ -396,38 +366,37 @@ include 'db_delete.php';
         <!-- Database Table -->
         <section class="section">
           <div class="card">
-            <div class="card-header">Simple Datatable</div>
-              <div class="card-body">
-                <table class="table table-striped" id="table1">
-                  <thead>
-                    <tr>
-                      <th>Author ID</th>
-                      <th>Author Name</th>
-                      <th>Author Description</th>
-                      <th>Author Country</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
+            <div class="card-header">Authors</div>
+            <div class="card-body">
+              <table class="table table-hover" id="table1">
+                <thead>
+                  <tr>
+                    <th>Author ID</th>
+                    <th>Author Name</th>
+                    <th>Author Country</th>
+                    <th>Author Description</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
                 <tbody>
-                  <?php 
-                    if($read_authors){
-                      foreach($read_authors as $row){
-                  ?>
-                    <tr>
-                      <td class="author_id" ><?php echo $row['author_id']?></td>
-                      <td><?php echo $row['author_name']?></td>
-                      <td><?php echo $row['author_description']?></td>
-                      <td><?php echo $row['author_country']?></td>
-                      <td>
-                        <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary edit_btn">Edit</a>
-                        <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
-                        <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
-                      </td>
-                    </tr>
-                
                   <?php
-                      }
+                  if ($read_authors) {
+                    foreach ($read_authors as $row) {
+                  ?>
+                      <tr>
+                        <td class="author_id"><?php echo $row['author_id'] ?></td>
+                        <td><?php echo $row['author_name'] ?></td>
+                        <td><?php echo $row['author_country'] ?></td>
+                        <td><?php echo $row['author_description'] ?></td>
+                        <td>
+                          <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
+                          <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary edit_btn">Edit</a>
+                          <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
+                        </td>
+                      </tr>
+                  <?php
                     }
+                  }
                   ?>
                 </tbody>
               </table>
@@ -438,12 +407,12 @@ include 'db_delete.php';
         <!-- Edit entity Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-lg"
             role="document">
             <div class="modal-content">
               <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Edit {Entity}
+                  Update Author
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
@@ -455,7 +424,7 @@ include 'db_delete.php';
                 <form class="form" action="db_update.php" method="POST">
                   <div class="row">
                     <input type="hidden" name="update_author_id" id="update_author_id">
-                    <div class="col-md-6 col-12">                      
+                    <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="first-name-column">Author Name</label>
                         <input type="text" id="author_name" class="form-control" placeholder="Author Name"
@@ -471,13 +440,15 @@ include 'db_delete.php';
                     </div>
                     <div class="form-group">
                       <label for="exampleFormControlTextarea1">Author Description</label>
-                      <textarea class="form-control" name="author_description" placeholder="Description of an Author" id="author_description" rows="3"></textarea>
+                      <textarea class="form-control" name="author_description" placeholder="Description of an Author"
+                        id="author_description" rows="3"></textarea>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
-                      <button type="submit" name="update_authorbtn" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal">
+                      <button type="submit" name="update_author_btn" class="btn btn-primary me-1 mb-1 ml-2"
+                        data-bs-dismiss="modal">
                         Update
                       </button>
                     </div>
@@ -488,15 +459,14 @@ include 'db_delete.php';
           </div>
         </div>
 
-        <!-- Delete  entity Modal -->
+        <!-- Delete Author Modal -->
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
           aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-m"
-            role="document">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-m" role="document">
             <div class="modal-content">
               <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="deleteModalLabel">
-                  Delete {Entity}
+                  Delete Author
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
@@ -524,19 +494,20 @@ include 'db_delete.php';
           </div>
         </div>
 
-        <!-- Author View Modal -->
+        <!-- View Author Modal -->
         <!-- Modal -->
-        <div class="modal fade" id="authorViewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="authorViewModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+        <div class="modal fade" id="authorViewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="authorViewModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Author</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                  <div class="author_viewing_data">
-
-                  </div>
+                <div class="author_view_data">
+                
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -547,142 +518,67 @@ include 'db_delete.php';
 
 
         <script>
-          // View Function
-          $(document).ready(function (){
-            $('.view_btn').click(function (e) { 
-              e.preventDefault();
-              
-              var author_id = $(this).closest('tr').find('.author_id').text();
 
-              $.ajax({
-                type: "POST",
-                url: "db_read.php",
-                data: {
-                  'checking_viewbtn':true,
-                  'author_id':author_id,
-                },
-                success: function (response) {
-                  $('.author_viewing_data').html(response);
-                  $('#authorViewModal').modal('show')
-                }
-              });
-            });
-          });
+        // Read author
+        $('.view_btn').click(function (e) {
+          e.preventDefault();
 
-          // View Function in other pages
-          $(document).on('click', '.table', function () {
-            $('.view_btn').click(function (e) { 
-              e.preventDefault();
-               
-              var author_id = $(this).closest('tr').find('.author_id').text();
+          var author_id = $(this).closest('tr').find('.author_id').text();
 
-              $.ajax({
-                type: "POST",
-                url: "db_read.php",
-                data: {
-                  'checking_viewbtn':true,
-                  'author_id':author_id,
-                },
-                success: function (response) {
-                  $('.author_viewing_data').html(response);
-                  $('#authorViewModal').modal('show')
-                }
-              });
-            });
-          });
-
-          $(document).ready(function (){
-            $('.delete_btn').click(function (e) { 
-              e.preventDefault();
-              var author_id = $(this).closest('tr').find('.author_id').text();
-              console.log(author_id);
-              $('#delete_author_id').val(author_id);
-              $('#deleteModal').modal('show');
+          $.ajax({
+            type: "POST",
+            url: "db_read.php",
+            data: {
+              'view_author': true,
+              'author_id': author_id,
+            },
+            success: function (response) {
+              $('.author_view_data').html(response);
+              $('#authorViewModal').modal('show')
+            }
           });
         });
 
-        $(document).on('click', '.table', function () {
-            $('.delete_btn').click(function (e) { 
-                e.preventDefault();
-                var author_id = $(this).closest('tr').find('.author_id').text();
-                console.log(author_id);
-                $('#delete_author_id').val(author_id);
-                $('#deleteModal').modal('show');
-            });
-          });
+        // Delete author
+        $('.delete_btn').click(function (e) {
+          e.preventDefault();
 
+          var author_id = $(this).closest('tr').find('.author_id').text();
 
+          // console.log(author_id);
+          $('#delete_author_id').val(author_id);
+          $('#deleteModal').modal('show');
+        });
 
+        // Retrieve author
+        $('.edit_btn').click(function (e) {
+          e.preventDefault();
 
-            //Edit Function
-            $('.edit_btn').click(function (e) { 
-              e.preventDefault();
-              
-              var author_id = $(this).closest('tr').find('.author_id').text();
-              // console.log(author_id);
+          var author_id = $(this).closest('tr').find('.author_id').text();
+          // console.log(author_id);
 
-              $.ajax({
-                type: "POST",
-                url: "db_update.php",
-                data: {
-                  'checking_edit_btn':true,
-                  'author_id':author_id,
-                },
-                success: function (response) {
-                  // console.log(response);
-                  $.each(response, function (key, value) { 
-                    //  console.log(value['author_name']);
-                    $('#update_author_id ').val(value['author_id']);
-                    $('#author_name').val(value['author_name']);
-                    $('#author_description').val(value['author_description']);
-                    $('#author_country').val(value['author_country']);
-
-
-                  });
-                  $('#editModal').modal('show');
-                }
+          $.ajax({
+            type: "POST",
+            url: "db_update.php",
+            data: {
+              'retrieve_author_btn':true,
+              'author_id':author_id,
+            },
+            success: function (response) {
+              // console.log(response);
+              $.each(response, function (key, value) {
+                //  console.log(value['author_name']);
+                $('#update_author_id ').val(value['author_id']);
+                $('#author_name').val(value['author_name']);
+                $('#author_description').val(value['author_description']);
+                $('#author_country').val(value['author_country']);
               });
-            });
-          
-
-          //Edit Function in Other pages
-          $(document).on('click', '.table', function () {
-            $('.edit_btn').click(function (e) { 
-              e.preventDefault();
-              
-              var author_id = $(this).closest('tr').find('.author_id').text();
-
-              $.ajax({
-                type: "POST",
-                url: "db_update.php",
-                data: {
-                  'checking_edit_btn':true,
-                  'author_id':author_id,
-                },
-                success: function (response) {
-                  $.each(response, function (key, value) { 
-                    //  console.log(value['author_name']);
-                  $('#update_author_id ').val(value['author_id']);
-                  $('#author_name').val(value['author_name']);
-                  $('#author_description').val(value['author_description']);
-                  $('#author_country').val(value['author_country']);
-                  });
-                  $('#editModal').modal('show');
-                }
-              });
-            });
+              $('#editModal').modal('show');
+            }
           });
+        });
 
-         
-          
-
-
-        </script>
-        
-
-
-
-
+        </script> 
 
         <footer class="mt-auto">
           <div class="footer clearfix mb-0 text-muted">
@@ -703,11 +599,14 @@ include 'db_delete.php';
       </div>
     </div>
   </div>
+
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/app.js"></script>
 
-  <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-  <script src="assets/js/pages/simple-datatables.js"></script>
+  <script src="assets/extensions/jquery/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+  <script src="assets/js/pages/datatables.js"></script>
+
   <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
   <script src="assets/js/pages/form-element-select.js"></script>
 </body>
