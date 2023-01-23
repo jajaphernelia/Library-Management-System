@@ -66,5 +66,17 @@ if(isset($_POST['delete_publisher'])){
     }
 }
 
+// Delete dewey category
+if(isset($_POST['delete_dewey_category'])){
+    $id = $_POST['dewey_class_id'];
+
+    $delete_dewey_category = "DELETE FROM dewey_classes WHERE dewey_class_id='$id' ";
+    $dewey_category_isdeleted = mysqli_query($dbconn, $delete_dewey_category);
+
+    if($dewey_category_isdeleted){
+        header("Location: dewey_category.php");
+    }
+}
+
 
 ?>
