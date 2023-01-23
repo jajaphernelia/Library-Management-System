@@ -27,17 +27,15 @@ CREATE TABLE IF NOT EXISTS `authors` (
   `author_description` varchar(256) DEFAULT NULL,
   `author_country` varchar(64) DEFAULT NULL,
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table adblab_libmgmtsystem.authors: ~17 rows (approximately)
+-- Dumping data for table adblab_libmgmtsystem.authors: ~53 rows (approximately)
 INSERT INTO `authors` (`author_id`, `author_name`, `author_description`, `author_country`) VALUES
 	(1, 'John von Neumann', 'random text', 'USA'),
-	(2, 'Patricia S. Churchland', 'some text', NULL),
-	(3, 'Paul M. Churchland', NULL, 'USA'),
 	(4, 'Kevin Warwick', NULL, NULL),
 	(5, 'Antonin Sertillanges', NULL, NULL),
 	(6, 'P. F. Collier', NULL, NULL),
-	(7, 'Janssen Sarah', NULL, NULL),
+	(7, 'Jose Rizal', NULL, NULL),
 	(8, 'Stephen Mumford', NULL, NULL),
 	(9, 'Jonathan Haidt', NULL, NULL),
 	(10, 'Julia Driver', NULL, NULL),
@@ -45,9 +43,47 @@ INSERT INTO `authors` (`author_id`, `author_name`, `author_description`, `author
 	(12, 'David Haines', NULL, NULL),
 	(13, 'Saint Mary\'s Press', NULL, NULL),
 	(14, 'Timothy J. Keller', NULL, NULL),
+	(15, 'Lev Kantorovich', NULL, NULL),
 	(16, 'Mark Twain', NULL, NULL),
-	(17, 'John Updike', NULL, NULL),
-	(18, 'J.J Parker', NULL, NULL);
+	(18, 'J.J Parker', NULL, NULL),
+	(19, 'Sylvie Waskiewicz, PhD', NULL, NULL),
+	(20, 'Jennifer Hasty', NULL, NULL),
+	(21, 'Mark Carl Rom', NULL, NULL),
+	(22, 'Tonja R. Conerly', NULL, NULL),
+	(23, 'David Shapiro', NULL, NULL),
+	(24, 'Steven A. Greenlaw', NULL, NULL),
+	(25, 'Rajiv Ranjan', NULL, NULL),
+	(26, 'Erin Huebener', NULL, NULL),
+	(27, 'Angela Kluge', NULL, NULL),
+	(28, 'Henrik Liljegren', NULL, NULL),
+	(29, 'Daniel Leisawitz', NULL, NULL),
+	(30, 'Giuseppe Longo', NULL, NULL),
+	(31, 'Plato', NULL, NULL),
+	(32, 'Francis Bailly', NULL, NULL),
+	(33, 'Hermann Weyl', NULL, NULL),
+	(34, 'Royal Eugene Collins', NULL, NULL),
+	(35, 'Gilbert Strang', NULL, NULL),
+	(36, 'Octave Levenspiel', NULL, NULL),
+	(37, 'Mieczyslaw Pokorski', NULL, NULL),
+	(38, 'Michael Pollan', NULL, NULL),
+	(39, 'Roland Ennos', NULL, NULL),
+	(40, 'William D. Cohan', NULL, NULL),
+	(41, 'Lewis Mumford', NULL, NULL),
+	(42, 'Phaidon Press', NULL, NULL),
+	(43, 'Paul N. Hasluck', NULL, NULL),
+	(44, 'T.J Clark', NULL, NULL),
+	(45, 'Kristen Lubben', NULL, NULL),
+	(46, 'Walter E. Todd', NULL, NULL),
+	(47, 'Chelsea Curtis Fraser', NULL, NULL),
+	(48, 'Ernst Kreidolf', NULL, NULL),
+	(49, 'Mary H. Eastman', NULL, NULL),
+	(50, 'Frank V. Webster', NULL, NULL),
+	(51, 'Charles Allen', NULL, NULL),
+	(52, 'J. Clarke', NULL, NULL),
+	(53, 'Elihu Burritt', NULL, NULL),
+	(54, 'Newton D. Baker', NULL, NULL),
+	(55, 'E Walter Walters', NULL, NULL),
+	(56, 'Lynn Marecek', NULL, NULL);
 
 -- Dumping structure for table adblab_libmgmtsystem.catalog
 CREATE TABLE IF NOT EXISTS `catalog` (
@@ -69,13 +105,63 @@ CREATE TABLE IF NOT EXISTS `catalog` (
   CONSTRAINT `catalog_ibfk_1` FOREIGN KEY (`publisher_id`) REFERENCES `publishers` (`publisher_id`),
   CONSTRAINT `catalog_ibfk_2` FOREIGN KEY (`dewey_index_id`) REFERENCES `dewey_indices` (`dewey_index_id`),
   CONSTRAINT `catalog_ibfk_3` FOREIGN KEY (`catalog_type_id`) REFERENCES `catalog_types` (`catalog_type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table adblab_libmgmtsystem.catalog: ~4 rows (approximately)
+-- Dumping data for table adblab_libmgmtsystem.catalog: ~53 rows (approximately)
 INSERT INTO `catalog` (`catalog_id`, `publisher_id`, `dewey_index_id`, `catalog_type_id`, `isbn`, `title`, `item_description`, `publish_date`, `no_of_pages`, `item_language`, `price`) VALUES
 	(1, 1, 1, 1, NULL, 'The Computer and the Brain', 'A book about computers', '1958-01-01', 300, 'English', 300.00),
 	(2, 2, 6, 1, '978-041556483', 'Artificial Intelligence: The Basics 1st Edition', 'About Artificial Intelligence', '2011-08-18', 192, 'English', 350.00),
-	(3, 1, 2, 1, '0813206464', 'The Intellectual Life: Its Spirit, Conditions, Methods', NULL, '1992-08-28', 264, 'English', 300.00);
+	(3, 1, 2, 1, '0813206464', 'The Intellectual Life: Its Spirit, Conditions, Methods', NULL, '1992-08-28', 264, 'English', 300.00),
+	(4, 1, 30, 1, NULL, 'Collier’s Encyclopedia', NULL, NULL, NULL, 'English-British', 680.00),
+	(5, 1, 91, 5, NULL, 'Noli Me Tangere ( Manuscript)', NULL, '0000-00-00', NULL, 'Filipino-Spanish', 500.00),
+	(6, 1, 100, 1, NULL, 'The Republic: Global Classics ( Kindle Edition)', NULL, NULL, NULL, 'English', 420.00),
+	(7, 1, 110, 1, NULL, 'Metaphysics: A Very Short Introduction', NULL, NULL, NULL, 'English', NULL),
+	(8, 1, 126, 1, NULL, 'The Happiness Hypothesis: Finding Modern Truth in Ancient Wisdom', NULL, NULL, NULL, 'English', NULL),
+	(9, 1, 170, 1, NULL, 'Ethics: The Fundamental', NULL, NULL, NULL, NULL, NULL),
+	(10, 1, 190, 1, NULL, 'A New History of Western Philosophy', NULL, NULL, NULL, NULL, NULL),
+	(11, 1, 209, 1, NULL, 'Natural Theology: A Biblical and Historical Introduction and Defense', NULL, NULL, NULL, NULL, NULL),
+	(12, 1, 220, 1, NULL, 'The Catholic Youth Bible®, 4th Edition', NULL, NULL, NULL, NULL, NULL),
+	(13, 1, 212, 1, NULL, 'The Reason for God: Belief in an Age of Skepticism', NULL, NULL, NULL, NULL, NULL),
+	(14, 3, 221, 1, NULL, 'The Diaries of Adam and Eve', NULL, NULL, NULL, NULL, NULL),
+	(15, 1, 211, 1, NULL, 'Knowing God ', NULL, NULL, NULL, NULL, NULL),
+	(16, 1, 301, 1, NULL, 'Introduction to Anthropology', NULL, NULL, NULL, NULL, NULL),
+	(17, 1, 320, 1, NULL, 'Introduction to Political Science', NULL, NULL, NULL, NULL, NULL),
+	(18, 1, 330, 1, NULL, 'Principles of Macroeconomics 3e', NULL, NULL, NULL, NULL, NULL),
+	(19, 1, 330, 1, NULL, 'Principle of Microeconomics ', NULL, NULL, NULL, NULL, NULL),
+	(20, 5, 400, 1, NULL, 'Basic Urdu', NULL, NULL, NULL, NULL, NULL),
+	(21, 1, 463, 1, NULL, 'Libro Libre: Beginning Spanish', 'About learning spanish', '2018-10-03', 788, 'Spanish', 635.00),
+	(22, 1, 400, 1, NULL, 'A grammar of Papuan Malay', 'Linguistic description of Papuan Malay,', '2017-02-05', 726, NULL, NULL),
+	(23, 1, 400, 1, NULL, 'A grammar of Palula', NULL, '2016-03-10', 479, NULL, 600.00),
+	(24, 1, 450, 1, NULL, ' Spunti: Italiano elementare 1', 'About Italian language learning', '2018-06-17', 643, 'Italian', 780.00),
+	(25, 4, 480, 1, NULL, 'Mathematics And The Natural Sciences: The Physical Singularity Of Life', NULL, '2011-03-04', 1567, 'English', 1150.00),
+	(26, 1, 480, 1, NULL, 'Philosophy of Mathematics and Natural Science', NULL, '2021-09-14', 962, NULL, 1780.00),
+	(27, 1, 301, 1, NULL, 'American Government 3e', NULL, '2021-07-28', NULL, NULL, NULL),
+	(28, 4, 480, 1, NULL, 'Mathematical Methods for Physicists and Engineers: Second Corrected Edition', NULL, '2012-06-11', 1170, NULL, 1250.00),
+	(30, 1, 480, 1, NULL, 'Mathematics for Natural Scientists: Fundamentals and Basics', NULL, '2012-07-11', 1169, 'Engslish', 1200.00),
+	(31, 1, 480, 1, NULL, 'Mathematical Methods For The Natural And Engineering Sciences (Second Edition)', NULL, '2016-03-30', 1378, 'English', 1200.00),
+	(32, 1, 480, 1, NULL, 'Calculus Volume 1', NULL, '2016-03-30', 875, NULL, 1250.00),
+	(33, 1, 480, 1, NULL, 'Calculus Volume 2', NULL, '2012-07-11', 829, NULL, 750.00),
+	(34, 1, 480, 1, NULL, 'Intermediate Algebra 2e', NULL, '2022-07-14', 1395, NULL, 900.00),
+	(35, 1, 480, 1, NULL, 'Chemical Reaction Engineering, 3rd Edition', NULL, '1998-08-13', 783, NULL, 750.00),
+	(36, 1, 480, 1, NULL, 'Respiratory System Diseases', NULL, '2017-07-09', 803, NULL, 549.00),
+	(37, 10, 480, 1, NULL, 'The Botany of Desire: A Plant\'s-Eye View of the World', NULL, '2001-06-12', 849, NULL, 600.00),
+	(38, 1, 480, 1, NULL, 'The Age of Wood: Our Most Useful Material and the Construction of Civilization', NULL, '2021-12-07', 1492, NULL, 999.00),
+	(39, 1, 480, 1, NULL, 'Power Failure: The Rise and Fall of an American Icon', NULL, '2022-11-15', 704, NULL, 899.00),
+	(40, 1, 480, 1, NULL, 'The City in History: Its Origins, Its Transformations, and Its Prospects', NULL, '1968-08-23', 989, NULL, 600.00),
+	(41, 7, 480, 1, NULL, 'Black: Architecture in Monochrome', NULL, '2017-08-09', 709, NULL, 459.00),
+	(42, 1, 480, 1, NULL, 'Working with Hand Tools: Essential Techniques for Woodworking', NULL, '2014-10-28', 1203, NULL, 1200.00),
+	(43, 1, 480, 1, NULL, 'The Painting of Modern Life: Paris in the Art of Manet and his Followers', NULL, '1999-10-18', 2120, NULL, 750.00),
+	(44, 1, 480, 1, NULL, 'Magnum Contact Sheets', NULL, '2017-10-24', 843, NULL, 789.00),
+	(45, 1, 480, 1, NULL, 'A Little Sunshine', NULL, '1917-12-31', 890, NULL, 999.00),
+	(46, 1, 480, 1, NULL, 'Around the world in ten days', NULL, '0000-00-00', 1011, NULL, 1150.00),
+	(47, 1, 480, 1, NULL, 'Alpenblumenmärchen', NULL, '0000-00-00', 897, NULL, 1299.00),
+	(48, 1, 480, 1, NULL, 'Aunt Phillis\'s cabin', NULL, '0000-00-00', 689, NULL, 750.00),
+	(49, 8, 480, 1, NULL, 'Airship Andy, or, The luck of a brave boy', NULL, '0000-00-00', 989, NULL, 1500.00),
+	(50, 6, 480, 1, NULL, 'Levels of Pennsylvania', NULL, '0000-00-00', 587, NULL, 380.00),
+	(51, 1, 480, 1, NULL, 'The wreck of the Orion', NULL, '0000-00-00', 654, NULL, 750.00),
+	(52, 9, 480, 1, NULL, 'A walk from London to Land\'s End and back', NULL, '0000-00-00', 867, NULL, 759.00),
+	(53, 1, 480, 1, NULL, 'Frontiers of freedom', NULL, '0000-00-00', 654, NULL, 499.00),
+	(54, 1, 480, 1, NULL, 'Heroic airmen and their exploits', NULL, '0000-00-00', 676, NULL, 900.00);
 
 -- Dumping structure for table adblab_libmgmtsystem.catalog_authors
 CREATE TABLE IF NOT EXISTS `catalog_authors` (
@@ -87,11 +173,58 @@ CREATE TABLE IF NOT EXISTS `catalog_authors` (
   CONSTRAINT `catalog_authors_ibfk_2` FOREIGN KEY (`author_id`) REFERENCES `authors` (`author_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table adblab_libmgmtsystem.catalog_authors: ~3 rows (approximately)
+-- Dumping data for table adblab_libmgmtsystem.catalog_authors: ~50 rows (approximately)
 INSERT INTO `catalog_authors` (`catalog_id`, `author_id`) VALUES
+	(25, 30),
+	(26, 33),
+	(31, 39),
+	(32, 35),
+	(3, 5),
+	(4, 6),
+	(5, 7),
+	(7, 8),
+	(6, 31),
+	(8, 9),
+	(9, 10),
+	(10, 11),
+	(11, 12),
+	(12, 13),
+	(13, 14),
+	(14, 16),
+	(15, 18),
+	(16, 20),
+	(17, 21),
+	(18, 23),
 	(1, 1),
-	(1, 2),
-	(1, 3);
+	(2, 4),
+	(19, 24),
+	(20, 25),
+	(21, 26),
+	(22, 27),
+	(23, 28),
+	(24, 29),
+	(28, 34),
+	(30, 15),
+	(33, 35),
+	(34, 56),
+	(35, 36),
+	(36, 37),
+	(37, 38),
+	(38, 39),
+	(39, 40),
+	(40, 41),
+	(41, 42),
+	(42, 43),
+	(43, 44),
+	(44, 45),
+	(45, 46),
+	(47, 48),
+	(48, 49),
+	(49, 50),
+	(50, 51),
+	(51, 52),
+	(53, 54),
+	(27, 19);
 
 -- Dumping structure for table adblab_libmgmtsystem.catalog_types
 CREATE TABLE IF NOT EXISTS `catalog_types` (
@@ -177,9 +310,9 @@ CREATE TABLE IF NOT EXISTS `dewey_indices` (
   PRIMARY KEY (`dewey_index_id`),
   KEY `dewey_class_id` (`dewey_class_id`),
   CONSTRAINT `dewey_indices_ibfk_1` FOREIGN KEY (`dewey_class_id`) REFERENCES `dewey_classes` (`dewey_class_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32768 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18446744073709551615 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table adblab_libmgmtsystem.dewey_indices: ~440 rows (approximately)
+-- Dumping data for table adblab_libmgmtsystem.dewey_indices: ~435 rows (approximately)
 INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, `dewey_index_description`) VALUES
 	(1, 1, '001', 'Knowledge'),
 	(2, 1, '002', 'The book'),
@@ -292,18 +425,14 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(122, 2, '122', 'Causation'),
 	(123, 2, '123', 'Determinism & indeterminism'),
 	(124, 2, '124', 'Teleology'),
-	(125, 2, '125', 'Not assigned or no longer used '),
 	(126, 2, '126', 'The self'),
 	(127, 2, '127', 'The unconscious & the subconscious'),
 	(128, 2, '128', 'Humankind '),
 	(129, 2, '129', 'Origin & destiny of individual souls'),
 	(130, 2, '130', 'Paranormal phenomena'),
 	(131, 2, '131', 'Occult methods for achieving well-being'),
-	(132, 2, '132', 'Not assigned or no longer used'),
 	(133, 2, '133', 'Parapsychology & occultism'),
-	(134, 2, '134', 'Not assigned or no longer used'),
 	(135, 2, '135', 'Dreams & mysteries'),
-	(136, 2, '136', ' Not assigned or no longer used'),
 	(137, 2, '137', 'Divinatory graphology'),
 	(138, 2, '138', 'Physiognomy'),
 	(139, 2, '139', 'Phrenology'),
@@ -318,19 +447,15 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(148, 2, '148', 'Liberalism, eclecticism, traditionalism '),
 	(149, 2, '149', 'Other philosophical systems'),
 	(150, 2, '150', 'Psychology'),
-	(151, 2, '151', 'Not assigned or no longer used'),
 	(152, 2, '152', 'Perception, movement, emotions, drives '),
 	(153, 2, '153', 'Mental processes & intelligence'),
 	(154, 2, '154', 'Subconscious & altered states '),
 	(155, 2, '155', 'Differential & developmental psychology'),
 	(156, 2, '156', 'Comparative psychology'),
-	(157, 2, '157', 'Not assigned or no longer used'),
 	(158, 2, '158', 'Applied psychology'),
 	(160, 2, '160', 'Logic'),
 	(161, 2, '161', 'Induction'),
 	(162, 2, '162', 'Deduction'),
-	(163, 2, '163', 'Not assigned or no longer used'),
-	(164, 2, '164', 'Not assigned or no longer used'),
 	(165, 2, '165', 'Fallacies & sources of error'),
 	(166, 2, '166', 'Syllogisms'),
 	(167, 2, '167', 'Hypotheses'),
@@ -383,9 +508,7 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(214, 3, '214', 'Theodicy'),
 	(215, 3, '215', 'Science & religion '),
 	(216, 3, '216', 'Good & evil'),
-	(217, 3, '217', 'Not assigned or no longer used'),
 	(218, 3, '218', 'Humankind'),
-	(219, 3, '219', 'Not assigned or no longer used'),
 	(220, 3, '220', 'Bible '),
 	(221, 3, '221', 'Old Testament'),
 	(222, 3, '222', 'Historical books of Old Testament'),
@@ -403,14 +526,12 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(234, 3, '234', 'Salvation (Soteriology) & grace'),
 	(235, 3, '235', 'Spiritual beings'),
 	(236, 3, '236', 'Eschatology'),
-	(237, 3, '237', 'N/A'),
 	(238, 3, '238', 'Creeds & catechisms'),
 	(239, 3, '239', 'Apologetics & polemics'),
 	(240, 3, '240', 'Christian moral & devotional theology'),
 	(241, 3, '241', 'Moral theology'),
 	(242, 3, '242', 'Devotional literature'),
 	(243, 3, '243', 'Evangelistic writings for individuals'),
-	(244, 3, '244', 'N/A'),
 	(245, 3, '245', 'Texts of hymns'),
 	(246, 3, '246', 'Use of art in Christianity'),
 	(247, 3, '247', 'Church furnishings & articles'),
@@ -422,9 +543,6 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(253, 3, '253', '253 Pastoral office (Pastoral theology) '),
 	(254, 3, '254', 'Parish goverment & administration'),
 	(255, 3, '255', 'Religious congregations & orders'),
-	(256, 3, '256', 'N/A'),
-	(257, 3, '257', 'N/A'),
-	(258, 3, '258', 'N/A'),
 	(259, 3, '259', 'Activities of the local church'),
 	(260, 3, '260', 'Christian social theology '),
 	(261, 3, '261', 'Social theology'),
@@ -454,7 +572,6 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(285, 3, '285', 'Presbyterian, Reformed, Congregational'),
 	(286, 3, '286', 'Baptist, Disciples of Christ, Adventist'),
 	(287, 3, '287', 'Methodist churches; churches uniting Methodist and other denominations; Salvation Army'),
-	(288, 3, '288', 'N/A'),
 	(289, 3, '289', 'Other denominations & sects'),
 	(290, 3, '290', 'Other & comparative religions'),
 	(291, 3, '291', 'Comparative religion'),
@@ -464,7 +581,6 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(295, 3, '295', ' Zoroastrianism (Mazdaism, Parseeism)'),
 	(296, 3, '296', 'Judaism'),
 	(297, 3, '297', 'Islam & religions originating in it'),
-	(298, 3, '298', 'N/A'),
 	(299, 3, '299', 'Other religions'),
 	(300, 4, '300', 'Social Sciences'),
 	(301, 4, '301', 'Sociology & anthropology'),
@@ -474,12 +590,7 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(305, 4, '305', 'Social groups '),
 	(306, 4, '306', 'Culture & institutions'),
 	(307, 4, '307', 'Communities '),
-	(308, 4, '308', 'N/A'),
-	(309, 4, '309', 'N/A'),
 	(310, 4, '310', 'General statistics, Almanacs'),
-	(311, 4, '311', 'N/A'),
-	(312, 4, '312', 'N/A'),
-	(313, 4, '313', 'N/A'),
 	(314, 4, '314', 'General statistics of Europe'),
 	(315, 4, '315', 'General statistics of Asia'),
 	(316, 4, '316', 'General statistics of Africa'),
@@ -495,7 +606,6 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(326, 4, '326', ' Slavery & emancipation'),
 	(327, 4, '327', 'International relations '),
 	(328, 4, '328', 'The legislative process'),
-	(329, 4, '329', 'N/A'),
 	(330, 4, '330', 'Economics '),
 	(331, 4, '331', 'Labor economics'),
 	(332, 4, '332', 'Financial economics'),
@@ -562,8 +672,6 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(393, 4, '393', 'Death customs'),
 	(394, 4, '394', 'General customs '),
 	(395, 4, '395', 'Etiquette (Manners)'),
-	(396, 4, '396', 'N/A'),
-	(397, 4, '397', 'N/A'),
 	(398, 4, '398', 'Folklore '),
 	(399, 4, '399', 'Customs of war & diplomacy'),
 	(400, 5, '400', 'Language'),
@@ -582,7 +690,6 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(413, 5, '413', 'Dictionaries'),
 	(414, 5, '414', 'Phonology'),
 	(415, 5, '415', 'Structural systems (Grammar)'),
-	(416, 5, '416', 'N/A'),
 	(417, 5, '417', 'Dialectology & historicl linguistics'),
 	(418, 5, '418', 'Standard usage; Applied linguistics'),
 	(419, 5, '419', 'Verbal language not spoken or written'),
@@ -619,8 +726,29 @@ INSERT INTO `dewey_indices` (`dewey_index_id`, `dewey_class_id`, `dewey_index`, 
 	(455, 5, '455', 'Italian grammar'),
 	(457, 5, '457', 'Italian language variations'),
 	(458, 5, '458', 'Standard Italian usage'),
-	(459, 5, '459', 'Romanian & Rhæto-Romanic'),
-	(460, 5, '460', 'Romanian & Rhæto-Romanic');
+	(459, 5, '490', 'Other languages'),
+	(460, 5, '460', 'Spanish & Portugese languages'),
+	(461, 6, '500', 'Generalities about Natural Sciences and Mathematics'),
+	(462, 6, '501', 'Philosophy and Theory'),
+	(463, 6, '510', 'Mathematics'),
+	(464, 6, '530', 'Physics'),
+	(465, 6, '590', 'Zoological Sciences'),
+	(466, 7, '660', 'Chemical Engineering'),
+	(467, 7, '616', 'Diseases'),
+	(468, 7, '635', 'Garden Crops'),
+	(469, 7, '690', 'Buildings'),
+	(470, 7, '607', 'Education, research, related topics'),
+	(471, 8, '711', ' Area planning (Civic art)'),
+	(472, 8, '720', 'Architecture'),
+	(473, 8, '738', 'Ceramic arts'),
+	(474, 8, '750', 'Painting & paintings'),
+	(475, 8, '770', 'Photography & photographs '),
+	(476, 9, '811', 'Poetry'),
+	(477, 9, '831', 'German poetry'),
+	(478, 9, '898', 'South American native literatures'),
+	(479, 9, '810', 'American or Canadian  literature in English '),
+	(480, 10, '970', 'General history of North America'),
+	(481, 10, '914', 'Geography and travel ( Europe)');
 
 -- Dumping structure for table adblab_libmgmtsystem.faculty
 CREATE TABLE IF NOT EXISTS `faculty` (
@@ -715,7 +843,7 @@ CREATE TABLE IF NOT EXISTS `library_staffs` (
   CONSTRAINT `library_staffs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table adblab_libmgmtsystem.library_staffs: ~10 rows (approximately)
+-- Dumping data for table adblab_libmgmtsystem.library_staffs: ~8 rows (approximately)
 INSERT INTO `library_staffs` (`staff_id`, `user_id`, `job_title`) VALUES
 	(1, 28, 'Librarian Clerk'),
 	(2, 31, 'Assitant Librarian'),
@@ -784,7 +912,11 @@ CREATE TABLE IF NOT EXISTS `programs` (
   `program_name` varchar(128) DEFAULT NULL,
   `program_description` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`program_id`)
+<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=8002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+>>>>>>> Stashed changes
 
 -- Dumping data for table adblab_libmgmtsystem.programs: ~23 rows (approximately)
 INSERT INTO `programs` (`program_id`, `program_name`, `program_description`) VALUES
@@ -820,12 +952,28 @@ CREATE TABLE IF NOT EXISTS `publishers` (
   `publisher_country` varchar(128) DEFAULT NULL,
   `publisher_city` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`publisher_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table adblab_libmgmtsystem.publishers: ~2 rows (approximately)
+-- Dumping data for table adblab_libmgmtsystem.publishers: ~10 rows (approximately)
 INSERT INTO `publishers` (`publisher_id`, `publisher_name`, `publisher_description`, `publisher_country`, `publisher_city`) VALUES
 	(1, 'The PLM House', 'PLM\'s own publishing house', 'Philippines', 'Manila'),
-	(2, 'Routledge', NULL, 'UK', 'Milton');
+	(2, 'Routledge', NULL, 'UK', 'Milton'),
+	(3, '‎Finisterra Books', NULL, NULL, NULL),
+	(4, 'IMPERIAL COLLEGE PRESS', NULL, NULL, NULL),
+	(5, 'Bookland', NULL, NULL, NULL),
+	(6, 'Hansebooks', NULL, NULL, NULL),
+	(7, 'Phaidon Publishing', NULL, NULL, NULL),
+	(8, 'CreateSpace Independent Publishing Platform', NULL, NULL, NULL),
+	(9, 'British Library', NULL, NULL, NULL),
+	(10, 'Random House Trade Paperbacks', NULL, NULL, NULL);
+
+-- Dumping structure for view adblab_libmgmtsystem.read_departments
+-- Creating temporary table to overcome VIEW dependency errors
+CREATE TABLE `read_departments` (
+	`department_id` SMALLINT(6) NOT NULL,
+	`department_name` VARCHAR(128) NULL COLLATE 'utf8mb4_general_ci',
+	`department_description` VARCHAR(256) NULL COLLATE 'utf8mb4_general_ci'
+) ENGINE=MyISAM;
 
 -- Dumping structure for table adblab_libmgmtsystem.students
 CREATE TABLE IF NOT EXISTS `students` (
@@ -909,7 +1057,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_type_id`) REFERENCES `user_types` (`user_type_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table adblab_libmgmtsystem.users: ~32 rows (approximately)
+-- Dumping data for table adblab_libmgmtsystem.users: ~31 rows (approximately)
 INSERT INTO `users` (`user_id`, `user_type_id`, `first_name`, `middle_name`, `last_name`, `date_of_birth`, `gender`, `civil_status`, `citizenship`, `mobile_no`, `telephone_no`, `address`) VALUES
 	(1, 1, 'Mark Renan', 'De Jose', 'Dela Peña', '2001-04-28', 'Male', 'Single', 'Filipino', '09324561234', NULL, 'Manila, Philippines'),
 	(2, 2, 'Kads', NULL, 'Mercado', '1995-01-01', 'Male', 'Single', 'Filipino', '09895461234', NULL, 'Philippines'),
@@ -957,6 +1105,11 @@ INSERT INTO `user_types` (`user_type_id`, `user_type`, `user_type_description`) 
 	(1, 'student', 'Users of library who are students'),
 	(2, 'faculty', 'Users of library who are faculty/teachers'),
 	(3, 'staff', 'Library staff who will manage the system');
+
+-- Dumping structure for view adblab_libmgmtsystem.read_departments
+-- Removing temporary table and create final VIEW structure
+DROP TABLE IF EXISTS `read_departments`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `read_departments` AS SELECT * FROM departments ;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
