@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `colleges` (
   `college_name` varchar(128) DEFAULT NULL,
   `college_description` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`college_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.colleges: ~8 rows (approximately)
 INSERT INTO `colleges` (`college_id`, `college_name`, `college_description`) VALUES
@@ -784,7 +784,7 @@ CREATE TABLE IF NOT EXISTS `programs` (
   `program_name` varchar(128) DEFAULT NULL,
   `program_description` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`program_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.programs: ~23 rows (approximately)
 INSERT INTO `programs` (`program_id`, `program_name`, `program_description`) VALUES

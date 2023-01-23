@@ -387,7 +387,7 @@ include 'db_delete.php';
                   <div class="modal-content">
                     <div class="modal-header bg-primary">
                       <h5 class="modal-title" id="exampleModalCenterTitle">
-                        Edit {Entity}
+                        Colleges
                       </h5>
                       <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <i data-feather="x"></i>
@@ -435,7 +435,7 @@ include 'db_delete.php';
                 <div class="modal-content">
                   <div class="modal-header bg-primary">
                     <h5 class="modal-title" id="exampleModalCenterTitle">
-                      Delete {Entity}
+                      Delete College?
                     </h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                       <i data-feather="x"></i>
