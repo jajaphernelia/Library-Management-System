@@ -2,6 +2,7 @@
 
 require 'db_connect.php';
 
+// Delete author
 if(isset($_POST['delete_author'])){
     $id = $_POST['author_id'];
 
@@ -15,7 +16,7 @@ if(isset($_POST['delete_author'])){
 
 
 
-//Delete Program
+//Delete program
 if(isset($_POST['delete_program'])){
     $id = $_POST['program_id'];
 
@@ -28,7 +29,7 @@ if(isset($_POST['delete_program'])){
 }
 
 
-//Delete College
+//Delete college
 if(isset($_POST['delete_college'])){
     $id = $_POST['college_id'];
 
@@ -41,7 +42,17 @@ if(isset($_POST['delete_college'])){
 }
 
 
+// Delete department
+if(isset($_POST['delete_department'])){
+    $id = $_POST['department_id'];
 
+    $delete_department = "DELETE FROM departments WHERE department_id='$id' ";
+    $department_isdeleted = mysqli_query($dbconn, $delete_department);
+
+    if($department_isdeleted){
+        header("Location: department.php");
+    }
+}
 
 
 ?>

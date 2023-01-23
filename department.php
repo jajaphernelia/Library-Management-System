@@ -349,7 +349,7 @@ include 'db_delete.php';
                     <div class="col-md-12 col-12">
                       <div class="form-group">
                         <label for="first-name-column">Department Name</label>
-                        <input type="text" id="department_name" class="form-control" placeholder="Department Name"
+                        <input type="text" id="create_department_name" class="form-control" placeholder="Department Name"
                           name="department_name" required />
                       </div>
                     </div>
@@ -396,7 +396,7 @@ include 'db_delete.php';
                     foreach($read_departments as $row){
                   ?>
                   <tr>
-                      <td><?php echo $row['department_id']; ?></td>
+                      <td class="department_id"><?php echo $row['department_id']; ?></td>
                       <td><?php echo $row['department_name']; ?></td>
                       <td><?php echo $row['department_description']; ?></td>
                       <td>
@@ -423,7 +423,7 @@ include 'db_delete.php';
             <div class="modal-content">
               <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Edit Department
+                  Update Department
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
@@ -436,16 +436,16 @@ include 'db_delete.php';
                   <input type="hidden" name="update_department_id" id="update_department_id">
                     <div class="col-md-12 col-12">
                       <div class="form-group">
-                        <label for="first-name-column">Department Name</label>
+                        <label for="department_name">Department Name</label>
                         <input type="text" id="department_name" class="form-control" placeholder="Department Name"
-                          name="department_name" required />
+                          name="department_name" />
                       </div>
                     </div>
                     <div class="col-md-12 col-12">
                       <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Department Description</label>
+                        <label for="department_description">Department Description</label>
                         <textarea class="form-control" name="department_description" placeholder="Description of a Department"
-                        id="exampleFormControlTextarea1" rows="3"></textarea>
+                        id="department_description" rows="3"></textarea>
                       </div>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
@@ -453,7 +453,7 @@ include 'db_delete.php';
                         Cancel
                       </button>
                       <button type="submit" name="update_department_btn" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Add
+                        Update
                       </button>
                     </div>
                   </div>
@@ -501,7 +501,7 @@ include 'db_delete.php';
         <!-- View department Modal -->
         <div class="modal fade" id="departmentViewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
           aria-labelledby="departmentViewModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Department</h1>
@@ -524,7 +524,6 @@ include 'db_delete.php';
         // Read department
         $('.view_btn').click(function (e) {
           e.preventDefault();
-
           var department_id = $(this).closest('tr').find('.department_id').text();
 
           $.ajax({
@@ -534,6 +533,7 @@ include 'db_delete.php';
               'view_department': true,
               'department_id': department_id,
             },
+            
             success: function (response) {
               $('.department_view_data').html(response);
               $('#departmentViewModal').modal('show')
