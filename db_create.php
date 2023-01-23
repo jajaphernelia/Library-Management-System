@@ -93,6 +93,38 @@ if(isset($_POST['add_department'])){
     }
 }
 
+//Create Catalog
+if(isset($_POST['add_catalog'])){
+    
+    $catalog_isbn = mysqli_real_escape_string($dbconn, $_POST['catalog_isbn']);
+    $catalog_title = mysqli_real_escape_string($dbconn, $_POST['catalog_title']);
+    $catalog_item_description = mysqli_real_escape_string($dbconn, $_POST['catalog_item_description']);
+    $catalog_publish = mysqli_real_escape_string($dbconn, $_POST['catalog_publish']);
+    $catalog_pages = mysqli_real_escape_string($dbconn, $_POST['catalog_pages']);
+    $catalog_language = mysqli_real_escape_string($dbconn, $_POST['catalog_language']);
+    $catalog_price = mysqli_real_escape_string($dbconn, $_POST['catalog_price']);
+
+    $create_catalog = "INSERT INTO catalog (catalog_isbn, catalog_title, catalog_item_description, catalog_publish, catalog_pages, catalog_language, catalog_price) VALUES ('$catalog_isbn','$catalog_title', '$catalog_item_description','$catalog_publish','$catalog_pages','$catalog_language','$catalog_price')";
+
+    $catalog_created = mysqli_query($dbconn, $create_catalog);
+    if($catalog_created){
+        header("Location: catalog.php");
+    }
+}
+
+//Create Catalog Type
+if(isset($_POST['add_catalog_type'])){
+    
+    $catalog_type = mysqli_real_escape_string($dbconn, $_POST['catalog_type']);
+    $catalog_description = mysqli_real_escape_string($dbconn, $_POST['catalog_description']);
+
+    $create_catalog_type = "INSERT INTO catalog_types (catalog_type, catalog_type_description) VALUES ('$catalog_type','$catalog_description')";
+
+    $catalog_type_created = mysqli_query($dbconn, $create_catalog_type);
+    if($catalog_type_created){
+        header("Location: catalog_type.php");
+    }
+}
 
 if(isset($_POST['add_dewey_category'])){
     $dewey_category = mysqli_real_escape_string($dbconn, $_POST['dewey_category']);

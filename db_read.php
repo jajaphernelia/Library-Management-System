@@ -8,7 +8,11 @@ $read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
 $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
 $read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
 $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
+<<<<<<< Updated upstream
 $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes");
+=======
+$read_catalog_type = mysqli_query($dbconn, "SELECT * FROM catalog_types");
+>>>>>>> Stashed changes
 
 // Read individual author
 if (isset($_POST['view_author'])) {
@@ -142,7 +146,38 @@ if (isset($_POST['view_department'])) {
     } else {
         alert("No Record");
     }
+}
 
+
+if(isset($_POST['view_catalog_type'])){
+    $id = $_POST['catalog_type_id'];
+    // echo $return = $auth_id;
+
+    $read_catalog_type = mysqli_query($dbconn, "SELECT * FROM catalog_types WHERE catalog_type_id='$id' ");
+    if(mysqli_num_rows($read_catalog_type)>0){
+        foreach($read_catalog_type as $rows){
+            echo $return = '
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td style="width: 40%"><h6 class="text-muted">Catalog Type ID:</h6></td>
+                            <td style="width: 60%"><h6>'.$rows['catalog_type_id'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Catalog Type:</h6></td>
+                            <td><h6>'.$rows['catalog_type'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Catalog Type Description:</h6></td>
+                            <td><h6>'.$rows['catalog_type_description'].'</h6></td>
+                        </tr>
+                    </tbody>
+                </table>
+            ';
+        }
+    } else{
+        alert("No Record");
+    }
 }
 
 // Read  Publisher
