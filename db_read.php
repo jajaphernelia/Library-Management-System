@@ -95,15 +95,15 @@ if(isset($_POST['view_department'])){
                 <table class="table table-borderless">
                     <tbody>
                         <tr>
-                            <td style="width: 40%"><h6 class="text-muted">department ID:</h6></td>
+                            <td style="width: 40%"><h6 class="text-muted">Department ID:</h6></td>
                             <td style="width: 60%"><h6>'.$rows['department_id'].'</h6></td>
                         </tr>
                         <tr>
-                            <td><h6 class="text-muted">department Name:</h6></td>
+                            <td><h6 class="text-muted">Department Name:</h6></td>
                             <td><h6>'.$rows['department_name'].'</h6></td>
                         </tr>
                         <tr>
-                            <td><h6 class="text-muted">department Description:</h6></td>
+                            <td><h6 class="text-muted">Department Description:</h6></td>
                             <td><h6>'.$rows['department_description'].'</h6></td>
                         </tr>
                     </tbody>
