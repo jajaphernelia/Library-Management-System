@@ -13,16 +13,26 @@ include 'db_delete.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Transactions | libPLM</title>
+  <title>Transaction | libPLM</title>
 
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
+  <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
-  <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="assets/css/pages/datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
+
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -107,7 +117,7 @@ include 'db_delete.php';
               </a>
             </li>
 
-            <li class="sidebar-item">
+            <li class="sidebar-item ">
               <a href="catalog_type.php" class="sidebar-link">
                 <i class="bi bi-list-nested"></i>
                 <span>Catalog Types</span>
@@ -237,7 +247,7 @@ include 'db_delete.php';
               <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                   <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
+                    <li class="breadcrumb-item">
                       <a href="index.php">Dashboard</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">
@@ -262,14 +272,14 @@ include 'db_delete.php';
                       <div class="row">
                         <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
                           <div class="stats-icon green mt-3">
-                            <i class="iconly-boldShow"></i>
+                            <i class="iconly-boldAdd-User"></i>
                           </div>
                         </div>
                         <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
                           <a data-bs-toggle="modal" data-bs-target="#addModal"
                             class="btn icon icon-left btn-success mt-2 mb-2 w-75">
                             <i data-feather="plus-circle"></i> Add</a>
-                          <h6 class="text-muted font-semibold">new entity</h6>
+                          <h6 class="text-muted font-semibold">transaction</h6>
                         </div>
                       </div>
                     </div>
@@ -282,53 +292,18 @@ include 'db_delete.php';
                       <div class="row">
                         <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
                           <div class="stats-icon blue mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
+                            <i class="iconly-boldArrow---Up-Circle"></i>
                           </div>
                         </div>
                         <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
-                          <div class="stats-icon purple mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
+                          <h6 class="text-muted font-semibold mt-3">Some stats</h6>
+                          <h6 class="font-extrabold mb-0">100</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
-                          <div class="stats-icon red mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">112</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
@@ -338,21 +313,57 @@ include 'db_delete.php';
 
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-lg"
             role="document">
             <div class="modal-content">
               <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Add New {Entity}
+                  Add New Transaction
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
                 </button>
               </div>
               <div class="modal-body">
-                <!-- Forms -->
-                <form class="form">
+              <form class="form" action="db_create.php" method="POST">
                   <div class="row">
+
+                    <!-- Select Borrower -->
+                    <div class="col-md-12 mb-6">
+                      <div class="form-group">
+                        <label for="select-borrower" >Select Borrower</label>
+                        <select class="choices form-select" id="select-borrower" name="select-borrower">
+                          <?php
+                          if($read_borrowers) {
+                            foreach($read_borrowers as $row) {
+                          ?>
+                            <option value="<?php echo $row['user_id'] ?>"><?php echo $row['user_value'] ?></option>
+                          <?php
+                            }
+                          }
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Select Staff -->
+                    <div class="col-md-12 mb-6">
+                      <div class="form-group">
+                        <label for="select-staff" >Select Staff In Charge</label>
+                        <select class="choices form-select" id="select-staff" name="select-staff">
+                          <?php
+                          if($read_incharge) {
+                            foreach($read_incharge as $row) {
+                          ?>
+                            <option value="<?php echo $row['user_id'] ?>"><?php echo $row['user_value'] ?></option>
+                          <?php
+                            }
+                          }
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="first-name-column">First Name</label>
@@ -360,54 +371,12 @@ include 'db_delete.php';
                           name="fname-column" />
                       </div>
                     </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
-                          name="lname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
-                        </div>
-                      </div>
-                    </div>
+                   <!-- Buttons -->
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
-                      <button type="submit" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
+                      <button type="submit" name="add_transaction" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
                         Add
                       </button>
                     </div>
@@ -421,359 +390,133 @@ include 'db_delete.php';
         <!-- Database Table -->
         <section class="section">
           <div class="card">
-            <div class="card-header">Simple Datatable</div>
+            <div class="card-header">Transactions</div>
             <div class="card-body">
-              <table class="table table-striped" id="table1">
-                <thead>
+              <table class="table table-hover" id="table1">
+              <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>City</th>
-                    <th>Action</th>
+                    <th>Transaction ID</th>
+                    <th>Borrower</th>
+                    <th>Date Issued</th>
+                    <th>Expected Return Date</th>
+                    <th>Returned?</th>
+                    <th>Penalized?</th>
+                    <th>In Charge</th>
+                    <th>Date Returned</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php
+                  if($read_transactions) {
+                    foreach($read_transactions as $row) {
+                  ?>
                   <tr>
-                    <td>Graiden</td>
-                    <td>vehicula.aliquet@semconsequat.co.uk</td>
-                    <td>076 4820 8838</td>
-                    <td>Offenburg</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
+                      <td class="transaction_id"><?php echo $row['transaction_id']; ?></td>
+                      <td><?php echo $row['borrower']; ?></td>
+                      <td><?php echo $row['issued']; ?></td>
+                      <td><?php echo $row['expected']; ?></td>
+                      <td>
+                      <?php 
+                      if($row['is_returned'] == 1) {
+                        echo '<span class="badge bg-success">Returned</span>';
+                      } else {
+                        echo '<span class="badge bg-warning">Not Yet</span>';
+                      }
+                      ?>
+                      </td>
+                      <td>
+                      <?php 
+                      if($row['is_penalized'] == 1) {
+                        echo '<span class="badge bg-danger">Penalized</span>';
+                      } else {
+                        echo '<span class="badge bg-primary">Not Penalized</span>';
+                      }
+                      ?>
+                      </td>
+                      <td><?php echo $row['staff']; ?></td>
+                      <td><?php echo $row['returned']; ?></td>
+                      <td>
+                        <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
+                        <?php
+                          if($row['is_returned'] == 1) {
+                          echo '<a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-warning edit_btn">Revoke</a>';
+                          } else {
+                          echo '<a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-success edit_btn">Return</a>';
+                          }
+                        ?>
+                        <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
+                      </td>
                   </tr>
-                  <tr>
-                    <td>Dale</td>
-                    <td>fringilla.euismod.enim@quam.ca</td>
-                    <td>0500 527693</td>
-                    <td>New Quay</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nathaniel</td>
-                    <td>mi.Duis@diam.edu</td>
-                    <td>(012165) 76278</td>
-                    <td>Grumo Appula</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Darius</td>
-                    <td>velit@nec.com</td>
-                    <td>0309 690 7871</td>
-                    <td>Ways</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Oleg</td>
-                    <td>rhoncus.id@Aliquamauctorvelit.net</td>
-                    <td>0500 441046</td>
-                    <td>Rossignol</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kermit</td>
-                    <td>diam.Sed.diam@anteVivamusnon.org</td>
-                    <td>(01653) 27844</td>
-                    <td>Patna</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Jermaine</td>
-                    <td>sodales@nuncsit.org</td>
-                    <td>0800 528324</td>
-                    <td>Mold</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ferdinand</td>
-                    <td>gravida.molestie@tinciduntadipiscing.org</td>
-                    <td>(016977) 4107</td>
-                    <td>Marlborough</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kuame</td>
-                    <td>Quisque.purus@mauris.org</td>
-                    <td>(0151) 561 8896</td>
-                    <td>Tresigallo</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Deacon</td>
-                    <td>Duis.a.mi@sociisnatoquepenatibus.com</td>
-                    <td>07740 599321</td>
-                    <td>Karapınar</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Channing</td>
-                    <td>tempor.bibendum.Donec@ornarelectusante.ca</td>
-                    <td>0845 46 49</td>
-                    <td>Warrnambool</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Aladdin</td>
-                    <td>sem.ut@pellentesqueafacilisis.ca</td>
-                    <td>0800 1111</td>
-                    <td>Bothey</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Cruz</td>
-                    <td>non@quisturpisvitae.ca</td>
-                    <td>07624 944915</td>
-                    <td>Shikarpur</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Keegan</td>
-                    <td>molestie.dapibus@condimentumDonecat.edu</td>
-                    <td>0800 200103</td>
-                    <td>Assen</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ray</td>
-                    <td>placerat.eget@sagittislobortis.edu</td>
-                    <td>(0112) 896 6829</td>
-                    <td>Hofors</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Maxwell</td>
-                    <td>diam@dapibus.org</td>
-                    <td>0334 836 4028</td>
-                    <td>Thane</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Carter</td>
-                    <td>urna.justo.faucibus@orci.com</td>
-                    <td>07079 826350</td>
-                    <td>Biez</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Stone</td>
-                    <td>velit.Aliquam.nisl@sitametrisus.com</td>
-                    <td>0800 1111</td>
-                    <td>Olivar</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Berk</td>
-                    <td>fringilla.porttitor.vulputate@taciti.edu</td>
-                    <td>(0101) 043 2822</td>
-                    <td>Sanquhar</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Philip</td>
-                    <td>turpis@euenimEtiam.org</td>
-                    <td>0500 571108</td>
-                    <td>Okara</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kibo</td>
-                    <td>feugiat@urnajustofaucibus.co.uk</td>
-                    <td>07624 682306</td>
-                    <td>La Cisterna</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Bruno</td>
-                    <td>elit.Etiam.laoreet@luctuslobortisClass.edu</td>
-                    <td>07624 869434</td>
-                    <td>Rocca d"Arce</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Leonard</td>
-                    <td>blandit.enim.consequat@mollislectuspede.net</td>
-                    <td>0800 1111</td>
-                    <td>Lobbes</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Hamilton</td>
-                    <td>mauris@diam.org</td>
-                    <td>0800 256 8788</td>
-                    <td>Sanzeno</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Harding</td>
-                    <td>Lorem.ipsum.dolor@etnetuset.com</td>
-                    <td>0800 1111</td>
-                    <td>Obaix</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Emmanuel</td>
-                    <td>eget.lacus.Mauris@feugiatSednec.org</td>
-                    <td>(016977) 8208</td>
-                    <td>Saint-Remy-Geest</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
+                  <?php
+                    }
+                  }
+                  ?>
                 </tbody>
               </table>
             </div>
           </div>
         </section>
 
-        <!-- Edit entity Modal -->
+        <!-- Edit transaction Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-lg"
             role="document">
             <div class="modal-content">
               <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Edit {Entity}
+                  Update Transaction
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
                 </button>
               </div>
+              
+              <table class="table table-borderless mx-5 mt-5">
+                  <tbody>
+                      <tr>
+                          <td style="width: 30%"><h6 class="text-muted">Transaction ID:</h6></td>
+                          <td style="width: 70%"><h6 id="editID"></h6></td>
+                      </tr>
+                      <tr>
+                          <td><h6 class="text-muted">Borrower Name:</h6></td>
+                          <td><h6 id="editBorrower"></h6></td>
+                      </tr>
+                      <tr>
+                          <td><h6 class="text-muted">Date Issued:</h6></td>
+                          <td><h6 id="editIssued"></h6></td>
+                      </tr>
+                      <tr>
+                          <td><h6 class="text-muted">Expected Return Date:</h6></td>
+                          <td><h6 id="editExpected"></h6></td>
+                      </tr>
+                      <tr>
+                          <td><h6 class="text-muted">Staff in Charge:</h6></td>
+                          <td><h6 id="editStaff"></h6></td>
+                      </tr>                       
+                      <tr>
+                          <td><h6 class="text-muted">Returned Date:</h6></td>
+                          <td><h6 id="editReturned"></h6></td>
+                      </tr>
+                  </tbody>
+                </table>
+
+              <!-- Forms -->
               <div class="modal-body">
-                <!-- Forms -->
-                <form class="form">
+                <form class="form" action="db_update.php" method="POST">
                   <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
-                          name="fname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
-                          name="lname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
-                        </div>
-                      </div>
-                    </div>
+                    <input type="hidden" name="update_transaction_id" id="update_transaction_id">
+                    <input type="hidden" name="update_is_returned" id="update_is_returned">
+                    
+                    <!-- Buttons -->
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
-                      <button type="submit" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Update
+                      <button type="submit" name="update_transaction_btn" class="btn btn-primary me-1 mb-1 ml-2"
+                        data-bs-dismiss="modal">
+                        <span id="updateBtn">Update</span>
                       </button>
                     </div>
                   </div>
@@ -783,39 +526,139 @@ include 'db_delete.php';
           </div>
         </div>
 
-        <!-- Delete  entity Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        <!-- Delete Transaction Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
           aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-m"
-            role="document">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-m" role="document">
             <div class="modal-content">
               <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Delete {Entity}
+                <h5 class="modal-title" id="deleteModalLabel">
+                  Delete Transaction
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
                 </button>
               </div>
+              <form action="db_delete.php" method="POST">
+                <div class="modal-body">
+                  <input type="hidden" name="transaction_id" id="delete_transaction_id">
+                  <p>
+                    Do you want to delete this item?
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Cancel</span>
+                  </button>
+                  <button type="submit" class="btn btn-danger ml-1" data-bs-dismiss="modal" name="delete_transaction">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Delete</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- View Transaction Modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="departmentViewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="departmentViewModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Transaction</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
               <div class="modal-body">
-                <p>
-                  Do you want to delete this item?
-                </p>
+                <div class="transaction_view_data">
+                
+                </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                  <i class="bx bx-x d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Cancel</span>
-                </button>
-                <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
-                  <i class="bx bx-check d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Delete</span>
-                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
             </div>
           </div>
         </div>
 
+
+        <script>
+
+        // Read transaction
+        $('.view_btn').click(function (e) {
+          e.preventDefault();
+
+          var transaction_id = $(this).closest('tr').find('.transaction_id').text();
+
+          $.ajax({
+            type: "POST",
+            url: "db_read.php",
+            data: {
+              'view_transaction': true,
+              'transaction_id': transaction_id,
+            },
+            success: function (response) {
+              $('.transaction_view_data').html(response);
+              $('#departmentViewModal').modal('show')
+            }
+          });
+        });
+
+        // Delete transaction
+        $('.delete_btn').click(function (e) {
+          e.preventDefault();
+
+          var transaction_id = $(this).closest('tr').find('.transaction_id').text();
+
+          $('#delete_transaction_id').val(transaction_id);
+          $('#deleteModal').modal('show');
+        });
+
+        // Retrieve transaction_id
+        $('.edit_btn').click(function (e) {
+          e.preventDefault();
+
+          var transaction_id = $(this).closest('tr').find('.transaction_id').text();
+          // console.log(transaction_id);
+
+          $.ajax({
+            type: "POST",
+            url: "db_update.php",
+            data: {
+              'retrieve_transaction_btn':true,
+              'transaction_id':transaction_id,
+            },
+            success: function (response) {
+              // console.log(response);
+              $.each(response, function (key, value) {
+                //  console.log(value['transaction_name']);
+                $('#update_transaction_id').val(value['transaction_id']);
+                $('#update_is_returned').val(value['is_returned']);
+
+                $('#editID').text(value['transaction_id']);
+                $('#editBorrower').text(value['borrower']);
+                $('#editStaff').text(value['staff']);
+                $('#editIssued').text(value['issued']);
+                $('#editExpected').text(value['expected']);
+
+
+                if (value['is_returned'] == 1) {
+                  $('#updateBtn').text('Revoke');
+                  $('#editReturned').text(value['returned']);
+
+                } else {
+                  $('#updateBtn').text('Return');
+                }
+
+              });
+              $('#editModal').modal('show');
+            }
+          });
+        });
+
+        </script> 
 
         <footer class="mt-auto">
           <div class="footer clearfix mb-0 text-muted">
@@ -836,11 +679,16 @@ include 'db_delete.php';
       </div>
     </div>
   </div>
+
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/app.js"></script>
 
-  <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-  <script src="assets/js/pages/simple-datatables.js"></script>
+  <script src="assets/extensions/jquery/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+  <script src="assets/js/pages/datatables.js"></script>
+
+  <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+  <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>

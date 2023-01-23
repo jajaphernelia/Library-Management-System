@@ -21,9 +21,47 @@ FROM dewey_indices AS din
 LEFT JOIN dewey_classes AS dcl
 ON din.dewey_class_id = dcl.dewey_class_id;");
 
+$read_transactions = mysqli_query($dbconn,
+"
+SELECT
+	trans.transaction_id,
+	CONCAT(borrower.last_name, ', ',borrower.first_name, ' ', IFNULL(borrower.middle_name, '') ) AS borrower,
+	CONCAT(staff.last_name, ', ',staff.first_name, ' ', IFNULL(staff.middle_name, '') ) AS staff,
+	trans.date_issued AS issued,
+	trans.expected_return_date AS expected,
+	trans.date_returned AS returned,
+	trans.is_returned,
+	trans.is_penalized
+FROM transactions AS trans
+LEFT JOIN users AS borrower
+ON trans.borrower_id = borrower.user_id
+LEFT JOIN users AS staff
+ON trans.staff_id = staff.user_id
+ORDER BY trans.transaction_id DESC;
+"
+);
 
+$read_borrowers = mysqli_query($dbconn,
+"
+SELECT
+	u.user_id,
+	CONCAT(ut.user_type, ': ', u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS 'user_value'
+FROM users AS u
+LEFT JOIN user_types AS ut
+ON u.user_type_id = ut.user_type_id
+WHERE u.user_type_id != 3;
+"
+);
 
-
+$read_incharge = mysqli_query($dbconn,
+"
+SELECT
+	u.user_id,
+	CONCAT(u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS 'user_value'
+FROM users AS u
+WHERE u.user_type_id = 3;
+"
+);
 
 // Read individual author
 if (isset($_POST['view_author'])) {
@@ -262,6 +300,94 @@ if (isset($_POST['view_dewey_category'])) {
         alert("No Record");
     }
 }
+
+// Read individual department
+if (isset($_POST['view_transaction'])) {
+    $id = $_POST['transaction_id'];
+    // echo $return = $auth_id;
+
+    $read_transaction = mysqli_query($dbconn,
+        "
+        SELECT
+            trans.transaction_id,
+            CONCAT(borrower.last_name, ', ',borrower.first_name, ' ', IFNULL(borrower.middle_name, '') ) AS borrower,
+            CONCAT(staff.last_name, ', ',staff.first_name, ' ', IFNULL(staff.middle_name, '') ) AS staff,
+            trans.date_issued AS issued,
+            trans.expected_return_date AS expected,
+            trans.date_returned AS returned,
+            trans.is_returned,
+            trans.is_penalized
+        FROM transactions AS trans
+        LEFT JOIN users AS borrower
+        ON trans.borrower_id = borrower.user_id
+        LEFT JOIN users AS staff
+        ON trans.staff_id = staff.user_id
+        WHERE transaction_id = $id
+        ORDER BY trans.transaction_id DESC;
+        "
+    );
+    if (mysqli_num_rows($read_transaction) > 0) {
+        foreach ($read_transaction as $rows) {
+
+            if($rows['is_returned'] == 1) {
+                $return_status = '<span class="badge bg-success">Returned</span>';
+            } else {
+                $return_status = '<span class="badge bg-warning">Not Returned</span>';
+            }
+
+            if($rows['is_penalized'] == 1) {
+                $penalized_status = '<span class="badge bg-danger">Penalized</span>';
+            } else {
+                $penalized_status = '<span class="badge bg-primary">Not Penalized</span>';
+            }
+
+            echo $return = '
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td style="width: 40%"><h6 class="text-muted">Transaction ID:</h6></td>
+                            <td style="width: 60%"><h6>' . $rows['transaction_id'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Borrower Name:</h6></td>
+                            <td><h6>' . $rows['borrower'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Date Issued:</h6></td>
+                            <td><h6>' . $rows['issued'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Expected Return Date:</h6></td>
+                            <td><h6>' . $rows['expected'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Staff in Charge:</h6></td>
+                            <td><h6>' . $rows['staff'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Return Status:</h6></td>
+                            <td><h6>' . $return_status . '</h6></td>
+                        </tr>                        
+                        <tr>
+                            <td><h6 class="text-muted">Penalty Status:</h6></td>
+                            <td><h6>' . $penalized_status . '</h6></td>
+                        </tr>                        
+                        <tr>
+                            <td><h6 class="text-muted">Returned Date:</h6></td>
+                            <td><h6>' . $rows['returned'] . '</h6></td>
+                        </tr>
+                    </tbody>
+                </table>
+            ';
+        }
+    } else {
+        alert("No Record");
+    }
+}
+
+
+
+
 
 
 

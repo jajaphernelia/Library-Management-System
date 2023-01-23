@@ -248,6 +248,68 @@ if(isset($_POST['update_dewey_categorybtn'])){
     }
 }
 
+// Retrieve existing transaction
+if(isset($_POST['retrieve_transaction_btn'])){
+    $id = $_POST['transaction_id'];
+    // echo $return = $auth_id;
+    $result_array = [];
+
+    $read_transaction = mysqli_query($dbconn,
+    "
+    SELECT
+        trans.transaction_id,
+        CONCAT(borrower.last_name, ', ',borrower.first_name, ' ', IFNULL(borrower.middle_name, '') ) AS borrower,
+        CONCAT(staff.last_name, ', ',staff.first_name, ' ', IFNULL(staff.middle_name, '') ) AS staff,
+        trans.date_issued AS issued,
+        trans.expected_return_date AS expected,
+        trans.date_returned AS returned,
+        trans.is_returned,
+        trans.is_penalized
+    FROM transactions AS trans
+    LEFT JOIN users AS borrower
+    ON trans.borrower_id = borrower.user_id
+    LEFT JOIN users AS staff
+    ON trans.staff_id = staff.user_id
+    WHERE transaction_id = $id
+    ORDER BY trans.transaction_id DESC;
+    "
+    );
+    if(mysqli_num_rows($read_transaction) > 0 ){
+        foreach($read_transaction as $rows){
+            array_push($result_array, $rows);
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        }
+    }else{
+        alert("No Record");
+    }
+
+}
+
+// Update existing transaction
+if(isset($_POST['update_transaction_btn'])){
+    $id = $_POST['update_transaction_id'];
+
+    $is_returned = (int) $_POST['update_is_returned'];
+    
+    if($is_returned == 1) {
+        $transaction_query = "UPDATE transactions SET is_returned=0, date_returned = null WHERE transaction_id='$id'";
+        $transaction_updated = mysqli_query($dbconn, $transaction_query);
+    
+        if($transaction_updated){
+            header("Location: transaction.php");
+        }
+    } else {
+        $transaction_query = "UPDATE transactions SET is_returned=1, date_returned=curdate() WHERE transaction_id='$id'";
+        $transaction_updated = mysqli_query($dbconn, $transaction_query);
+    
+        if($transaction_updated){
+            header("Location: transaction.php");
+        }
+    }
+
+
+}
 
 
 ?>
