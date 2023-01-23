@@ -330,7 +330,7 @@ include 'db_delete.php';
                             </div>
                             <div class="form-group">
                               <label for="exampleFormControlTextarea1">Dewey Class Description</label>
-                              <textarea class="form-control" id="dewey_class_description" rows="3"
+                              <textarea class="form-control"  rows="3"
                                 name="dewey_class_description" placeholder="Description of Dewey Class"></textarea>
                             </div>
                             <div class="col-12 d-flex justify-content-end">
@@ -425,11 +425,9 @@ include 'db_delete.php';
                             </div>
                             <div class="form-group">
                               <label for="exampleFormControlTextarea1">Dewey Class Description</label>
-                              <textarea class="form-control" id="dewey_class_description" rows="3"
-                                name="dewey_class_description" placeholder="Description of Dewey Class"></textarea>
+                              <textarea class="form-control" id="dewey_class_description" rows="3" name="dewey_class_description"></textarea>
                             </div>
                             <div class="col-12 d-flex justify-content-end">
-
                               <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                                 Cancel
                               </button>
@@ -452,7 +450,7 @@ include 'db_delete.php';
                     <div class="modal-content">
                       <div class="modal-header bg-primary">
                         <h5 class="modal-title" id="exampleModalCenterTitle">
-                          Delete {Entity}
+                          Delete Dewey Category?
                         </h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                           <i data-feather="x"></i>
@@ -480,7 +478,7 @@ include 'db_delete.php';
                   </div>
                 </div>
 
-                <!-- College View Modal -->
+                <!-- Dewey Classes View Modal -->
                 <!-- Modal -->
                 <div class="modal fade" id="dewey_category_ViewModal" data-bs-backdrop="static" data-bs-keyboard="false"
                   tabindex="-1" aria-labelledby="dewey_category_ViewModalLabel" aria-hidden="true">
