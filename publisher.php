@@ -419,7 +419,7 @@ include 'db_delete.php';
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="city-column">Publisher City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="Publisher C"
+                        <input type="text" id="city-column" class="form-control" placeholder="Publisher City"
                           name="city-column" />
                       </div>
                     </div>

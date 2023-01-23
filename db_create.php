@@ -30,6 +30,7 @@ if(isset($_POST['add_program'])){
 
 }
 
+//Create Publisher
 if(isset($_POST['add_publisher'])){
     $publisher_name = mysqli_real_escape_string($dbconn, $_POST['publisher_name']);
     $publisher_description = mysqli_real_escape_string($dbconn, $_POST['publisher_description']);
@@ -41,6 +42,21 @@ if(isset($_POST['add_publisher'])){
     $publisher_created = mysqli_query($dbconn, $create_publisher);
     if($publisher_created){
         header("Location: publisher.php");
+    }
+
+}
+
+//Create Faculty
+if(isset($_POST['add_faculty'])){
+    $faculty_position = mysqli_real_escape_string($dbconn, $_POST['faculty_position']);
+    $employment_type = mysqli_real_escape_string($dbconn, $_POST['employment_type']);
+
+
+    $create_faculty = "INSERT INTO faculty (position, employement_type) VALUES ('$faculty_position', '$employment_type')";
+
+    $faculty_created = mysqli_query($dbconn, $create_faculty);
+    if($faculty_created){
+        header("Location: faculty.php");
     }
 
 }
