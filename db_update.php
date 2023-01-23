@@ -144,4 +144,41 @@ if(isset($_POST['update_department_btn'])){
     }
 }
 
+// Retrieve existing publisher
+if(isset($_POST['retrieve_publisher_btn'])){
+    $id = $_POST['publisher_id'];
+    // echo $return = $auth_id;
+    $result_array = [];
+
+    $read_publisher = mysqli_query($dbconn, "SELECT * FROM publishers WHERE publisher_id='$id'");
+    if(mysqli_num_rows($read_publisher) > 0 ){
+        foreach($read_publisher as $rows){
+            array_push($result_array, $rows);
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        }
+    }else{
+        alert("No Record");
+    }
+
+}
+
+// Update existing publisher
+if(isset($_POST['update_publisher_btn'])){
+    $id = $_POST['update_publisher_id'];
+
+    $publisher_name = $_POST['publisher_name'];
+    $publisher_description = $_POST['publisher_description'];
+    $publisher_country = $_POST['publisher_country'];
+    $publisher_city = $_POST['publisher_city'];
+
+    $publisher_query = "UPDATE publishers SET publisher_name='$publisher_name', publisher_description='$publisher_description', publisher_country='$publisher_country', publisher_city='$publisher_city' WHERE publisher_id='$id'";
+    $publisher_updated = mysqli_query($dbconn, $publisher_query);
+
+    if($publisher_updated){
+        header("Location: publisher.php");
+    }
+}
+
+
 ?>

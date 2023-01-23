@@ -54,5 +54,17 @@ if(isset($_POST['delete_department'])){
     }
 }
 
+// Delete publisher
+if(isset($_POST['delete_publisher'])){
+    $id = $_POST['publisher_id'];
+
+    $delete_publisher = "DELETE FROM publishers WHERE publisher_id='$id' ";
+    $publisher_isdeleted = mysqli_query($dbconn, $delete_publisher);
+
+    if($publisher_isdeleted){
+        header("Location: publisher.php");
+    }
+}
+
 
 ?>

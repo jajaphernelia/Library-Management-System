@@ -18,5 +18,5 @@ CREATE VIEW IF NOT EXISTS read_faculty
 AS SELECT * FROM faculty;
 
 -- Create view for Publishers Read function
-CREATE VIEW IF NOT EXSISTS read_publishers
+CREATE VIEW IF NOT EXISTS read_publishers
 AS SELECT * FROM publishers;

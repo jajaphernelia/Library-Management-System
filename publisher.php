@@ -13,17 +13,25 @@ include 'db_delete.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Publishers | libPLM</title>
+  <title>Publisher | libPLM</title>
 
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
+  <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
-  <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="assets/css/pages/datatables.css" />
   <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
+
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -277,73 +285,74 @@ include 'db_delete.php';
                   </div>
                 </div>
 
-        <!-- Add entity Modal -->
-        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Publisher
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- Forms -->
-                <form class="form" action="db_create.php" method="POST">
-                  <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">Publisher Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="Publisher Name"
-                          name="publisher_name" />
+                <!-- Add entity Modal -->
+                <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+                    role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Publisher
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <i data-feather="x"></i>
+                        </button>
                       </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Publisher Description</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Publisher Description"
-                          name="publisher_description" />
+                      <div class="modal-body">
+                        <!-- Forms -->
+                        <form class="form" action="db_create.php" method="POST">
+                          <div class="row">
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="first-name-column">Publisher Name</label>
+                                <input type="text" id="first-name-column" class="form-control"
+                                  placeholder="Publisher Name" name="publisher_name" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="last-name-column">Publisher Description</label>
+                                <input type="text" id="last-name-column" class="form-control"
+                                  placeholder="Publisher Description" name="publisher_description" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="city-column">Publisher Country</label>
+                                <input type="text" id="city-column" class="form-control" placeholder="Publisher Country"
+                                  name="publisher_country" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="country-floating">Publisher City</label>
+                                <input type="text" id="country-floating" class="form-control" name="publisher_city"
+                                  placeholder="Publisher City" />
+                              </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                              <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
+                                Cancel
+                              </button>
+                              <button type="submit" name="add_publisher" class="btn btn-success me-1 mb-1 ml-2"
+                                data-bs-dismiss="modal">
+                                Add
+                              </button>
+                            </div>
+                          </div>
+                        </form>
                       </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">Publisher Country</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="Publisher Country"
-                          name="publisher_country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Publisher City</label>
-                        <input type="text" id="country-floating" class="form-control" name="publisher_city"
-                          placeholder="Publisher City" />
-                      </div>
-                    </div>
-                    <div class="col-12 d-flex justify-content-end">
-                      <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
-                        Cancel
-                      </button>
-                      <button type="submit" name="add_publisher" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Add
-                      </button>
                     </div>
                   </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+                </div>
 
-        <!-- Database Table -->
-        <section class="section">
+                <!-- Database Table -->
+                <section class="section">
                   <div class="card">
                     <div class="card-header">Publisher</div>
                     <div class="card-body">
-                      <table class="table table-striped" id="table1">
+                      <table class="table table-hover" id="table1">
                         <thead>
                           <tr>
                             <th>Publisher ID</th>
@@ -356,18 +365,35 @@ include 'db_delete.php';
                         </thead>
                         <tbody>
                           <?php
-                          foreach ($read_publishers as $column) {
-                            echo '<tr>';
-                            echo '<td>' . $column['publisher_id'] . '</td>';
-                            echo '<td>' . $column['publisher_name'] . '</td>';
-                            echo '<td>' . $column['publisher_description'] . '</td>';
-                            echo '<td>' . $column['publisher_country'] . '</td>';
-                            echo '<td>' . $column['publisher_city'] . '</td>';
-                            echo '<td>
-                            <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                          </td>';
-                            echo '</tr>';
+                          if ($read_publishers) {
+                            foreach ($read_publishers as $row) {
+                              ?>
+                              <tr>
+                                <td class="publisher_id">
+                                  <?php echo $row['publisher_id'] ?>
+                                </td>
+                                <td>
+                                  <?php echo $row['publisher_name'] ?>
+                                </td>
+                                <td>
+                                  <?php echo $row['publisher_description'] ?>
+                                </td>
+                                <td>
+                                  <?php echo $row['publisher_country'] ?>
+                                </td>
+                                <td>
+                                  <?php echo $row['publisher_city'] ?>
+                                </td>
+                                <td>
+                                  <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
+                                  <a data-bs-toggle="modal" data-bs-target="#editModal"
+                                    class="badge bg-primary edit_btn">Edit</a>
+                                  <a data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                    class="badge bg-danger delete_btn">Delete</a>
+                                </td>
+                              </tr>
+                              <?php
+                            }
                           }
                           ?>
                         </tbody>
@@ -376,127 +402,224 @@ include 'db_delete.php';
                   </div>
                 </section>
 
-        <!-- Edit entity Modal -->
-        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Edit
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <!-- Forms -->
-                <form class="form">
-                  <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">Publisher Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="Publisher Name"
-                          name="fname-column" />
+                <!-- Edit entity Modal -->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+                    role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Edit
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <i data-feather="x"></i>
+                        </button>
                       </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Publisher Description</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Publisher Description"
-                          name="lname-column" />
+                      <div class="modal-body">
+                        <!-- Forms -->
+                        <form class="form" action="db_update.php" method="POST">
+                          <div class="row">
+                            <input type="hidden" name="update_publisher_id" id="update_publisher_id">
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="first-name-column">Publisher Name</label>
+                                <input type="text" id="publisher_name" class="form-control" placeholder="Publisher Name"
+                                  name="publisher_name" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="last-name-column">Publisher Description</label>
+                                <input type="text" id="publisher_description" class="form-control"
+                                  placeholder="Publisher Description" name="publisher_description" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="city-column">Publisher Country</label>
+                                <input type="text" id="publisher_country" class="form-control"
+                                  placeholder="Publisher Country" name="publisher_country" />
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <div class="form-group">
+                                <label for="city-column">Publisher City</label>
+                                <input type="text" id="publisher_city" class="form-control" placeholder="Publisher City"
+                                  name="publisher_city" />
+                              </div>
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                              <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
+                                Cancel
+                              </button>
+                              <button type="submit" name="update_publisher_btn" class="btn btn-primary me-1 mb-1 ml-2"
+                                data-bs-dismiss="modal">
+                                Update
+                              </button>
+                            </div>
+                          </div>
+                        </form>
                       </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">Publisher Country</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="Publisher Country"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">Publisher City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="Publisher City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-12 d-flex justify-content-end">
-                      <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
-                        Cancel
-                      </button>
-                      <button type="submit" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Update
-                      </button>
                     </div>
                   </div>
-                </form>
+                </div>
+
+                <!-- Delete  entity Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-m"
+                    role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                          Delete {Entity}
+                        </h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                          <i data-feather="x"></i>
+                        </button>
+                      </div>
+                      <form action="db_delete.php" method="POST">
+                        <div class="modal-body">
+                          <input type="hidden" name="publisher_id" id="delete_publisher_id">
+                          <p>
+                            Do you want to delete this item?
+                          </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Cancel</span>
+                          </button>
+                          <button type="submit" class="btn btn-danger ml-1" data-bs-dismiss="modal"
+                            name="delete_publisher">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Delete</span>
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- View Publisher Modal -->
+                <!-- Modal -->
+                <div class="modal fade" id="publisherViewModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                  tabindex="-1" aria-labelledby="publisherViewModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Author</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="publisher_view_data">
+
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <script>
+        // Read publisher
+      $('.view_btn').click(function (e) {
+        e.preventDefault();
+
+      var publisher_id = $(this).closest('tr').find('.publisher_id').text();
+
+      $.ajax({
+        type: "POST",
+      url: "db_read.php",
+      data: {
+        'view_publisher': true,
+      'publisher_id': publisher_id,
+            },
+      success: function (response) {
+        $('.publisher_view_data').html(response);
+      $('#publisherViewModal').modal('show')
+            }
+          });
+        });
+
+      // Delete publisher
+      $('.delete_btn').click(function (e) {
+        e.preventDefault();
+
+      var publisher_id = $(this).closest('tr').find('.publisher_id').text();
+
+      // console.log(author_id);
+      $('#delete_publisher_id').val(publisher_id);
+      $('#deleteModal').modal('show');
+        });
+
+      // Retrieve Publisher
+      $('.edit_btn').click(function (e) {
+        e.preventDefault();
+
+      var publisher_id = $(this).closest('tr').find('.publisher_id').text();
+      // console.log(author_id);
+
+      $.ajax({
+        type: "POST",
+      url: "db_update.php",
+      data: {
+        'retrieve_publisher_btn':true,
+      'publisher_id':publisher_id,
+            },
+      success: function (response) {
+        // console.log(response);
+        $.each(response, function (key, value) {
+          //  console.log(value['author_name']);
+          $('#update_publisher_id ').val(value['publisher_id']);
+          $('#publisher_name').val(value['publisher_name']);
+          $('#publisher_description').val(value['publisher_description']);
+          $('#publisher_country').val(value['publisher_country']);
+          $('#publisher_city').val(value['publisher_city']);
+        });
+      $('#editModal').modal('show');
+            }
+          });
+        });
+
+                </script>
+
+
+                <footer class="mt-auto">
+                  <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                      <p>2023 &copy; libPLM</p>
+                    </div>
+                    <div class="float-end">
+                      <p>
+                        Crafted with
+                        <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i>
+                        </span>
+                        by <a href="https://ahmadsaugi.com">Saugi</a>
+                      </p>
+                    </div>
+                  </div>
+                </footer>
+
               </div>
             </div>
-          </div>
         </div>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/app.js"></script>
 
-        <!-- Delete  entity Modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-m"
-            role="document">
-            <div class="modal-content">
-              <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Delete {Entity}
-                </h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p>
-                  Do you want to delete this item?
-                </p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                  <i class="bx bx-x d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Cancel</span>
-                </button>
-                <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
-                  <i class="bx bx-check d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Delete</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <script src="assets/extensions/jquery/jquery.min.js"></script>
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+        <script src="assets/js/pages/datatables.js"></script>
 
+        <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+        <script src="assets/js/pages/form-element-select.js"></script>
 
-        <footer class="mt-auto">
-          <div class="footer clearfix mb-0 text-muted">
-            <div class="float-start">
-              <p>2023 &copy; libPLM</p>
-            </div>
-            <div class="float-end">
-              <p>
-                Crafted with
-                <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i>
-                </span>
-                by <a href="https://ahmadsaugi.com">Saugi</a>
-              </p>
-            </div>
-          </div>
-        </footer>
+        <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+        <script src="assets/js/pages/form-element-select.js"></script>
 
-      </div>
-    </div>
-  </div>
-  <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/app.js"></script>
-
-  <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-  <script src="assets/js/pages/simple-datatables.js"></script>
-  <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
-  <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>

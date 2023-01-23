@@ -46,7 +46,7 @@ if (isset($_POST['view_author'])) {
 
 }
 
-
+//Read Program
 if (isset($_POST['view_program'])) {
     $prog_id = $_POST['program_id'];
     // echo $return = $auth_id;
@@ -78,6 +78,8 @@ if (isset($_POST['view_program'])) {
     }
 }
 
+
+//Read College
 if (isset($_POST['view_college'])) {
     $cllg_id = $_POST['college_id'];
     // echo $return = $auth_id;
@@ -141,5 +143,50 @@ if (isset($_POST['view_department'])) {
     }
 
 }
+
+// Read  Publisher
+if (isset($_POST['view_publisher'])) {
+    $id = $_POST['publisher_id'];
+    // echo $return = $auth_id;
+
+
+    $read_publisher = mysqli_query($dbconn, "SELECT * FROM publishers WHERE publisher_id='$id' ");
+    if (mysqli_num_rows($read_publisher) > 0) {
+        foreach ($read_publisher as $rows) {
+            echo $return = '
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td style="width: 40%"><h6 class="text-muted">Publisher ID:</h6></td>
+                            <td style="width: 60%"><h6>' . $rows['publisher_id'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Publisher Name:</h6></td>
+                            <td><h6>' . $rows['publisher_name'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Publisher Description:</h6></td>
+                            <td><h6>' . $rows['publisher_description'] . '</h6></td>
+                        </tr>
+                         <tr>
+                            <td><h6 class="text-muted">Publisher Country:</h6></td>
+                            <td><h6>' . $rows['publisher_country'] . '</h6></td>
+                        </tr>
+                         <tr>
+                            <td><h6 class="text-muted">Publisher City:</h6></td>
+                            <td><h6>' . $rows['publisher_city'] . '</h6></td>
+                        </tr>
+                    </tbody>
+                </table>
+            ';
+        }
+    } else {
+        alert("No Record");
+    }
+}
+
+
+
+
 
 ?>
