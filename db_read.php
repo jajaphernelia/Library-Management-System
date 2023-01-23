@@ -8,11 +8,8 @@ $read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
 $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
 $read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
 $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
-<<<<<<< Updated upstream
 $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes");
-=======
 $read_catalog_type = mysqli_query($dbconn, "SELECT * FROM catalog_types");
->>>>>>> Stashed changes
 
 // Read individual author
 if (isset($_POST['view_author'])) {
