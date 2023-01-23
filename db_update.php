@@ -180,5 +180,38 @@ if(isset($_POST['update_publisher_btn'])){
     }
 }
 
+// // Retrieve existing dewey category
+// if(isset($_POST['retrieve_dewey_category_btn'])){
+//     $dewey_cat_id = $_POST['dewey_class_id'];
+//     // echo $return = $auth_id;
+//     $result_array = [];
 
-?>
+//     $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes WHERE dewey_class_id='$dewey_cat_id' ");
+//     if(mysqli_num_rows($read_dewey_classes) > 0 ){
+//         foreach($read_dewey_classes as $rows){
+//             array_push($result_array, $rows);
+//             header('Content-type: application/json');
+//             echo json_encode($result_array);
+//         }
+//     }else{
+//         alert("No Record");
+//     }
+
+// }
+
+// // Update existing program
+// if(isset($_POST['update_dewey_category_btn'])){
+//     $id = $_POST['update_dewey_class_id'];
+
+//     $dewey_class_category = $_POST['dewey_class_category'];
+//     $dewey_class_description = $_POST['dewey_class_description'];
+
+//     $dewey_category_query = "UPDATE dewey_classes SET dewey_class_category='$dewey_class_category', program_description='$dewey_class_description' WHERE dewey_class_id='$dewey_cat_id'";
+//     $dewey_category_updated = mysqli_query($dbconn, $program_query);
+
+//     if($program_updated){
+//         header("Location: dewey_category.php");
+//     }
+// }
+
+// ?>

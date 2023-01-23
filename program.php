@@ -11,9 +11,9 @@ include 'db_delete.php';
 <html lang="en">
 
 <head>
-<meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Author | libPLM</title>
+  <title>Program | libPLM</title>
 
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
@@ -28,7 +28,7 @@ include 'db_delete.php';
 
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js">
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
@@ -285,6 +285,24 @@ include 'db_delete.php';
                   </div>
                 </div>
 
+                <div class="col-6 col-lg-3 col-md-6">
+                  <div class="card">
+                    <div class="card-body px-4 py-4-5">
+                      <div class="row">
+                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
+                          <div class="stats-icon blue mb-3 mt-3">
+                            <i class="iconly-boldArrow---Up-Circle"></i>
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
+                          <h6 class="text-muted font-semibold mt-3">Some stats</h6>
+                          <h6 class="font-extrabold mb-0">100</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <!-- Add entity Modal -->
 
                 <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
@@ -363,11 +381,13 @@ include 'db_delete.php';
                                 </td>
                                 <td>
                                   <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
-                                  <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary edit_btn">Edit</a>
-                                  <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
+                                  <a data-bs-toggle="modal" data-bs-target="#editModal"
+                                    class="badge bg-primary edit_btn">Edit</a>
+                                  <a data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                    class="badge bg-danger delete_btn">Delete</a>
                                 </td>
                               </tr>
-                             <?php
+                              <?php
                             }
                           }
                           ?>
@@ -490,59 +510,59 @@ include 'db_delete.php';
 
 
         // Read Program
-        $('.view_btn').click(function (e) {
-          e.preventDefault();
+      $('.view_btn').click(function (e) {
+        e.preventDefault();
 
-          var program_id = $(this).closest('tr').find('.program_id').text();
+      var program_id = $(this).closest('tr').find('.program_id').text();
 
-          $.ajax({
-            type: "POST",
-            url: "db_read.php",
-            data: {
-              'view_program': true,
-              'program_id': program_id,
+      $.ajax({
+        type: "POST",
+      url: "db_read.php",
+      data: {
+        'view_program': true,
+      'program_id': program_id,
             },
-            success: function (response) {
-              $('.program_viewing_data').html(response);
-              $('#programViewModal').modal('show')
+      success: function (response) {
+        $('.program_viewing_data').html(response);
+      $('#programViewModal').modal('show')
             }
           });
         });
 
-        // Delete Program
-        $('.delete_btn').click(function (e) {
-          e.preventDefault();
+      // Delete Program
+      $('.delete_btn').click(function (e) {
+        e.preventDefault();
 
-          var program_id = $(this).closest('tr').find('.program_id').text();
+      var program_id = $(this).closest('tr').find('.program_id').text();
 
-          // console.log(author_id);
-          $('#delete_program_id').val(program_id);
-          $('#deleteModal').modal('show');
+      // console.log(program_id);
+      $('#delete_program_id').val(program_id);
+      $('#deleteModal').modal('show');
         });
 
-        // Retrieve Program
-        $('.edit_btn').click(function (e) {
-          e.preventDefault();
+      // Retrieve Program
+      $('.edit_btn').click(function (e) {
+        e.preventDefault();
 
-          var program_id = $(this).closest('tr').find('.program_id').text();
-          // console.log(author_id);
+      var program_id = $(this).closest('tr').find('.program_id').text();
+      // console.log(program_id);
 
-          $.ajax({
-            type: "POST",
-            url: "db_update.php",
-            data: {
-              'retrieve_program_btn':true,
-              'program_id':program_id,
+      $.ajax({
+        type: "POST",
+      url: "db_update.php",
+      data: {
+        'retrieve_program_btn':true,
+      'program_id':program_id,
             },
-            success: function (response) {
-              // console.log(response);
-              $.each(response, function (key, value) {
-                //  console.log(value['author_name']);
-                $('#update_program_id ').val(value['program_id']);
-                $('#program_name').val(value['program_name']);
-                $('#program_description').val(value['program_description']);
-              });
-              $('#editModal').modal('show');
+      success: function (response) {
+        // console.log(response);
+        $.each(response, function (key, value) {
+          //  console.log(value['program_name']);
+          $('#update_program_id ').val(value['program_id']);
+          $('#program_name').val(value['program_name']);
+          $('#program_description').val(value['program_description']);
+        });
+      $('#editModal').modal('show');
             }
           });
         });

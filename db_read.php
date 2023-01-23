@@ -186,6 +186,36 @@ if (isset($_POST['view_publisher'])) {
     }
 }
 
+if (isset($_POST['view_dewey_category'])) {
+    $dewey_cat_id = $_POST['dewey_class_id'];
+    // echo $return = $dewey_class_id;
+
+    $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes WHERE dewey_class_id='$dewey_cat_id' ");
+    if (mysqli_num_rows($read_dewey_classes) > 0) {
+        foreach ($read_dewey_classes as $rows) {
+            echo $return = '
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td style="width: 40%"><h6 class="text-muted">Dewey Class ID:</h6></td>
+                            <td style="width: 60%"><h6>' . $rows['dewey_class_id'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Dewey Class Category:</h6></td>
+                            <td><h6>' . $rows['dewey_class_category'] . '</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Dewey Class Description:</h6></td>
+                            <td><h6>' . $rows['dewey_class_description'] . '</h6></td>
+                        </tr>
+                    </tbody>
+                </table>
+            ';
+        }
+    } else {
+        alert("No Record");
+    }
+}
 
 
 

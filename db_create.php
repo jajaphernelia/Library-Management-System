@@ -93,6 +93,19 @@ if(isset($_POST['add_department'])){
     }
 }
 
+// Create Dewey Category
+// if(isset($_POST['add_dewey_category'])){
+//     $dewey_class_category_name = mysqli_real_escape_string($dbconn, $_POST['dewey_class_category_name']);
+//     $dewey_class_description = mysqli_real_escape_string($dbconn, $_POST['dewey_class_description']);
 
-?>
+//     $create_dewey_category = "INSERT INTO dewey_classes (dewey_class_category, dewey_class_description) VALUES ('$dewey_class_category_name', '$dewey_class_description')";
+
+//     $dewey_category_created = mysqli_query($dbconn, $create_dewey_category);
+//     if($dewey_category_created){
+//         header("Location: dewey_category.php");
+//     }
+// }
+
+
+// ?>
 

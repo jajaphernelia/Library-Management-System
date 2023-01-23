@@ -20,10 +20,18 @@ include 'db_delete.php';
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
+  <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
-  <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="assets/css/pages/datatables.css" />
   <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
+
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -283,12 +291,12 @@ include 'db_delete.php';
                       <div class="row">
                         <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
                           <div class="stats-icon blue mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
+                            <i class="iconly-boldArrow---Up-Circle"></i>
                           </div>
                         </div>
                         <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
+                          <h6 class="text-muted font-semibold mt-3">Some stats</h6>
+                          <h6 class="font-extrabold mb-0">100</h6>
                         </div>
                       </div>
                     </div>
@@ -311,13 +319,13 @@ include 'db_delete.php';
               </div>
               <div class="modal-body">
                 <!-- Forms -->
-                <form class="form">
+                <form class="form" action="db.create.php" method="POST">
                   <div class="row">
                     <div class="col-md-6 col-12">
                       <div class="form-group">
                         <label for="first-name-column">Dewey Category</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="Dewey Category Name"
-                          name="fname-column" />
+                        <input type="text" id="dewey_class_category-name-column" class="form-control" placeholder="Dewey Category Name"
+                          name="dewey_class_category" />
                       </div>
                     </div>
                     <div class="form-group">
@@ -345,7 +353,7 @@ include 'db_delete.php';
           <div class="card">
             <div class="card-header">Dewey Category</div>
             <div class="card-body">
-              <table class="table table-striped" id="table1">
+              <table class="table table-hover" id="table1">
                 <thead>
                   <tr>
                     <th>Dewey Class ID</th>
@@ -395,7 +403,7 @@ include 'db_delete.php';
             <div class="modal-content">
               <div class="modal-header bg-primary">
                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                  Edit {Entity}
+                  Edit Dewey Category
                 </h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
@@ -403,59 +411,23 @@ include 'db_delete.php';
               </div>
               <div class="modal-body">
                 <!-- Forms -->
-                <form class="form">
-                  <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
-                          name="fname-column" />
+                <form class="form" action="db_update.php" method="POST">
+                        <div class="row">
+                          <input type="hidden" name="update_dewey_class_id" id="update_dewey_class_id">
+                          <div class="col-md-6 col-12">
+                            <div class="form-group">
+                              <label for="college-name-column">Dewey Category</label>
+                              <input type="text" id="dewey_class_category-name-column" class="form-control" placeholder="Dewey Category Name"
+                          name="dewey_class_category" />
                       </div>
                     </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
-                          name="lname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
+                    <div class="form-group">
+                          <label for="exampleFormControlTextarea1">Dewey Class Description</label>
+                          <textarea class="form-control" id="dewey_class_description" rows="3" name="dewey_class_description"
+                            placeholder="Description of Dewey Class"></textarea>
                         </div>
-                      </div>
-                    </div>
                     <div class="col-12 d-flex justify-content-end">
+
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
@@ -503,6 +475,87 @@ include 'db_delete.php';
           </div>
         </div>
 
+        <!-- College View Modal -->
+            <!-- Modal -->
+            <div class="modal fade" id="dewey_category_ViewModal" data-bs-backdrop="static" data-bs-keyboard="false"
+              tabindex="-1" aria-labelledby="dewey_category_ViewModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">View Dewey Category</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="dewey_category_viewing_data">
+
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+            // Read Dewey Category
+        $('.view_btn').click(function (e) {
+          e.preventDefault();
+
+          var dewey_class_id = $(this).closest('tr').find('.dewey_class_id').text();
+
+          $.ajax({
+            type: "POST",
+            url: "db_read.php",
+            data: {
+              'view_dewey_category': true,
+              'dewey_class_id': dewey_class_id,
+            },
+            success: function (response) {
+              $('.dewey_category_viewing_data').html(response);
+              $('#dewey_category_ViewModal').modal('show')
+            }
+          });
+        });
+
+        // // Delete College
+        // $('.delete_btn').click(function (e) {
+        //   e.preventDefault();
+
+        //   var college_id = $(this).closest('tr').find('.college_id').text();
+
+        //   // console.log(college_id);
+        //   $('#delete_college_id').val(college_id);
+        //   $('#deleteModal').modal('show');
+        // });
+
+        // // Retrieve College
+        // $('.edit_btn').click(function (e) {
+        //   e.preventDefault();
+
+        //   var dewey_class_id = $(this).closest('tr').find('.dewey_class_id').text();
+        //   // console.log(dewey_class_id);
+
+        //   $.ajax({
+        //     type: "POST",
+        //     url: "db_update.php",
+        //     data: {
+        //       'retrieve_dewey_category_btn':true,
+        //       'dewey_class_id':dewey_class_id,
+        //     },
+        //     success: function (response) {
+        //       // console.log(response);
+        //       $.each(response, function (key, value) {
+        //         //  console.log(value['dewey_class_category']);
+        //         $('#update_dewey_class_id ').val(value['dewey_class_id']);
+        //         $('#dewey_class_category').val(value['dewey_class_category']);
+        //         $('#dewey_class_description').val(value['dewey_class_description']);
+        //       });
+        //       $('#editModal').modal('show');
+        //     }
+        //   });
+        // });              
+            </script>
 
         <footer class="mt-auto">
           <div class="footer clearfix mb-0 text-muted">
@@ -524,12 +577,17 @@ include 'db_delete.php';
     </div>
   </div>
   <script src="assets/js/bootstrap.js"></script>
-  <script src="assets/js/app.js"></script>
+      <script src="assets/js/app.js"></script>
 
-  <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-  <script src="assets/js/pages/simple-datatables.js"></script>
-  <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
-  <script src="assets/js/pages/form-element-select.js"></script>
+      <script src="assets/extensions/jquery/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+      <script src="assets/js/pages/datatables.js"></script>
+
+      <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+      <script src="assets/js/pages/form-element-select.js"></script>
+
+      <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+      <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>
