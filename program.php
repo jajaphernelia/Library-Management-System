@@ -335,7 +335,7 @@ include 'db_delete.php';
                   <div class="card">
                     <div class="card-header">Programs</div>
                     <div class="card-body">
-                      <table class="table table-striped" id="table1">
+                      <table class="table table-hover" id="table1">
                         <thead>
                           <tr>
                             <th>Program ID</th>
@@ -360,15 +360,12 @@ include 'db_delete.php';
                                   <?php echo $row['program_description'] ?>
                                 </td>
                                 <td>
-                                  <a data-bs-toggle="modal" data-bs-target="#editModal"
-                                    class="badge bg-primary edit_btn">Edit</a>
                                   <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
-                                  <a data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                    class="badge bg-danger delete_btn">Delete</a>
+                                  <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary edit_btn">Edit</a>
+                                  <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
                                 </td>
                               </tr>
-
-                              <?php
+                             <?php
                             }
                           }
                           ?>
@@ -470,7 +467,7 @@ include 'db_delete.php';
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="staticBackdropLabel">View Program</h1>
+                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Program</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -488,8 +485,9 @@ include 'db_delete.php';
 
 
               <script>
-                // View Function
-      $(document).ready(function (){
+
+
+        // Read Program
         $('.view_btn').click(function (e) {
           e.preventDefault();
 
@@ -508,74 +506,35 @@ include 'db_delete.php';
             }
           });
         });
-                });
 
-      // View Function in other pages
-      $(document).on('click', '.table', function () {
-        $('.view_btn').click(function (e) {
+
+        // Delete Program
+        $('.delete_btn').click(function (e) {
           e.preventDefault();
 
           var program_id = $(this).closest('tr').find('.program_id').text();
 
-          $.ajax({
-            type: "POST",
-            url: "db_read.php",
-            data: {
-              'view_program': true,
-              'program_id': program_id,
-            },
-            success: function (response) {
-              $('.program_viewing_data').html(response);
-              $('#programViewModal').modal('show')
-            }
-          });
+          // console.log(author_id);
+          $('#delete_program_id').val(program_id);
+          $('#deleteModal').modal('show');
         });
-                      });
 
-
-      //Edit Function
-      $('.edit_btn').click(function (e) {
-        e.preventDefault();
-
-      var program_id = $(this).closest('tr').find('.program_id').text();
-      // console.log(author_id);
-
-      $.ajax({
-        type: "POST",
-      url: "db_update.php",
-      data: {
-        'edit_program':true,
-      'program_id':program_id,
-                          },
-      success: function (response) {
-        // console.log(response);
-        $.each(response, function (key, value) {
-          //  console.log(value['author_name']);
-          $('#update_program_id ').val(value['program_id']);
-          $('#program_name').val(value['program_name']);
-          $('#program_description').val(value['program_description']);
-        });
-      $('#editModal').modal('show');
-                          }
-                        });
-                      });
-
-
-      //Edit Function in Other pages
-      $(document).on('click', '.table', function () {
+        // Retrieve Program
         $('.edit_btn').click(function (e) {
           e.preventDefault();
 
           var program_id = $(this).closest('tr').find('.program_id').text();
+          // console.log(author_id);
 
           $.ajax({
             type: "POST",
             url: "db_update.php",
             data: {
-              'edit_program': true,
-              'program_id': program_id,
+              'retrieve_program_btn':true,
+              'program_id':program_id,
             },
             success: function (response) {
+              // console.log(response);
               $.each(response, function (key, value) {
                 //  console.log(value['author_name']);
                 $('#update_program_id ').val(value['program_id']);
@@ -586,28 +545,6 @@ include 'db_delete.php';
             }
           });
         });
-                    });
-
-          //Delete Program
-          $(document).ready(function (){
-            $('.delete_btn').click(function (e) { 
-              e.preventDefault();
-              var program_id = $(this).closest('tr').find('.program_id').text();
-              console.log(program_id);
-              $('#delete_program_id').val(program_id);
-              $('#deleteModal').modal('show');
-          });
-        });
-
-        $(document).on('click', '.table', function () {
-            $('.delete_btn').click(function (e) { 
-                e.preventDefault();
-                var program_id = $(this).closest('tr').find('.program_id').text();
-                console.log(program_id);
-                $('#delete_program_id').val(program_id);
-                $('#deleteModal').modal('show');
-            });
-          });
 
               </script>
 
@@ -634,8 +571,13 @@ include 'db_delete.php';
       <script src="assets/js/bootstrap.js"></script>
       <script src="assets/js/app.js"></script>
 
-      <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-      <script src="assets/js/pages/simple-datatables.js"></script>
+      <script src="assets/extensions/jquery/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+      <script src="assets/js/pages/datatables.js"></script>
+
+      <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+      <script src="assets/js/pages/form-element-select.js"></script>
+
       <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
       <script src="assets/js/pages/form-element-select.js"></script>
 </body>

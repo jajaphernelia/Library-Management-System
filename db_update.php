@@ -40,7 +40,7 @@ if(isset($_POST['update_author_btn'])){
 
 
 // Retrieve existing program
-if(isset($_POST['edit_program'])){
+if(isset($_POST['retrieve_program_btn'])){
     $prog_id = $_POST['program_id'];
     // echo $return = $auth_id;
     $result_array = [];

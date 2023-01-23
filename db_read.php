@@ -55,9 +55,22 @@ if(isset($_POST['view_program'])){
     if(mysqli_num_rows($read_programs)>0){
         foreach($read_programs as $rows){
             echo $return = '
-                <h5>Program ID: '.$rows['program_id'].'</h5>
-                <h5>Program Name: '.$rows['program_name'].'</h5>
-                <h5>Program Description: '.$rows['program_description'].'</h5>
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td style="width: 40%"><h6 class="text-muted">Program ID:</h6></td>
+                            <td style="width: 60%"><h6>'.$rows['program_id'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Program Name:</h6></td>
+                            <td><h6>'.$rows['program_name'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Program Description:</h6></td>
+                            <td><h6>'.$rows['program_description'].'</h6></td>
+                        </tr>
+                    </tbody>
+                </table>
             ';
         }
     } else{

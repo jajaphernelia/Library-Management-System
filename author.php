@@ -609,6 +609,9 @@ include 'db_delete.php';
 
   <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
   <script src="assets/js/pages/form-element-select.js"></script>
+
+  <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+  <script src="assets/js/pages/form-element-select.js"></script>
 </body>
 
 </html>
