@@ -78,5 +78,18 @@ if(isset($_POST['delete_dewey_category'])){
     }
 }
 
+//Delete catalog type
+if(isset($_POST['delete_catalog_type'])){
+    
+    $id = $_POST['catalog_type_id'];
+
+    $delete_catalog_type = "DELETE FROM catalog_types WHERE catalog_type_id='$id'";
+    $catalog_type_isdeleted = mysqli_query($dbconn, $delete_catalog_type);
+
+    if($catalog_type_isdeleted){
+        header("Location: catalog_type.php");
+    }
+}
+
 
 ?>

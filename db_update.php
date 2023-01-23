@@ -126,7 +126,6 @@ if(isset($_POST['retrieve_department_btn'])){
     }else{
         alert("No Record");
     }
-
 }
 
 // Update existing department
@@ -143,6 +142,41 @@ if(isset($_POST['update_department_btn'])){
         header("Location: department.php");
     }
 }
+// Retrieve Catalog Types
+if(isset($_POST['retrieve_catalog_type_btn'])){
+    $id = $_POST['catalog_type_id'];
+    // echo $return = $auth_id;
+    $result_array = [];
+
+    $read_catalog_types = mysqli_query($dbconn, "SELECT * FROM catalog_types WHERE catalog_type_id='$id'");
+    if(mysqli_num_rows($read_catalog_types) > 0 ){
+        foreach($read_catalog_types as $rows){
+            array_push($result_array, $rows);
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        }
+    }else{
+        alert("No Record");
+    }
+}
+// Update existing catalog type
+
+if(isset($_POST['update_catalog_type_btn'])){
+    $id = $_POST['update_catalog_type_id'];
+
+    $catalog_type = $_POST['catalog_type'];
+    $catalog_type_description = $_POST['catalog_type_description'];
+
+    $catalog_type_query = "UPDATE catalog_types SET catalog_type='$catalog_type', catalog_type_description='$catalog_type_description' WHERE catalog_type_id='$id'";
+    $catalog_type_updated = mysqli_query($dbconn, $catalog_type_query);
+
+    if($catalog_type_updated){
+        header("Location: catalog_type.php");
+    }
+}
+
+
+
 
 // Retrieve existing publisher
 if(isset($_POST['retrieve_publisher_btn'])){
