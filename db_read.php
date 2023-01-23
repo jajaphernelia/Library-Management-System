@@ -8,6 +8,7 @@ $read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
 $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
 $read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
 $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
+$read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes");
 
 // Read individual author
 if (isset($_POST['view_author'])) {

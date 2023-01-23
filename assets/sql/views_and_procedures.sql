@@ -20,3 +20,7 @@ AS SELECT * FROM faculty;
 -- Create view for Publishers Read function
 CREATE VIEW IF NOT EXISTS read_publishers
 AS SELECT * FROM publishers;
+
+-- Create view for Dewey Classes Read function
+CREATE VIEW IF NOT EXISTS read_dewey_classes
+AS SELECT * FROM dewey_classes;

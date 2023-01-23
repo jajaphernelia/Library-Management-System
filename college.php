@@ -396,7 +396,7 @@ include 'db_delete.php';
                           <input type="hidden" name="update_college_id" id="update_college_id">
                           <div class="col-md-6 col-12">
                             <div class="form-group">
-                              <label for="program-name-column">College</label>
+                              <label for="college-name-column">College</label>
                               <input type="text" id="college_name" class="form-control" placeholder="College Name"
                                 name="college_name" />
                             </div>
