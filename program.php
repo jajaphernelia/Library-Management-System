@@ -11,19 +11,21 @@ include 'db_delete.php';
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
+<meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Programs | libPLM</title>
+  <title>Author | libPLM</title>
 
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
+  <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
-  <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="assets/css/pages/datatables.css" />
   <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
+
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -506,7 +508,6 @@ include 'db_delete.php';
             }
           });
         });
-
 
         // Delete Program
         $('.delete_btn').click(function (e) {
