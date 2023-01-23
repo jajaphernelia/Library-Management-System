@@ -11,6 +11,19 @@ $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
 $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes");
 $read_catalog_type = mysqli_query($dbconn, "SELECT * FROM catalog_types");
 $read_catalog = mysqli_query($dbconn, "SELECT * FROM catalog");
+$read_dewey_index = mysqli_query($dbconn, 
+"SELECT 
+din.dewey_index_id,
+dcl.dewey_class_category,
+din.dewey_index,
+din.dewey_index_description
+FROM dewey_indices AS din
+LEFT JOIN dewey_classes AS dcl
+ON din.dewey_class_id = dcl.dewey_class_id;");
+
+
+
+
 
 // Read individual author
 if (isset($_POST['view_author'])) {

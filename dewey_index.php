@@ -352,74 +352,41 @@ include 'db_delete.php';
               </div>
               <div class="modal-body">
                 <!-- Forms -->
-                <form class="form">
+                <form class="form" action="db_create.php" method="POST">
                   <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
-                          name="fname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
-                          name="lname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
-                        </div>
-                      </div>
-                    </div>
                     <div class="form-group">
-                      <select class="choices form-select">
-                        <option value="square">Square</option>
-                        <option value="rectangle">Rectangle</option>
-                        <option value="rombo">Rombo</option>
-                        <option value="romboid">Romboid</option>
-                        <option value="trapeze">Trapeze</option>
-                        <option value="traible">Triangle</option>
-                        <option value="polygon">Polygon</option>
-                      </select>
+                      <label for="first-name-column ">Dewey Class</label>
+                      <select class="choices form-select" id="select-catalog-type" name="dewey_class" >
+                            <?php
+                            if($read_dewey_classes) {
+                              foreach($read_dewey_classes as $row) {
+                            ?>
+                              <option option value="<?php echo $row['dewey_class_id'] ?>"><?php echo $row['dewey_class_category'] ?></option>
+                            <?php
+                              }
+                            }
+                            ?>
+                          </select>
                     </div>
-                    <div class="col-12 d-flex justify-content-end">
+                    <div class="col-md-6 col-12">
+                      <div class="form-group">
+                        <label for="first-name-column">Dewey Index</label>
+                        <input type="text" class="form-control" placeholder="Dewey Index"
+                          name="dewey_index" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                      <div class="form-group">
+                        <label for="first-name-column">Dewey Description</label>
+                        <input type="text" class="form-control" placeholder="Dewey Description"
+                          name="dewey_description" />
+                      </div>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end" style="margin-bottom:4%; margin-top:2%;"><!-- style="margin-bottom:10%;" -->
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
                         Cancel
                       </button>
-                      <button type="submit" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal">
+                      <button type="submit" class="btn btn-success me-1 mb-1 ml-2" data-bs-dismiss="modal" name="add_dewey_index">
                         Add
                       </button>
                     </div>
@@ -438,274 +405,33 @@ include 'db_delete.php';
               <table class="table table-striped" id="table1">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>City</th>
+                    <th>Dewey ID</th>
+                    <th>Dewey Class</th>
+                    <th>Dewey Index</th>
+                    <th>Dewey Index Description</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Graiden</td>
-                    <td>vehicula.aliquet@semconsequat.co.uk</td>
-                    <td>076 4820 8838</td>
-                    <td>Offenburg</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Dale</td>
-                    <td>fringilla.euismod.enim@quam.ca</td>
-                    <td>0500 527693</td>
-                    <td>New Quay</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nathaniel</td>
-                    <td>mi.Duis@diam.edu</td>
-                    <td>(012165) 76278</td>
-                    <td>Grumo Appula</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Darius</td>
-                    <td>velit@nec.com</td>
-                    <td>0309 690 7871</td>
-                    <td>Ways</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Oleg</td>
-                    <td>rhoncus.id@Aliquamauctorvelit.net</td>
-                    <td>0500 441046</td>
-                    <td>Rossignol</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kermit</td>
-                    <td>diam.Sed.diam@anteVivamusnon.org</td>
-                    <td>(01653) 27844</td>
-                    <td>Patna</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Jermaine</td>
-                    <td>sodales@nuncsit.org</td>
-                    <td>0800 528324</td>
-                    <td>Mold</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ferdinand</td>
-                    <td>gravida.molestie@tinciduntadipiscing.org</td>
-                    <td>(016977) 4107</td>
-                    <td>Marlborough</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kuame</td>
-                    <td>Quisque.purus@mauris.org</td>
-                    <td>(0151) 561 8896</td>
-                    <td>Tresigallo</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Deacon</td>
-                    <td>Duis.a.mi@sociisnatoquepenatibus.com</td>
-                    <td>07740 599321</td>
-                    <td>Karapınar</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Channing</td>
-                    <td>tempor.bibendum.Donec@ornarelectusante.ca</td>
-                    <td>0845 46 49</td>
-                    <td>Warrnambool</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Aladdin</td>
-                    <td>sem.ut@pellentesqueafacilisis.ca</td>
-                    <td>0800 1111</td>
-                    <td>Bothey</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Cruz</td>
-                    <td>non@quisturpisvitae.ca</td>
-                    <td>07624 944915</td>
-                    <td>Shikarpur</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Keegan</td>
-                    <td>molestie.dapibus@condimentumDonecat.edu</td>
-                    <td>0800 200103</td>
-                    <td>Assen</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Ray</td>
-                    <td>placerat.eget@sagittislobortis.edu</td>
-                    <td>(0112) 896 6829</td>
-                    <td>Hofors</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Maxwell</td>
-                    <td>diam@dapibus.org</td>
-                    <td>0334 836 4028</td>
-                    <td>Thane</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Carter</td>
-                    <td>urna.justo.faucibus@orci.com</td>
-                    <td>07079 826350</td>
-                    <td>Biez</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Stone</td>
-                    <td>velit.Aliquam.nisl@sitametrisus.com</td>
-                    <td>0800 1111</td>
-                    <td>Olivar</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Berk</td>
-                    <td>fringilla.porttitor.vulputate@taciti.edu</td>
-                    <td>(0101) 043 2822</td>
-                    <td>Sanquhar</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Philip</td>
-                    <td>turpis@euenimEtiam.org</td>
-                    <td>0500 571108</td>
-                    <td>Okara</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Kibo</td>
-                    <td>feugiat@urnajustofaucibus.co.uk</td>
-                    <td>07624 682306</td>
-                    <td>La Cisterna</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Bruno</td>
-                    <td>elit.Etiam.laoreet@luctuslobortisClass.edu</td>
-                    <td>07624 869434</td>
-                    <td>Rocca d"Arce</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Leonard</td>
-                    <td>blandit.enim.consequat@mollislectuspede.net</td>
-                    <td>0800 1111</td>
-                    <td>Lobbes</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Hamilton</td>
-                    <td>mauris@diam.org</td>
-                    <td>0800 256 8788</td>
-                    <td>Sanzeno</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Harding</td>
-                    <td>Lorem.ipsum.dolor@etnetuset.com</td>
-                    <td>0800 1111</td>
-                    <td>Obaix</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Emmanuel</td>
-                    <td>eget.lacus.Mauris@feugiatSednec.org</td>
-                    <td>(016977) 8208</td>
-                    <td>Saint-Remy-Geest</td>
-                    <td>
-                      <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                      <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                    </td>
-                  </tr>
+                  <?php
+                    if ($read_dewey_index) {
+                      foreach ($read_dewey_index as $row) {
+                    ?>
+                        <tr>
+                          <td class="dewey_index_id"><?php echo $row['dewey_index_id'] ?></td>
+                          <td><?php echo $row['dewey_class_category'] ?></td>
+                          <td><?php echo $row['dewey_index'] ?></td>
+                          <td><?php echo $row['dewey_index_description'] ?></td>
+                          <td>
+                            <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
+                            <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary edit_btn">Edit</a>
+                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
+                          </td>
+                        </tr>
+                    <?php
+                      }
+                    }
+                    ?>
                 </tbody>
               </table>
             </div>
