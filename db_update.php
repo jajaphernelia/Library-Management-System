@@ -135,11 +135,11 @@ if(isset($_POST['update_department_btn'])){
     $department_name = $_POST['department_name'];
     $department_description = $_POST['department_description'];
 
-    $department_query = "UPDATE departments SET department_name='$department_name', department_description='$department_description' WHERE author_id='$id'";
-    $department_updated = mysqli_query($dbconn, $author_query);
+    $department_query = "UPDATE departments SET department_name='$department_name', department_description='$department_description' WHERE department_id='$id'";
+    $department_updated = mysqli_query($dbconn, $department_query);
 
     if($department_updated){
-        header("Location: deparment.php");
+        header("Location: department.php");
     }
 }
 
