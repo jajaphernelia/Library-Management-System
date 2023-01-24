@@ -24,3 +24,11 @@ AS SELECT * FROM publishers;
 -- Create view for Dewey Classes Read function
 CREATE VIEW IF NOT EXISTS read_dewey_classes
 AS SELECT * FROM dewey_classes;
+
+--Create view for Students Read function
+CREATE VIEW IF NOT EXISTS read_students
+AS SELECT * FROM students;
+
+--Create view for Inventory Read function
+CREATE VIEW IF NOT EXISTS read_inventory
+AS SELECT * FROM inventory;

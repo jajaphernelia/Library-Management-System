@@ -263,77 +263,19 @@ include 'db_delete.php';
                       <div class="row">
                         <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
                           <div class="stats-icon green mt-3">
-                            <i class="iconly-boldShow"></i>
+                            <i class="iconly-boldAdd-User"></i>
                           </div>
                         </div>
                         <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
                           <a data-bs-toggle="modal" data-bs-target="#addModal"
                             class="btn icon icon-left btn-success mt-2 mb-2 w-75">
                             <i data-feather="plus-circle"></i> Add</a>
-                          <h6 class="text-muted font-semibold">new entity</h6>
+                          <h6 class="text-muted font-semibold">New Inventory</h6>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
-                          <div class="stats-icon blue mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
-                          <div class="stats-icon purple mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">183.000</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-6 col-lg-3 col-md-6">
-                  <div class="card">
-                    <div class="card-body px-4 py-4-5">
-                      <div class="row">
-                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
-                          <div class="stats-icon red mb-3 mt-3">
-                            <i class="iconly-boldProfile"></i>
-                          </div>
-                        </div>
-                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
-                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
-                          <h6 class="font-extrabold mb-0">112</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
 
         <!-- Add entity Modal -->
 
@@ -433,7 +375,7 @@ include 'db_delete.php';
         <!-- Database Table -->
         <section class="section">
           <div class="card">
-            <div class="card-header">Simple Datatable</div>
+            <div class="card-header">Inventory</div>
             <div class="card-body">
               <table class="table table-hover" id="table1">
                 <thead>
@@ -483,7 +425,6 @@ include 'db_delete.php';
             </div>
           </div>
         </section>
-
         <!-- Edit entity Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
