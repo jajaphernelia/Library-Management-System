@@ -364,13 +364,7 @@ include 'db_delete.php';
                       </div>
                     </div>
 
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
-                          name="fname-column" />
-                      </div>
-                    </div>
+                    
                    <!-- Buttons -->
                     <div class="col-12 d-flex justify-content-end">
                       <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
