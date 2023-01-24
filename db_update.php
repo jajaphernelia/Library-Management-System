@@ -169,6 +169,10 @@ if(isset($_POST['retrieve_catalog_type_btn'])){
         alert("No Record");
     }
 }
+        
+}
+    }
+    }
 // Update existing catalog type
 
 if(isset($_POST['update_catalog_type_btn'])){
