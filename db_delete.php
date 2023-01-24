@@ -91,5 +91,16 @@ if(isset($_POST['delete_catalog_type'])){
     }
 }
 
+// Delete transaction
+if(isset($_POST['delete_transaction'])){
+    $id = $_POST['transaction_id'];
+
+    $delete_query = "DELETE FROM transactions WHERE transaction_id='$id' ";
+    $transaction_deleted = mysqli_query($dbconn, $delete_query);
+
+    if($transaction_deleted){
+        header("Location: transaction.php");
+    }
+}
 
 ?>

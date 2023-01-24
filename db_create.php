@@ -139,6 +139,32 @@ if(isset($_POST['add_dewey_category'])){
 }
 
 
+if(isset($_POST['add_transaction'])) {
+
+    $borrower_id = mysqli_real_escape_string($dbconn, $_POST['select-borrower']);
+    $staff_id = mysqli_real_escape_string($dbconn, $_POST['select-staff']);
+
+    $get_grace_period = mysqli_query($dbconn, "SELECT user_type_id FROM users WHERE user_id=$borrower_id");
+
+    if($get_grace_period) {
+        foreach($get_grace_period as $item){
+            $grace_period_id = $item['user_type_id'];
+        }
+    }
+
+    $create_transaction = mysqli_query($dbconn,
+        "
+        INSERT INTO transactions(borrower_id, staff_id, grace_period_id, expected_return_date ) 
+        VALUES ($borrower_id, $staff_id, $grace_period_id, DATE_ADD(curdate(), INTERVAL (SELECT grace_length FROM grace_periods WHERE grace_period_id=$grace_period_id) DAY));
+        "
+    );
+
+    if($create_transaction) {
+        header("location: transaction.php");
+    }
+}
+
+
 
 ?>
 
