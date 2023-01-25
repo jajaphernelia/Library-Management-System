@@ -659,14 +659,6 @@ include 'db_delete.php';
             <div class="float-start">
               <p>2023 &copy; libPLM</p>
             </div>
-            <div class="float-end">
-              <p>
-                Crafted with
-                <span class="text-danger"><i class="bi bi-heart-fill icon-mid"></i>
-                </span>
-                by <a href="https://ahmadsaugi.com">Saugi</a>
-              </p>
-            </div>
           </div>
         </footer>
 
