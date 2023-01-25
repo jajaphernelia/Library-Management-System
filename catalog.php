@@ -286,6 +286,7 @@ include 'db_delete.php';
                 </div>
           </section>
         </div>
+        
 
         <!-- Add entity Modal -->
 
@@ -575,6 +576,7 @@ include 'db_delete.php';
             <div class="float-start">
               <p>2023 &copy; libPLM</p>
             </div>
+
           </div>
         </footer>
 

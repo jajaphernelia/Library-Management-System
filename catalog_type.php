@@ -286,6 +286,7 @@ include 'db_delete.php';
                 </div>
           </section>
         </div>
+        
 
         <!-- Add entity Modal -->
 
