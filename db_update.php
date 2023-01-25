@@ -2,7 +2,6 @@
 
 require 'db_connect.php';
 
-
 // Retrieve existing author
 if(isset($_POST['retrieve_author_btn'])){
     $auth_id = $_POST['author_id'];
@@ -38,7 +37,6 @@ if(isset($_POST['update_author_btn'])){
     }
 }
 
-
 // Retrieve existing program
 if(isset($_POST['retrieve_program_btn'])){
     $prog_id = $_POST['program_id'];
@@ -73,7 +71,6 @@ if(isset($_POST['update_programbtn'])){
     }
 }
 
-
 // Retrieve existing college
 if(isset($_POST['retrieve_college_btn'])){
     $cllg_id = $_POST['college_id'];
@@ -93,7 +90,6 @@ if(isset($_POST['retrieve_college_btn'])){
 
 }
 
-
 // Update existing college
 if(isset($_POST['update_collegebtn'])){
     $id = $_POST['update_college_id'];
@@ -108,7 +104,6 @@ if(isset($_POST['update_collegebtn'])){
         header("Location: college.php");
     }
 }
-
 
 // Retrieve existing department
 if(isset($_POST['retrieve_department_btn'])){
@@ -191,7 +186,6 @@ if(isset($_POST['update_catalog_type_btn'])){
 
 
 
-
 // Retrieve existing publisher
 if(isset($_POST['retrieve_publisher_btn'])){
     $id = $_POST['publisher_id'];
@@ -244,7 +238,6 @@ if(isset($_POST['retrieve_dewey_category_btn'])){
     }else{
         alert("No Record");
     }
-
 }
 
 // Update existing dewey category
@@ -321,8 +314,51 @@ if(isset($_POST['update_transaction_btn'])){
             header("Location: transaction.php");
         }
     }
-
-
 }
+
+// Retrieve existing dewey index
+if(isset($_POST['retrieve_dewey_index_btn'])){
+    $id = $_POST['dewey_index_id'];
+    // echo $return = $auth_id;
+    $result_array = [];
+
+    $read_dewey_index = mysqli_query($dbconn, "SELECT 
+    din.dewey_index_id,
+    dcl.dewey_class_category,
+    din.dewey_index,
+    din.dewey_index_description
+    FROM dewey_indices AS din
+    LEFT JOIN dewey_classes AS dcl
+    ON din.dewey_class_id = dcl.dewey_class_id
+    WHERE dewey_index_id = $id
+    ;
+    ");
+    if(mysqli_num_rows($read_dewey_index) > 0 ){
+        foreach($read_dewey_index as $rows){
+            array_push($result_array, $rows);
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        }
+    }else{
+        alert("No Record");
+    }
+}
+
+// Update existing dewey index
+if(isset($_POST['update_dewey_index'])){
+    $id = $_POST['update_dewey_index_id'];
+
+    $update_dewey_class = $_POST['dewey_class'];
+    $update_dewey_index = $_POST['dewey_index'];
+    $update_dewey_description = $_POST['dewey_description'];
+
+    $dewey_index_query = "UPDATE dewey_indices SET dewey_class_id='$update_dewey_class', dewey_index='$update_dewey_index', dewey_index_description='$update_dewey_description' WHERE dewey_index_id='$id'";
+    $dewey_index_updated = mysqli_query($dbconn, $dewey_index_query);
+
+    if($dewey_index_updated){
+        header("Location: dewey_index.php");
+    }
+}
+
 
 ?>
