@@ -413,7 +413,6 @@ include 'db_delete.php';
                     }
                   }
                   ?>
-                  ?>
                 </tbody>
               </table>
             </div>
