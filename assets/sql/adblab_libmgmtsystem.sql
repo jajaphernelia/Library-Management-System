@@ -912,11 +912,7 @@ CREATE TABLE IF NOT EXISTS `programs` (
   `program_name` varchar(128) DEFAULT NULL,
   `program_description` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`program_id`)
-<<<<<<< Updated upstream
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-) ENGINE=InnoDB AUTO_INCREMENT=8002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
->>>>>>> Stashed changes
 
 -- Dumping data for table adblab_libmgmtsystem.programs: ~23 rows (approximately)
 INSERT INTO `programs` (`program_id`, `program_name`, `program_description`) VALUES
