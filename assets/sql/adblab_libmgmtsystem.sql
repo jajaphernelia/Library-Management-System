@@ -268,7 +268,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
   `department_name` varchar(128) DEFAULT NULL,
   `department_description` varchar(256) DEFAULT NULL,
   PRIMARY KEY (`department_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8004 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Dumping data for table adblab_libmgmtsystem.departments: ~7 rows (approximately)
 INSERT INTO `departments` (`department_id`, `department_name`, `department_description`) VALUES
