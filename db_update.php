@@ -2,6 +2,7 @@
 
 require 'db_connect.php';
 
+
 // Retrieve existing author
 if(isset($_POST['retrieve_author_btn'])){
     $auth_id = $_POST['author_id'];
@@ -37,6 +38,7 @@ if(isset($_POST['update_author_btn'])){
     }
 }
 
+
 // Retrieve existing program
 if(isset($_POST['retrieve_program_btn'])){
     $prog_id = $_POST['program_id'];
@@ -71,6 +73,7 @@ if(isset($_POST['update_programbtn'])){
     }
 }
 
+
 // Retrieve existing college
 if(isset($_POST['retrieve_college_btn'])){
     $cllg_id = $_POST['college_id'];
@@ -90,6 +93,7 @@ if(isset($_POST['retrieve_college_btn'])){
 
 }
 
+
 // Update existing college
 if(isset($_POST['update_collegebtn'])){
     $id = $_POST['update_college_id'];
@@ -104,6 +108,7 @@ if(isset($_POST['update_collegebtn'])){
         header("Location: college.php");
     }
 }
+
 
 // Retrieve existing department
 if(isset($_POST['retrieve_department_btn'])){
@@ -183,6 +188,7 @@ if(isset($_POST['update_catalog_type_btn'])){
         header("Location: catalog_type.php");
     }
 }
+
 
 
 
@@ -352,13 +358,14 @@ if(isset($_POST['update_dewey_index'])){
     $update_dewey_index = $_POST['dewey_index'];
     $update_dewey_description = $_POST['dewey_description'];
 
-    $dewey_index_query = "UPDATE dewey_indices SET dewey_class_id='$update_dewey_class', dewey_index='$update_dewey_index', dewey_index_description='$update_dewey_description' WHERE dewey_index_id='$id'";
+    $dewey_index_query = "UPDATE dewey_indices SET dewey_index='$update_dewey_index', dewey_index='$update_dewey_index', dewey_index_description='$update_dewey_description' WHERE dewey_index_id='$id'";
     $dewey_index_updated = mysqli_query($dbconn, $dewey_index_query);
 
     if($dewey_index_updated){
         header("Location: dewey_index.php");
     }
 }
+
 
 
 ?>

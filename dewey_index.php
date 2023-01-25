@@ -282,6 +282,64 @@ include 'db_delete.php';
                   </div>
                 </div>
 
+                <div class="col-6 col-lg-3 col-md-6">
+                  <div class="card">
+                    <div class="card-body px-4 py-4-5">
+                      <div class="row">
+                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
+                          <div class="stats-icon blue mb-3 mt-3">
+                            <i class="iconly-boldProfile"></i>
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
+                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
+                          <h6 class="font-extrabold mb-0">183.000</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3 col-md-6">
+                  <div class="card">
+                    <div class="card-body px-4 py-4-5">
+                      <div class="row">
+                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
+                          <div class="stats-icon purple mb-3 mt-3">
+                            <i class="iconly-boldProfile"></i>
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
+                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
+                          <h6 class="font-extrabold mb-0">183.000</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-lg-3 col-md-6">
+                  <div class="card">
+                    <div class="card-body px-4 py-4-5">
+                      <div class="row">
+                        <div class="col-md-4 col-lg-6 col-xl-4 col-xxl-5 d-flex justify-content-center">
+                          <div class="stats-icon red mb-3 mt-3">
+                            <i class="iconly-boldProfile"></i>
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-lg-6 col-xl-8 col-xxl-7">
+                          <h6 class="text-muted font-semibold mt-3">Followers</h6>
+                          <h6 class="font-extrabold mb-0">112</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
         <!-- Add entity Modal -->
 
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -411,7 +469,7 @@ include 'db_delete.php';
                                   if($read_dewey_classes) {
                                     foreach($read_dewey_classes as $row) {
                                   ?>
-                                    <option option value="<?php echo $row['dewey_class_id'] ?>"><?php echo $row['dewey_class_category'] ?></option>
+                                    <option selected value="<?php echo $row['dewey_class_id'] ?>"><?php echo $row['dewey_class_category'] ?></option>
                                   <?php
                                     }
                                   }
@@ -464,21 +522,24 @@ include 'db_delete.php';
                   <i data-feather="x"></i>
                 </button>
               </div>
-              <div class="modal-body">
-                <p>
-                  Do you want to delete this item?
-                </p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                  <i class="bx bx-x d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Cancel</span>
-                </button>
-                <button type="button" class="btn btn-danger ml-1" data-bs-dismiss="modal">
-                  <i class="bx bx-check d-block d-sm-none"></i>
-                  <span class="d-none d-sm-block">Delete</span>
-                </button>
-              </div>
+              <form action="db_delete.php" method="POST">
+                <div class="modal-body">
+                  <input type="text" name="delete_dewey_index" id="delete_dewey_index">
+                  <p>
+                    Do you want to delete this item?
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Cancel</span>
+                  </button>
+                  <button type="submit" class="btn btn-danger ml-1" data-bs-dismiss="modal" name="delete_dewey_index">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Delete</span>
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -543,13 +604,23 @@ include 'db_delete.php';
             success: function (response) {
               $.each(response, function (key, value) {
                 $('#update_dewey_index_id ').val(value['dewey_index_id']);
-                $('#update_dewey_class').val(value['dewey_class_id']);
                 $('#update_dewey_index').val(value['dewey_index']);
                 $('#update_dewey_description').val(value['dewey_index_description']);
               });
               $('#editModal').modal('show');
             }
           });
+        });
+
+        // Delete author
+        $('.delete_btn').click(function (e) {
+          e.preventDefault();
+
+          var dewey_index_id = $(this).closest('tr').find('.dewey_index_id').text();
+
+          // console.log(author_id);
+          $('#delete_dewey_index').val(author_id);
+          $('#deleteModal').modal('show');
         });
 
         </script>
@@ -559,8 +630,6 @@ include 'db_delete.php';
           <div class="footer clearfix mb-0 text-muted">
             <div class="float-start">
               <p>2023 &copy; libPLM</p>
-            </div>
-
           </div>
         </footer>
 
