@@ -466,7 +466,7 @@ include 'db_delete.php';
               </div>
               <form action="db_delete.php" method="POST">
                 <div class="modal-body">
-                  <input type="text" name="dewey_index_id" id="delete_dewey_index_id">
+                  <input type="hidden" name="dewey_index_id" id="delete_dewey_index_id">
                   <p>
                     Do you want to delete this item?
                   </p>
