@@ -439,23 +439,34 @@ include 'db_delete.php';
                 <thead>
                   <tr>
                     <th>Staff ID</th>
-                    <th>User ID</th>
-                    <th>Job Title</th>
-                   
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>Position</th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php
-                  foreach ($read_library_staffs as $column) {
-                    echo '<tr>';
-                    echo '<td>' . $column['staff_id'] . '</td>';
-                    echo '<td>' . $column['user_id'] . '</td>';
-                    echo '<td>' . $column['job_title'] . '</td>';
-                    echo '<td>
-                            <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                          </td>';
-                    echo '</tr>';
+                  <?php 
+                  if($read_staffs){
+                    foreach($read_staffs as $row){
+                  ?>
+                  <tr>
+                      <td class="staff_id"><?php echo $row['staff_id']; ?></td>
+                      <td><?php echo $row['staff_name']; ?></td>
+                      <td><?php echo $row['gender']; ?></td>
+                      <td><?php echo $row['mobile_no']; ?></td>
+                      <td><?php echo $row['address']; ?></td>
+                      <td><?php echo $row['job_title']; ?></td>
+                      <td>
+                        <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
+                        <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary edit_btn">Edit</a>
+                        <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
+                      </td>
+                  </tr>
+                  <?php    
+                    }
                   }
                   ?>
                 </tbody>

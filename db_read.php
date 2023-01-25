@@ -9,10 +9,7 @@ $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
 $read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
 $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
 $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes");
-
 $read_catalog_type = mysqli_query($dbconn, "SELECT * FROM catalog_types");
-
-
 $read_catalog = mysqli_query($dbconn, "SELECT * FROM catalog");
 $read_students = mysqli_query($dbconn, "SELECT * FROM students");
 $read_inventory= mysqli_query($dbconn, "SELECT * FROM inventory");
@@ -68,8 +65,21 @@ WHERE u.user_type_id = 3;
 "
 );
 
-
-
+// Generate staff table
+$read_staffs = mysqli_query($dbconn,
+"
+SELECT
+	staffs.staff_id,
+	CONCAT(users.last_name, ', ', users.first_name, ' ', IFNULL(users.middle_name, '')) AS staff_name,
+	users.gender,
+	users.mobile_no,
+	users.address,
+	staffs.job_title
+FROM library_staffs AS staffs
+LEFT JOIN users
+ON staffs.user_id = users.user_id;
+"
+);
 
 // Read individual author
 if (isset($_POST['view_author'])) {
