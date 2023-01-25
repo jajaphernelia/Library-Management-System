@@ -11,7 +11,6 @@ $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
 $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes");
 $read_catalog_type = mysqli_query($dbconn, "SELECT * FROM catalog_types");
 $read_catalog = mysqli_query($dbconn, "SELECT * FROM catalog");
-$read_students = mysqli_query($dbconn, "SELECT * FROM students");
 $read_inventory= mysqli_query($dbconn, "SELECT * FROM inventory");
 $read_dewey_index = mysqli_query($dbconn, 
 "SELECT 
@@ -78,6 +77,28 @@ SELECT
 FROM library_staffs AS staffs
 LEFT JOIN users
 ON staffs.user_id = users.user_id;
+"
+);
+
+// Generate student table
+$read_students = mysqli_query($dbconn,
+"
+SELECT
+	s.student_id,
+	CONCAT(u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS student_name,
+	p.program_name,
+	c.college_name,
+	u.gender,
+	u.mobile_no,
+	u.address,
+	s.student_type
+FROM students AS s
+LEFT JOIN users AS u
+ON s.user_id = u.user_id
+INNER JOIN programs AS p
+ON s.program_id = p.program_id
+INNER JOIN colleges AS c
+ON s.college_id = c.college_id;
 "
 );
 
