@@ -6,10 +6,14 @@ $read_authors = mysqli_query($dbconn, "SELECT * FROM authors");
 $read_publishers = mysqli_query($dbconn, "SELECT * FROM publishers");
 $read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
 $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
+$read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
 $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
 $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes");
+
 $read_catalog_type = mysqli_query($dbconn, "SELECT * FROM catalog_types");
+
 $read_catalog = mysqli_query($dbconn, "SELECT * FROM catalog");
+$read_students = mysqli_query($dbconn, "SELECT * FROM students");
 $read_inventory= mysqli_query($dbconn, "SELECT * FROM inventory");
 $read_dewey_index = mysqli_query($dbconn, 
 "SELECT 
@@ -24,14 +28,14 @@ ON din.dewey_class_id = dcl.dewey_class_id;");
 $read_transactions = mysqli_query($dbconn,
 "
 SELECT
-	trans.transaction_id,
-	CONCAT(borrower.last_name, ', ',borrower.first_name, ' ', IFNULL(borrower.middle_name, '') ) AS borrower,
-	CONCAT(staff.last_name, ', ',staff.first_name, ' ', IFNULL(staff.middle_name, '') ) AS staff,
-	trans.date_issued AS issued,
-	trans.expected_return_date AS expected,
-	trans.date_returned AS returned,
-	trans.is_returned,
-	trans.is_penalized
+    trans.transaction_id,
+    CONCAT(borrower.last_name, ', ',borrower.first_name, ' ', IFNULL(borrower.middle_name, '') ) AS borrower,
+    CONCAT(staff.last_name, ', ',staff.first_name, ' ', IFNULL(staff.middle_name, '') ) AS staff,
+    trans.date_issued AS issued,
+    trans.expected_return_date AS expected,
+    trans.date_returned AS returned,
+    trans.is_returned,
+    trans.is_penalized
 FROM transactions AS trans
 LEFT JOIN users AS borrower
 ON trans.borrower_id = borrower.user_id
@@ -44,8 +48,8 @@ ORDER BY trans.transaction_id DESC;
 $read_borrowers = mysqli_query($dbconn,
 "
 SELECT
-	u.user_id,
-	CONCAT(ut.user_type, ': ', u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS 'user_value'
+    u.user_id,
+    CONCAT(ut.user_type, ': ', u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS 'user_value'
 FROM users AS u
 LEFT JOIN user_types AS ut
 ON u.user_type_id = ut.user_type_id
@@ -56,70 +60,14 @@ WHERE u.user_type_id != 3;
 $read_incharge = mysqli_query($dbconn,
 "
 SELECT
-	u.user_id,
-	CONCAT(u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS 'user_value'
+    u.user_id,
+    CONCAT(u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS 'user_value'
 FROM users AS u
 WHERE u.user_type_id = 3;
 "
 );
 
-// Generate staff table
-$read_staffs = mysqli_query($dbconn,
-"
-SELECT
-	staffs.staff_id,
-	CONCAT(users.last_name, ', ', users.first_name, ' ', IFNULL(users.middle_name, '')) AS staff_name,
-	users.gender,
-	users.mobile_no,
-	users.address,
-	staffs.job_title
-FROM library_staffs AS staffs
-LEFT JOIN users
-ON staffs.user_id = users.user_id;
-"
-);
 
-// Generate student table
-$read_students = mysqli_query($dbconn,
-"
-SELECT
-	s.student_id,
-	CONCAT(u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS student_name,
-	p.program_name,
-	c.college_name,
-	u.gender,
-	u.mobile_no,
-	u.address,
-	s.student_type
-FROM students AS s
-LEFT JOIN users AS u
-ON s.user_id = u.user_id
-INNER JOIN programs AS p
-ON s.program_id = p.program_id
-INNER JOIN colleges AS c
-ON s.college_id = c.college_id;
-"
-);
-
-// Generate faculty datatable
-$read_faculty = mysqli_query($dbconn,
-"
-SELECT
-	f.faculty_id,
-	CONCAT(u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS faculty_name,
-	d.department_name,
-	u.gender,
-	u.mobile_no,
-	u.address,
-	f.`position`,
-	f.employement_type
-FROM faculty AS f
-LEFT JOIN users AS u
-ON f.user_id = u.user_id
-INNER JOIN departments AS d
-ON f.department_id = d.department_id;
-"
-);
 
 // Read individual author
 if (isset($_POST['view_author'])) {
@@ -190,7 +138,6 @@ if (isset($_POST['view_program'])) {
     }
 }
 
-
 //Read College
 if (isset($_POST['view_college'])) {
     $cllg_id = $_POST['college_id'];
@@ -255,7 +202,6 @@ if (isset($_POST['view_department'])) {
     }
 }
 
-
 if(isset($_POST['view_catalog_type'])){
     $id = $_POST['catalog_type_id'];
     // echo $return = $auth_id;
@@ -291,7 +237,6 @@ if(isset($_POST['view_catalog_type'])){
 if (isset($_POST['view_publisher'])) {
     $id = $_POST['publisher_id'];
     // echo $return = $auth_id;
-
 
     $read_publisher = mysqli_query($dbconn, "SELECT * FROM publishers WHERE publisher_id='$id' ");
     if (mysqli_num_rows($read_publisher) > 0) {
@@ -381,7 +326,8 @@ if (isset($_POST['view_transaction'])) {
         LEFT JOIN users AS staff
         ON trans.staff_id = staff.user_id
         WHERE transaction_id = $id
-        ORDER BY trans.transaction_id DESC;
+        ORDER BY trans.transaction_id DESC
+        ;
         "
     );
     if (mysqli_num_rows($read_transaction) > 0) {
@@ -443,6 +389,51 @@ if (isset($_POST['view_transaction'])) {
     }
 }
 
+if(isset($_POST['view_dewey_index'])){
+    $id = $_POST['dewey_index_id'];
+    // echo $return = $auth_id;
+
+    $read_dewey_index = mysqli_query($dbconn, "SELECT 
+    din.dewey_index_id,
+    dcl.dewey_class_category,
+    din.dewey_index,
+    din.dewey_index_description
+    FROM dewey_indices AS din
+    LEFT JOIN dewey_classes AS dcl
+    ON din.dewey_class_id = dcl.dewey_class_id
+    WHERE dewey_index_id = $id
+    ;
+    ");
+
+    if(mysqli_num_rows($read_dewey_index)>0){
+        foreach($read_dewey_index as $rows){
+            echo $return = '
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td style="width: 40%"><h6 class="text-muted">Dewey ID:</h6></td>
+                            <td style="width: 60%"><h6>'.$rows['dewey_index_id'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Dewey Class:</h6></td>
+                            <td><h6>'.$rows['dewey_class_category'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Dewey Index:</h6></td>
+                            <td><h6>'.$rows['dewey_index'].'</h6></td>
+                        </tr>
+                        <tr>
+                            <td><h6 class="text-muted">Dewey Index Description:</h6></td>
+                            <td><h6>'.$rows['dewey_index_description'].'</h6></td>
+                        </tr>
+                    </tbody>
+                </table>
+            ';
+        }
+    } else{
+        alert("No Record");
+    }
+}
 
 
 

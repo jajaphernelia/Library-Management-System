@@ -3,7 +3,6 @@
 require 'db_connect.php';
 
 
-
 //Create Author 
 if(isset($_POST['add_author'])){
     $author_name = mysqli_real_escape_string($dbconn, $_POST['author_name']);
@@ -17,7 +16,6 @@ if(isset($_POST['add_author'])){
         header("Location: author.php");
     }
 }
-
 
 //Create Publisher
 if(isset($_POST['add_publisher'])){
@@ -40,7 +38,6 @@ if(isset($_POST['add_faculty'])){
     $faculty_position = mysqli_real_escape_string($dbconn, $_POST['faculty_position']);
     $employment_type = mysqli_real_escape_string($dbconn, $_POST['employment_type']);
 
-
     $create_faculty = "INSERT INTO faculty (position, employement_type) VALUES ('$faculty_position', '$employment_type')";
 
     $faculty_created = mysqli_query($dbconn, $create_faculty);
@@ -49,7 +46,6 @@ if(isset($_POST['add_faculty'])){
     }
 
 }
-
 
 //Create Programs
 if(isset($_POST['add_program'])){
@@ -64,7 +60,6 @@ if(isset($_POST['add_program'])){
     }
 
 }
-
 
 //Create College
 if(isset($_POST['add_college'])){
@@ -138,7 +133,6 @@ if(isset($_POST['add_dewey_category'])){
     }
 }
 
-
 if(isset($_POST['add_transaction'])) {
 
     $borrower_id = mysqli_real_escape_string($dbconn, $_POST['select-borrower']);
@@ -164,9 +158,19 @@ if(isset($_POST['add_transaction'])) {
     }
 }
 
+if(isset($_POST['add_dewey_index'])){
+    $dewey_class_id = mysqli_real_escape_string($dbconn, $_POST['dewey_class']);
+    $dewey_index = mysqli_real_escape_string($dbconn, $_POST['dewey_index']);
+    $dewey_description = mysqli_real_escape_string($dbconn, $_POST['dewey_description']);
 
+    $create_dewey_index = "INSERT INTO dewey_indices (dewey_class_id, dewey_index, dewey_index_description) VALUES ('$dewey_class_id', '$dewey_index', '$dewey_description')";
+
+    $dewey_index_created = mysqli_query($dbconn, $create_dewey_index);
+    if($dewey_index_created){
+        header("Location: dewey_index.php");
+    }
+}
 
 
 
 ?>
-

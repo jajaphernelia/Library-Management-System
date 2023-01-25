@@ -14,16 +14,22 @@ include 'db_delete.php';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dewey Indices | libPLM</title>
-
   <link rel="stylesheet" href="assets/css/main/app.css" />
   <link rel="stylesheet" href="assets/css/main/app-dark.css" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
+  <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
-  <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="assets/css/pages/datatables.css" />
   <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -251,7 +257,6 @@ include 'db_delete.php';
           </div>
         </div>
 
-
         <div class="page-content">
           <section class="row">
             <div class="col-12 col-lg-12">
@@ -356,7 +361,7 @@ include 'db_delete.php';
                   <div class="row">
                     <div class="form-group">
                       <label for="first-name-column ">Dewey Class</label>
-                      <select class="choices form-select" id="select-catalog-type" name="dewey_class" >
+                      <select class="choices form-select" id="select-catalog-type">
                             <?php
                             if($read_dewey_classes) {
                               foreach($read_dewey_classes as $row) {
@@ -454,65 +459,47 @@ include 'db_delete.php';
               </div>
               <div class="modal-body">
                 <!-- Forms -->
-                <form class="form">
-                  <div class="row">
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="first-name-column">First Name</label>
-                        <input type="text" id="first-name-column" class="form-control" placeholder="First Name"
-                          name="fname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="last-name-column">Last Name</label>
-                        <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"
-                          name="lname-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="city-column">City</label>
-                        <input type="text" id="city-column" class="form-control" placeholder="City"
-                          name="city-column" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="country-floating">Country</label>
-                        <input type="text" id="country-floating" class="form-control" name="country-floating"
-                          placeholder="Country" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="company-column">Company</label>
-                        <input type="text" id="company-column" class="form-control" name="company-column"
-                          placeholder="Company" />
-                      </div>
-                    </div>
-                    <div class="col-md-6 col-12">
-                      <div class="form-group">
-                        <label for="email-id-column">Email</label>
-                        <input type="email" id="email-id-column" class="form-control" name="email-id-column"
-                          placeholder="Email" />
-                      </div>
-                    </div>
-                    <div class="form-group col-12">
-                      <div class="form-check">
-                        <div class="checkbox">
-                          <input type="checkbox" id="checkbox5" class="form-check-input" checked />
-                          <label for="checkbox5">Remember Me</label>
+                      <form class="form" action="db_update.php" method="POST">
+                        <div class="row">
+                          <input type="hidden" name="update_dewey_index_id" id="update_dewey_index_id">
+                          <div class="form-group">
+                            <label for="first-name-column ">Dewey Class</label>
+                            <select class="choices form-select" id="update_dewey_class" name="dewey_class" >
+                                  <?php
+                                  if($read_dewey_classes) {
+                                    foreach($read_dewey_classes as $row) {
+                                  ?>
+                                    <option option value="<?php echo $row['dewey_class_id'] ?>"><?php echo $row['dewey_class_category'] ?></option>
+                                  <?php
+                                    }
+                                  }
+                                  ?>
+                                </select>
+                          </div>
+                          <div class="col-md-6 col-12">
+                            <div class="form-group">
+                              <label for="first-name-column">Dewey Index</label>
+                              <input type="text" id="update_dewey_index" class="form-control" placeholder="Dewey Index"
+                                name="dewey_index" />
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-12">
+                            <div class="form-group">
+                              <label for="first-name-column">Dewey Description</label>
+                              <input type="text" id="update_dewey_description" class="form-control" placeholder="Dewey Description"
+                                name="dewey_description" />
+                            </div>
+                          </div>
+                          <div class="col-12 d-flex justify-content-end" style="margin-bottom:4%; margin-top:2%;"><!-- style="margin-bottom:10%;" -->
+                            <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
+                              Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal" name="update_dewey_index">
+                              Update
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-12 d-flex justify-content-end">
-                      <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal">
-                        Cancel
-                      </button>
-                      <button type="submit" class="btn btn-primary me-1 mb-1 ml-2" data-bs-dismiss="modal">
-                        Update
-                      </button>
+                      </form>
                     </div>
                   </div>
                 </form>
@@ -554,12 +541,82 @@ include 'db_delete.php';
           </div>
         </div>
 
+        <!-- View Dewey Index Modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="deweyIndexViewModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="deweyIndexViewModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Author</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="dewey_index_view_data">
+                
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+           // Read author
+        $('.view_btn').click(function (e) {
+          e.preventDefault();
+
+          var dewey_index_id = $(this).closest('tr').find('.dewey_index_id').text();
+
+          $.ajax({
+            type: "POST",
+            url: "db_read.php",
+            data: {
+              'view_dewey_index': true,
+              'dewey_index_id': dewey_index_id,
+            },
+            success: function (response) {
+              $('.dewey_index_view_data').html(response);
+              $('#deweyIndexViewModal').modal('show');
+            }
+          });
+        });
+        
+        // Retrieve author
+        $('.edit_btn').click(function (e) {
+          e.preventDefault();
+
+          var dewey_index_id = $(this).closest('tr').find('.dewey_index_id').text();
+          // console.log(author_id);
+
+          $.ajax({
+            type: "POST",
+            url: "db_update.php",
+            data: {
+              'retrieve_dewey_index_btn':true,
+              'dewey_index_id':dewey_index_id,
+            },
+            success: function (response) {
+              $.each(response, function (key, value) {
+                $('#update_dewey_index_id ').val(value['dewey_index_id']);
+                $('#update_dewey_class').val(value['dewey_class_id']);
+                $('#update_dewey_index').val(value['dewey_index']);
+                $('#update_dewey_description').val(value['dewey_index_description']);
+              });
+              $('#editModal').modal('show');
+            }
+          });
+        });
+
+        </script>
+
 
         <footer class="mt-auto">
           <div class="footer clearfix mb-0 text-muted">
             <div class="float-start">
               <p>2023 &copy; libPLM</p>
-            </div>
           </div>
         </footer>
 
@@ -569,8 +626,13 @@ include 'db_delete.php';
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/app.js"></script>
 
-  <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-  <script src="assets/js/pages/simple-datatables.js"></script>
+  <script src="assets/extensions/jquery/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+  <script src="assets/js/pages/datatables.js"></script>
+
+  <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+  <script src="assets/js/pages/form-element-select.js"></script>
+
   <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
   <script src="assets/js/pages/form-element-select.js"></script>
 </body>
