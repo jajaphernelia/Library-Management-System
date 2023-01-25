@@ -361,7 +361,7 @@ include 'db_delete.php';
                   <div class="row">
                     <div class="form-group">
                       <label for="first-name-column ">Dewey Class</label>
-                      <select class="choices form-select" id="select-catalog-type">
+                      <select class="choices form-select" id="select-catalog-type" name="dewey_class">
                             <?php
                             if($read_dewey_classes) {
                               foreach($read_dewey_classes as $row) {
@@ -612,9 +612,18 @@ include 'db_delete.php';
           });
         });
 
+        // Delete author
+        $('.delete_btn').click(function (e) {
+          e.preventDefault();
+
+          var dewey_index_id = $(this).closest('tr').find('.dewey_index_id').text();
+
+          // console.log(author_id);
+          $('#delete_dewey_index').val(author_id);
+          $('#deleteModal').modal('show');
+        });
 
         </script>
-
 
         <footer class="mt-auto">
           <div class="footer clearfix mb-0 text-muted">
@@ -641,3 +650,5 @@ include 'db_delete.php';
 </body>
 
 </html>
+
+
