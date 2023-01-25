@@ -392,7 +392,7 @@ include 'db_delete.php';
                   </tr>
                 </thead>
                 <tbody>
-                  <?php 
+                <?php 
                   if($read_staffs){
                     foreach($read_staffs as $row){
                   ?>
@@ -412,6 +412,7 @@ include 'db_delete.php';
                   <?php    
                     }
                   }
+                  ?>
                   ?>
                 </tbody>
               </table>
