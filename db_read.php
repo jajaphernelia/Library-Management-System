@@ -6,7 +6,6 @@ $read_authors = mysqli_query($dbconn, "SELECT * FROM authors");
 $read_publishers = mysqli_query($dbconn, "SELECT * FROM publishers");
 $read_programs = mysqli_query($dbconn, "SELECT * FROM programs");
 $read_colleges = mysqli_query($dbconn, "SELECT * FROM colleges");
-$read_faculty = mysqli_query($dbconn, "SELECT * FROM faculty");
 $read_departments = mysqli_query($dbconn, "SELECT * FROM departments");
 $read_dewey_classes = mysqli_query($dbconn, "SELECT * FROM dewey_classes");
 $read_catalog_type = mysqli_query($dbconn, "SELECT * FROM catalog_types");
@@ -99,6 +98,26 @@ INNER JOIN programs AS p
 ON s.program_id = p.program_id
 INNER JOIN colleges AS c
 ON s.college_id = c.college_id;
+"
+);
+
+// Generate faculty datatable
+$read_faculty = mysqli_query($dbconn,
+"
+SELECT
+	f.faculty_id,
+	CONCAT(u.last_name, ', ', u.first_name, ' ', IFNULL(u.middle_name, '')) AS faculty_name,
+	d.department_name,
+	u.gender,
+	u.mobile_no,
+	u.address,
+	f.`position`,
+	f.employement_type
+FROM faculty AS f
+LEFT JOIN users AS u
+ON f.user_id = u.user_id
+INNER JOIN departments AS d
+ON f.department_id = d.department_id;
 "
 );
 

@@ -20,9 +20,10 @@ include 'db_delete.php';
   <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon" />
   <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png" />
 
+  <link rel="stylesheet" href="assets/css/pages/fontawesome.css" />
   <link rel="stylesheet" href="assets/css/shared/iconly.css" />
-  <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css" />
-  <link rel="stylesheet" href="assets/css/pages/simple-datatables.css" />
+  <link rel="stylesheet" href="assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css" />
+  <link rel="stylesheet" href="assets/css/pages/datatables.css" />
   <link rel="stylesheet" href="assets/extensions/choices.js/public/assets/styles/choices.css" />
 </head>
 
@@ -254,9 +255,9 @@ include 'db_delete.php';
 
         <div class="page-content">
           <section class="row">
+
             <div class="col-12 col-lg-12">
               <div class="row">
-
                 <div class="col-6 col-lg-3 col-md-6">
                   <div class="card">
                     <div class="card-body px-4 py-4-5">
@@ -276,6 +277,8 @@ include 'db_delete.php';
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
 
         <!-- Add entity Modal -->
 
@@ -327,41 +330,52 @@ include 'db_delete.php';
 
         <!-- Database Table -->
         <section class="section">
-                  <div class="card">
-                    <div class="card-header">Faculty</div>
-                    <div class="card-body">
-                      <table class="table table-striped" id="table1">
-                        <thead>
-                          <tr>
-                            <th>Faculty ID</th>
-                            <th>User ID</th>
-                            <th>Department ID</th>
-                            <th>Position</th>
-                            <th>Employment Type</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php
-                          foreach ($read_faculty as $column) {
-                            echo '<tr>';
-                            echo '<td>' . $column['faculty_id'] . '</td>';
-                            echo '<td>' . $column['user_id'] . '</td>';
-                            echo '<td>' . $column['department_id'] . '</td>';
-                            echo '<td>' . $column['position'] . '</td>';
-                            echo '<td>' . $column['employement_type'] . '</td>';
-                            echo '<td>
-                            <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary">Edit</a>
-                            <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger">Delete</a>
-                          </td>';
-                            echo '</tr>';
-                          }
-                          ?>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </section>
+          <div class="card">
+            <div class="card-header">Faculty</div>
+            <div class="card-body">
+              <table class="table table-hover" id="table1">
+                <thead>
+                  <tr>
+                    <th>Faculty ID</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Gender</th>
+                    <th>Contact</th>
+                    <th>Address</th>
+                    <th>Position</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php 
+                  if($read_faculty){
+                    foreach($read_faculty as $row){
+                  ?>
+                  <tr>
+                      <td class="faculty_id"><?php echo $row['faculty_id']; ?></td>
+                      <td><?php echo $row['faculty_name']; ?></td>
+                      <td><?php echo $row['department_name']; ?></td>
+                      <td><?php echo $row['gender']; ?></td>
+                      <td><?php echo $row['mobile_no']; ?></td>
+                      <td><?php echo $row['address']; ?></td>
+                      <td><?php echo $row['position']; ?></td>
+                      <td><?php echo $row['employement_type']; ?></td>
+                      <td>
+                        <a data-bs-toggle="modal" class="badge bg-secondary view_btn">View</a>
+                        <a data-bs-toggle="modal" data-bs-target="#editModal" class="badge bg-primary edit_btn">Edit</a>
+                        <a data-bs-toggle="modal" data-bs-target="#deleteModal" class="badge bg-danger delete_btn">Delete</a>
+                      </td>
+                  </tr>
+                  <?php    
+                    }
+                  }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </section>
 
         <!-- Edit entity Modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -453,16 +467,22 @@ include 'db_delete.php';
           </div>
         </footer>
 
-      </div>
     </div>
-  </div>
+
+      </div>              
+    </div>
+  </div>              
+
   <script src="assets/js/bootstrap.js"></script>
   <script src="assets/js/app.js"></script>
 
-  <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
-  <script src="assets/js/pages/simple-datatables.js"></script>
+  <script src="assets/extensions/jquery/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
+  <script src="assets/js/pages/datatables.js"></script>
+
   <script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
   <script src="assets/js/pages/form-element-select.js"></script>
+</body>
 </body>
 
 </html>
