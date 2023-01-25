@@ -358,7 +358,7 @@ if(isset($_POST['update_dewey_index'])){
     $update_dewey_index = $_POST['dewey_index'];
     $update_dewey_description = $_POST['dewey_description'];
 
-    $dewey_index_query = "UPDATE dewey_indices SET dewey_index='$update_dewey_index', dewey_index='$update_dewey_index', dewey_index_description='$update_dewey_description' WHERE dewey_index_id='$id'";
+    $dewey_index_query = "UPDATE dewey_indices SET dewey_class_id='$update_dewey_class', dewey_index='$update_dewey_index', dewey_index_description='$update_dewey_description' WHERE dewey_index_id='$id'";
     $dewey_index_updated = mysqli_query($dbconn, $dewey_index_query);
 
     if($dewey_index_updated){

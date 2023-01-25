@@ -612,16 +612,6 @@ include 'db_delete.php';
           });
         });
 
-        // Delete author
-        $('.delete_btn').click(function (e) {
-          e.preventDefault();
-
-          var dewey_index_id = $(this).closest('tr').find('.dewey_index_id').text();
-
-          // console.log(author_id);
-          $('#delete_dewey_index').val(author_id);
-          $('#deleteModal').modal('show');
-        });
 
         </script>
 
