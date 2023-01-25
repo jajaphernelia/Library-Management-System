@@ -347,9 +347,9 @@ include 'db_delete.php';
         <!-- Database Table -->
         <section class="section">
           <div class="card">
-            <div class="card-header">Simple Datatable</div>
+            <div class="card-header">Dewey Indices</div>
             <div class="card-body">
-              <table class="table table-striped" id="table1">
+              <table class="table table-hover" id="table1">
                 <thead>
                   <tr>
                     <th>Dewey ID</th>

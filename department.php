@@ -340,7 +340,7 @@ include 'db_delete.php';
           <div class="card">
             <div class="card-header">Departments</div>
             <div class="card-body">
-              <table class="table" id="table1">
+              <table class="table table-hover" id="table1">
                 <thead>
                   <tr>
                     <th>Department ID</th>
