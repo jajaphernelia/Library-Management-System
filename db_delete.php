@@ -103,4 +103,16 @@ if(isset($_POST['delete_transaction'])){
     }
 }
 
+// Delete transaction
+if(isset($_POST['delete_dewey_index'])){
+    $id = $_POST['dewey_index_id'];
+
+    $delete_query = "DELETE FROM dewey_indices WHERE dewey_index_id='$id' ";
+    $dewey_index_deleted = mysqli_query($dbconn, $delete_query);
+
+    if($dewey_index_deleted){
+        header("Location: dewey_index.php");
+    }
+}
+
 ?>
